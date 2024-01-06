@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
             //befor that we need to load the Json data from the server
             // make intent to go to the sign in activity
             //Hi I'm shereen
+            System.out.println("Hi I'm shereen");
             Intent intent = new Intent(MainActivity.this, SignInActivity.class);
             startActivity(intent);
             finish();
