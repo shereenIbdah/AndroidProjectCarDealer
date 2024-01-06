@@ -15,6 +15,7 @@ public class DataBaseHelper  extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         // create data base to store the email and password
        sqLiteDatabase.execSQL("Create table user (email text primary key , password text)");
+       // SAJA SHAREEF
     }
 
     @Override
