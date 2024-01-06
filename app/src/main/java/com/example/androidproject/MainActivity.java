@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         connect.setOnClickListener(v -> {
             //befor that we need to load the Json data from the server
             // make intent to go to the sign in activity
+            //Hi I'm saja
             Intent intent = new Intent(MainActivity.this, SignInActivity.class);
             startActivity(intent);
             finish();
