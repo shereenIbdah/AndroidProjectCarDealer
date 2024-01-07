@@ -216,6 +216,9 @@ public class SingUpActivity extends AppCompatActivity {
                 dataBaseHelper.insertUser(email2.getText().toString(),hashedPasswordString[0]);
                 Toast toast = Toast.makeText(SingUpActivity.this, TOAST_TEXT,Toast.LENGTH_SHORT);
                 toast.show();
+                Intent intent = new Intent(SingUpActivity.this,SignInActivity.class);
+                SingUpActivity.this.startActivity(intent);
+                finish();
                 //toast message that sign up is successful
 
             }

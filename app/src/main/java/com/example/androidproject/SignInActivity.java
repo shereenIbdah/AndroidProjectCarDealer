@@ -79,9 +79,12 @@ public class SignInActivity extends AppCompatActivity {
                         //if remember me is checked
                         if (rememberMe.isChecked()){
                             sharedPrefManager.writeString("Email", email.getText().toString());
-                            Toast.makeText(SignInActivity.this, "Values written to shared Preferences",
+                            Toast.makeText(SignInActivity.this, "Sign In Successfully",
                                     Toast.LENGTH_SHORT).show();
                         }
+                        Intent intent = new Intent(SignInActivity.this, Home.class);
+                        SignInActivity.this.startActivity(intent);
+                        finish();
                         // go to the home page
                     }else{
                         password.setError("Password is incorrect");
