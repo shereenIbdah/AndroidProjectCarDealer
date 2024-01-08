@@ -30,7 +30,7 @@ public class GalleryFragment extends Fragment {
         List<Car> cars = MainActivity.cars;
         // we get the car list from the main activity successfully
         // the work will be here to display the list in the fragment
-
+        //ok
 
         final TextView textView = binding.textGallery;
 
