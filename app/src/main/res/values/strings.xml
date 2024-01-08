@@ -11,4 +11,10 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_favorites">Your Favorites</string>
+    <string name="menu_special_offers">Special Offers</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_call_or_find_us">Call Us or Find Us</string>
+    <string name="menu_logout">Logout</string>
 </resources>
+

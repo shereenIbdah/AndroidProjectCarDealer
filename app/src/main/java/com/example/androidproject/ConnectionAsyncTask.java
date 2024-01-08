@@ -44,7 +44,6 @@ public class ConnectionAsyncTask extends AsyncTask<String, Void, Pair<String, Li
         } else {
             // Show error message if data loading failed
             ((MainActivity) activity).setButtonText("Connect");
-            ((MainActivity) activity).showErrorMessage(result.first);
         }
     }
 }

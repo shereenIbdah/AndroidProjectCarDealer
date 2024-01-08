@@ -1,8 +1,20 @@
 package com.example.androidproject;
 
 public class Car {
+    private String factoryName;
     private String type;
     private String id;
+    private String model;
+    private double price;
+    private String name;
+
+    public String getFactoryName() {
+        return factoryName;
+    }
+
+    public void setFactoryName(String factoryName) {
+        this.factoryName = factoryName;
+    }
 
     public String getType() {
         return type;
@@ -20,11 +32,39 @@ public class Car {
         this.id = id;
     }
 
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
-                "\ntype='" + type + '\'' +
-                "\nid='" + id + '\'' +
-                +'\n'+'}'+'\n';
+                "factoryName='" + factoryName + '\'' +
+                ", type='" + type + '\'' +
+                ", id='" + id + '\'' +
+                ", model='" + model + '\'' +
+                ", price=" + price +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         connect = findViewById(R.id.connect);
         connect.setOnClickListener(v -> {
             ConnectionAsyncTask connectionAsyncTask = new ConnectionAsyncTask(MainActivity.this);
-            connectionAsyncTask.execute("https://mp87537e524412e22230.free.beeceptor.com/data");
+            connectionAsyncTask.execute("https://mpd0c7e43fe8f2e3163a.free.beeceptor.com/data");
 
         });
 
@@ -54,10 +54,7 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    public void showErrorMessage(String first) {
-        setButtonText("FailLoad");
-        setButtonText("connect");
-    }
+
 
 }
 
