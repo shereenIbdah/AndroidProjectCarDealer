@@ -18,18 +18,18 @@
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="189dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="40dp"
         android:layout_toStartOf="@+id/toggleButton4"
         android:layout_toEndOf="@id/imageview"
-        android:textColor="@color/black"
         android:textAlignment="textStart"
+        android:textColor="@color/black"
         android:textSize="22dp"
         tools:text="Factory Name" />
 
     <TextView
         android:id="@+id/type"
-        android:layout_width="279dp"
+        android:layout_width="77dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/name"
         android:layout_marginStart="7dp"
@@ -63,5 +63,31 @@
         android:text="ToggleButton"
         android:textOff=""
         android:textOn="" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="61dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="142dp"
+        android:layout_toEndOf="@+id/type"
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        android:text="Model" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="116dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="3dp"
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        android:text="Price" />
 
 </RelativeLayout>
