@@ -23,11 +23,11 @@ public class GalleryFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
         RecyclerView recyclerView = root.findViewById(R.id.recyclerview);
         List<Car> cars = MainActivity.cars;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new MyAdapter(getContext(), cars));
+
 
         // The rest of your code...
 

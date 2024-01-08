@@ -1,5 +1,6 @@
 package com.example.androidproject;
 
+import android.content.ClipData;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -10,16 +11,21 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class MyViewHolder extends RecyclerView.ViewHolder {
 
     ImageView imageView;
     TextView nameView,typeView;
+
+
 
     public MyViewHolder(@NonNull View carView) {
         super(carView);
         imageView = carView.findViewById(R.id.imageview);
         nameView = carView.findViewById(R.id.name);
         typeView = carView.findViewById(R.id.type);
+
         ToggleButton favorite = carView.findViewById(R.id.toggleButton3);
         ToggleButton reserve = carView.findViewById(R.id.toggleButton4);
         Button name = carView.findViewById(R.id.name);

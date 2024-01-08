@@ -30,6 +30,37 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.nameView.setText(cars.get(position).getFactoryName());
         holder.typeView.setText(cars.get(position).getType());
+        // based on the name set the image
+        //for each position set different image
+        switch (cars.get(position).getFactoryName()) {
+            case "Ford":
+                holder.imageView.setImageResource(R.drawable.ford1);
+                break;
+            case "Dodge":
+                holder.imageView.setImageResource(R.drawable.dodge);
+                break;
+            case "Jeep":
+                holder.imageView.setImageResource(R.drawable.jeep3);
+                break;
+           case "Chevrolet":
+                holder.imageView.setImageResource(R.drawable.chevrolet);
+                break;
+           case "Toyota":
+                holder.imageView.setImageResource(R.drawable.toyota);
+                break;
+              case "Honda":
+                holder.imageView.setImageResource(R.drawable.honda3);
+                break;
+            case "Tesla":
+                holder.imageView.setImageResource(R.drawable.tesla4);
+                break;
+            case "Lamborghini":
+                holder.imageView.setImageResource(R.drawable.lamborghini1);
+                break;
+            default:
+                holder.imageView.setImageResource(R.drawable.jeep5);
+                break;
+        }
 
     }
 
