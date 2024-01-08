@@ -1,4 +1,4 @@
-package com.example.androidproject.ui.gallery;
+package com.example.androidproject;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.androidproject.databinding.FragmentGalleryBinding;
+import com.example.androidproject.ui.gallery.GalleryViewModel;
+
+import java.util.List;
 
 public class GalleryFragment extends Fragment {
 
@@ -19,14 +22,18 @@ public class GalleryFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        GalleryViewModel galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+
 
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        List<Car> cars = MainActivity.cars;
+        // we get the car list from the main activity successfully
+        // the work will be here to display the list in the fragment
+
+
         final TextView textView = binding.textGallery;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
         return root;
     }
 

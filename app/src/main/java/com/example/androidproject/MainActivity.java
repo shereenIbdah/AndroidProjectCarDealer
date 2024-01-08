@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPrefManager sharedPrefManager;
     Button connect;
 
+    public static List<Car> cars;
     /**
      * SAJA Email : saja@gmail.com
      * Password : saja#1
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void dataLoaded(List<Car> cars) {
+        this.cars = cars;
         Intent intent = new Intent(MainActivity.this, SignInActivity.class);
         startActivity(intent);
         finish();
