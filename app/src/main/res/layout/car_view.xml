@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
+    android:background="@drawable/lightborders"
+
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
@@ -12,29 +14,54 @@
         android:layout_marginRight="10dp"
         android:layout_centerVertical="true"/>
 
-    <TextView
+    <Button
         android:id="@+id/name"
-        android:layout_width="match_parent"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="189dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="36dp"
+        android:layout_toStartOf="@+id/toggleButton4"
         android:layout_toEndOf="@id/imageview"
         android:textColor="@color/black"
+        android:textAlignment="textStart"
         android:textSize="20dp"
-        tools:text="Factory Name"/>
+        tools:text="Factory Name" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/type"
-        android:layout_toEndOf="@id/imageview"
+        android:layout_width="279dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/name"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_toEndOf="@id/imageview"
         android:textColor="@color/black"
-        tools:text="type"/>
+        tools:text="type" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_below="@id/imageview"
-        android:layout_marginTop="10dp"
-        android:background="#DAD8D8"/>
+    <ToggleButton
+        android:id="@+id/toggleButton3"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
+
+        android:background="@drawable/btn2"
+        android:onClick="onCustomToggleClick"
+        android:text="ToggleButton"
+        android:textOff=""
+        android:textOn="" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton4"
+        android:layout_width="56dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="53dp"
+        android:background="@drawable/btn3"
+        android:onClick="onCustomToggleClick2"
+        android:text="ToggleButton"
+        android:textOff=""
+        android:textOn="" />
 
 </RelativeLayout>
