@@ -34,12 +34,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         //for each position set different image
         switch (cars.get(position).getFactoryName()) {
             case "Ford":
-                holder.imageView.setImageResource(R.drawable.ford1);
+                 if (cars.get(position).getType().equals("Fiesta"))
+                    holder.imageView.setImageResource(R.drawable.ford2);
+                else if (cars.get(position).getType().equals("Mustang"))
+                    holder.imageView.setImageResource(R.drawable.ford1);
+                else
+                   holder.imageView.setImageResource(R.drawable.ford3);
                 break;
             case "Dodge":
                 holder.imageView.setImageResource(R.drawable.dodge);
                 break;
             case "Jeep":
+                if (cars.get(position).getType().equals("Grand Cherokee"))
+                    holder.imageView.setImageResource(R.drawable.jeep3);
+                else if (cars.get(position).getType().equals("Wrangler"))
+                    holder.imageView.setImageResource(R.drawable.jeep4);
+                else
                 holder.imageView.setImageResource(R.drawable.jeep3);
                 break;
            case "Chevrolet":
@@ -52,6 +62,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
                 holder.imageView.setImageResource(R.drawable.honda3);
                 break;
             case "Tesla":
+                  if (cars.get(position).getType().equals("Model 3"))
+                    holder.imageView.setImageResource(R.drawable.tesla5);
+                else if (cars.get(position).getType().equals("Model S"))
+                    holder.imageView.setImageResource(R.drawable.tesla2);
+                else if (cars.get(position).getType().equals("Model Y"))
+                    holder.imageView.setImageResource(R.drawable.tesla3);
+                else
                 holder.imageView.setImageResource(R.drawable.tesla4);
                 break;
             case "Lamborghini":
