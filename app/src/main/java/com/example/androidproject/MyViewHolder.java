@@ -1,6 +1,7 @@
 package com.example.androidproject;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         typeView = carView.findViewById(R.id.type);
         ToggleButton favorite = carView.findViewById(R.id.toggleButton3);
         ToggleButton reserve = carView.findViewById(R.id.toggleButton4);
+        Button name = carView.findViewById(R.id.name);
         favorite.setOnClickListener(v -> {
             if (favorite.isChecked()) {
                 favorite.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_favorite_24));
@@ -38,6 +40,9 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
                 reserve.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_star_border_24));
                 Toast.makeText(carView.getContext(), "Reservation canceled", Toast.LENGTH_SHORT).show();
             }
+        });
+        name.setOnClickListener(v -> {
+            Toast.makeText(carView.getContext(), "You clicked on " + nameView.getText(), Toast.LENGTH_SHORT).show();
         });
     }
 
