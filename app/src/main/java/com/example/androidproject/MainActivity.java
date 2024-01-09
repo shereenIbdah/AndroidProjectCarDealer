@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     Button connect;
 
     public static List<Car> cars;
+
+
+
     /**
      * SAJA Email : saja@gmail.com
      * Password : saja#1
@@ -31,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         connect = findViewById(R.id.connect);
         connect.setOnClickListener(v -> {
             ConnectionAsyncTask connectionAsyncTask = new ConnectionAsyncTask(MainActivity.this);
-            connectionAsyncTask.execute("https://mpca54da0743f7154b15.free.beeceptor.com/data");
+            connectionAsyncTask.execute("https://mp951cbfb0e7ecd6f274.free.beeceptor.com/data");
 
         });
 

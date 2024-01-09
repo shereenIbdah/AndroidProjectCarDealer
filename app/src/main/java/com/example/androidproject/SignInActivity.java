@@ -33,6 +33,7 @@ public class SignInActivity extends AppCompatActivity {
         // read the email from the shared preferences
 
         email.setText(sharedPrefManager.readString("Email", ""));
+        password.setText(sharedPrefManager.readString("Password", ""));
 
 
         signUp.setOnClickListener(v -> {
@@ -79,6 +80,7 @@ public class SignInActivity extends AppCompatActivity {
                         //if remember me is checked
                         if (rememberMe.isChecked()){
                             sharedPrefManager.writeString("Email", email.getText().toString());
+                            sharedPrefManager.writeString("Password", password.getText().toString());
                             Toast.makeText(SignInActivity.this, "Sign In Successfully",
                                     Toast.LENGTH_SHORT).show();
                         }

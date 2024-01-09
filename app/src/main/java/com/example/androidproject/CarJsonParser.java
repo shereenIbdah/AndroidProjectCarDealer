@@ -14,9 +14,9 @@ public class CarJsonParser {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 Car car = new Car();
-                car.setFactoryName(jsonObject.getString("factoryName"));
                 car.setType(jsonObject.getString("type"));
                 car.setId(jsonObject.getString("id"));
+                car.setFactoryName(jsonObject.getString("factory"));
                 car.setModel(jsonObject.getString("model"));
                 car.setPrice(jsonObject.getDouble("price"));
                 car.setName(jsonObject.getString("name"));
