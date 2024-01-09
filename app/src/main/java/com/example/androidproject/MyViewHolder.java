@@ -16,7 +16,8 @@ import java.util.List;
 public class MyViewHolder extends RecyclerView.ViewHolder {
 
     ImageView imageView;
-    TextView nameView,typeView;
+    Button nameView;
+    TextView typeView , priceView , modelView;
 
 
 
@@ -25,6 +26,9 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         imageView = carView.findViewById(R.id.imageview);
         nameView = carView.findViewById(R.id.name);
         typeView = carView.findViewById(R.id.type);
+        priceView = carView.findViewById(R.id.price);
+        modelView = carView.findViewById(R.id.model);
+
 
         ToggleButton favorite = carView.findViewById(R.id.toggleButton3);
         ToggleButton reserve = carView.findViewById(R.id.toggleButton4);

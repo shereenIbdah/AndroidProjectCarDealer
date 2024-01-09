@@ -65,7 +65,7 @@
         android:textOn="" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/model"
         android:layout_width="61dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -79,7 +79,7 @@
         android:text="Model" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/price"
         android:layout_width="116dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

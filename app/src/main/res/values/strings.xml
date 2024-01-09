@@ -16,5 +16,7 @@
     <string name="menu_profile">Profile</string>
     <string name="menu_call_or_find_us">Call Us or Find Us</string>
     <string name="menu_logout">Logout</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
 
