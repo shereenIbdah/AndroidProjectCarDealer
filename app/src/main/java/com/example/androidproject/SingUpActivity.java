@@ -27,7 +27,7 @@ public class SingUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sing_up);
-        DataBaseHelper dataBaseHelper = new DataBaseHelper(this,"projectDataBase1",null,1);
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(this, "projectDataBase1", null, 1);
         Spinner genderSpinner = findViewById(R.id.gender);
         Spinner citySpinner = findViewById(R.id.city);
         Spinner countrySpinner = findViewById(R.id.country);
@@ -54,26 +54,26 @@ public class SingUpActivity extends AppCompatActivity {
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         //for gender
-        String[] options = { "Male", "Female" };
-        ArrayAdapter<String> objGenderArr = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, options);
+        String[] options = {"Male", "Female"};
+        ArrayAdapter<String> objGenderArr = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options);
         genderSpinner.setAdapter(objGenderArr);
         //for country
         //pinner with no less than 4 countries)
-        String[] options2 = { "Egypt", "USA", "Palestine", "Jordan" };
-        ArrayAdapter<String> objCountryArr = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, options2);
+        String[] options2 = {"Egypt", "USA", "Palestine", "Jordan"};
+        ArrayAdapter<String> objCountryArr = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options2);
         countrySpinner.setAdapter(objCountryArr);
         // if country is Egypt then the spinner will have 3 cities
-        String[] options3 = { "Cairo", "Alexandria", "Giza", "Luxor"};
-        ArrayAdapter<String> objCityArrforEgypt = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, options3);
+        String[] options3 = {"Cairo", "Alexandria", "Giza", "Luxor"};
+        ArrayAdapter<String> objCityArrforEgypt = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options3);
         // if country is USA then the spinner will have 3 cities
-        String[] options4 = { "New York", "Los Angeles", "Chicago", "Houston"};
-        ArrayAdapter<String> objCityArrforUSA = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, options4);
+        String[] options4 = {"New York", "Los Angeles", "Chicago", "Houston"};
+        ArrayAdapter<String> objCityArrforUSA = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options4);
         // if country is Palestine then the spinner will have 3 cities
-        String[] options5 = { "Jerusalem", "Ramallah", "Hebron", "Nablus"};
-        ArrayAdapter<String> objCityArrforPalestine = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, options5);
+        String[] options5 = {"Jerusalem", "Ramallah", "Hebron", "Nablus"};
+        ArrayAdapter<String> objCityArrforPalestine = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options5);
         // if country is jorden then the spinner will have 3 cities
-        String[] options6 = { "Amman", "Irbid", "Zarqa", "Aqaba"};
-        ArrayAdapter<String> objCityArrforJorden = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, options6);
+        String[] options6 = {"Amman", "Irbid", "Zarqa", "Aqaba"};
+        ArrayAdapter<String> objCityArrforJorden = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options6);
 
 
         // on click listener for the country spinner
@@ -118,12 +118,12 @@ public class SingUpActivity extends AppCompatActivity {
             confirmPasswordError[0] = " ";
             emailError[0] = " ";
             ///First name (not less than 3 characters).
-            if (firstName.getText().toString().length() < 3 ) {
+            if (firstName.getText().toString().length() < 3) {
                 firstNameError[0] += "First name must be at least 3 characters";
             }
-                // check if the first name is only letters
+            // check if the first name is only letters
             if (!firstName.getText().toString().matches("[a-zA-Z]+")) {
-                    firstNameError[0] += "First name must be only letters";
+                firstNameError[0] += "First name must be only letters";
             }
             if (firstNameError[0] != " ") {
                 firstName.setError(firstNameError[0]);
@@ -132,7 +132,7 @@ public class SingUpActivity extends AppCompatActivity {
             if (lastName.getText().toString().length() < 3) {
                 lastNameError[0] += "Last name must be at least 3 characters";
             }
-                // check if the last name is only letters
+            // check if the last name is only letters
             if (!lastName.getText().toString().matches("[a-zA-Z]+")) {
                 lastNameError[0] += "Last name must be only letters";
             }
@@ -159,7 +159,7 @@ public class SingUpActivity extends AppCompatActivity {
             // check if the password and confirm password are the same
             if (!password2.getText().toString().equals(ConfirmPassword.getText().toString())) {
                 confirmPasswordError[0] += "Password and confirm password must be the same";
-            }else{
+            } else {
                 // encrypt the password using a secure hash function
                 // Create MessageDigest instance for SHA-256
 
@@ -204,7 +204,7 @@ public class SingUpActivity extends AppCompatActivity {
             }
             //check the email unique in the data base
             Cursor cursor = dataBaseHelper.getUser(email2.getText().toString());
-            if (cursor.getCount() != 0){
+            if (cursor.getCount() != 0) {
                 emailError[0] += "Email is already exist";
             }
             if (emailError[0] != " ") {
@@ -213,10 +213,10 @@ public class SingUpActivity extends AppCompatActivity {
 
             //if all the fields are correct then add the email and password to the data base
             if (passwordError[0] == " " && firstNameError[0] == " " && lastNameError[0] == " " && confirmPasswordError[0] == " " && emailError[0] == " ") {
-                dataBaseHelper.insertUser(email2.getText().toString(),hashedPasswordString[0],firstName.getText().toString(),lastName.getText().toString(),phoneNumber.getText().toString(),genderSpinner.getSelectedItem().toString(),countrySpinner.getSelectedItem().toString(),citySpinner.getSelectedItem().toString());
-                Toast toast = Toast.makeText(SingUpActivity.this, TOAST_TEXT,Toast.LENGTH_SHORT);
+                dataBaseHelper.insertUser(email2.getText().toString(), hashedPasswordString[0], firstName.getText().toString(), lastName.getText().toString(), phoneNumber.getText().toString(), genderSpinner.getSelectedItem().toString(), countrySpinner.getSelectedItem().toString(), citySpinner.getSelectedItem().toString());
+                Toast toast = Toast.makeText(SingUpActivity.this, TOAST_TEXT, Toast.LENGTH_SHORT);
                 toast.show();
-                Intent intent = new Intent(SingUpActivity.this,SignInActivity.class);
+                Intent intent = new Intent(SingUpActivity.this, SignInActivity.class);
                 SingUpActivity.this.startActivity(intent);
                 finish();
                 //toast message that sign up is successful
@@ -225,7 +225,7 @@ public class SingUpActivity extends AppCompatActivity {
         });
         back.setOnClickListener(v -> {
             // go to the sign in activity
-            Intent intent = new Intent(SingUpActivity.this,SignInActivity.class);
+            Intent intent = new Intent(SingUpActivity.this, SignInActivity.class);
             SingUpActivity.this.startActivity(intent);
             finish();
 

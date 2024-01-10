@@ -16,6 +16,7 @@ import java.security.NoSuchAlgorithmException;
 public class SignInActivity extends AppCompatActivity {
 
     SharedPrefManager sharedPrefManager;
+    public static String emailForProfile = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +78,8 @@ public class SignInActivity extends AppCompatActivity {
                     cursor.moveToFirst();
                     //check if the password is correct
                     if (hashedPasswordString.equals(cursor.getString(1))){
+                        emailForProfile = emailString;
+
                         //if remember me is checked
                         if (rememberMe.isChecked()){
                             sharedPrefManager.writeString("Email", email.getText().toString());

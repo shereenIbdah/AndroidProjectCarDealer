@@ -53,5 +53,29 @@ public class DataBaseHelper  extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         sqLiteDatabase.execSQL("DELETE FROM user");
     }
+    public void updateUserFirstName(String email,String FirstName){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("FirstName", FirstName);
+        sqLiteDatabase.update("user",contentValues,"email = ?",new String[]{email});
+    }
+    public void updateUserLastName(String email,String LastName){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("LastName", LastName);
+        sqLiteDatabase.update("user",contentValues,"email = ?",new String[]{email});
+    }
+    public void updateUserPhoneNumber(String email,String PhoneNumber){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("PhoneNumber", PhoneNumber);
+        sqLiteDatabase.update("user",contentValues,"email = ?",new String[]{email});
+    }
+    public void updateUserPassword(String email,String password){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("password", password);
+        sqLiteDatabase.update("user",contentValues,"email = ?",new String[]{email});
+    }
 
 }

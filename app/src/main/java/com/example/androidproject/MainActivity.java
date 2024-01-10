@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity implements detailsOfSelectedCarFragment.communicator{
+public class MainActivity extends AppCompatActivity implements detailsOfSelectedCarFragment.communicator {
     SharedPrefManager sharedPrefManager;
 
     Button connect;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements detailsOfSelected
     /**
      * SAJA Email : saja@gmail.com
      * Password : saja#1
-     * **/
+     **/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +36,12 @@ public class MainActivity extends AppCompatActivity implements detailsOfSelected
         connect = findViewById(R.id.connect);
         connect.setOnClickListener(v -> {
             ConnectionAsyncTask connectionAsyncTask = new ConnectionAsyncTask(MainActivity.this);
-            connectionAsyncTask.execute("https://mp49b93c0a0b2dd1479e.free.beeceptor.com/data?fbclid=IwAR1Z711Q2vIicd9s9p-V5I7FNuGvJYrj3Q-x5Qr_s8G0-844CV3x8up4APg");
+            connectionAsyncTask.execute("https://mp93e7d57a6c70dd487d.free.beeceptor.com/data");
 
         });
 
     }
+
     public void setButtonText(String text) {
         connect.setText(text);
     }
@@ -61,7 +62,8 @@ public class MainActivity extends AppCompatActivity implements detailsOfSelected
         finish();
     }
 
-  detailsOfSelectedCarFragment detailsOfSelectedCarFragment = new detailsOfSelectedCarFragment();
+    detailsOfSelectedCarFragment detailsOfSelectedCarFragment = new detailsOfSelectedCarFragment();
+
     @Override
     public void respond(String data) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
