@@ -1,12 +1,15 @@
 package com.example.androidproject;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.view.Menu;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -41,13 +44,36 @@ public class Home extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_call)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        // if nav_out is selected, then intent to sign in page
+
+        navigationView.getMenu().findItem(R.id.nav_out).setOnMenuItemClickListener(menuItem -> {
+            //ask for confirmation
+            AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
+            builder.setTitle(Html.fromHtml("<font color='#E91E63'>Confirmation</font>"));
+            builder.setMessage("Are you sure you want to sign out?");
+            builder.setIcon(R.drawable.baseline_logout_24);
+            builder.setPositiveButton("Yes", (dialogInterface, i) -> {
+                Intent intent = new Intent(Home.this, SignInActivity.class);
+                startActivity(intent);
+            });
+            builder.setNegativeButton("No", (dialogInterface, i) -> {
+                //do nothing
+            });
+            builder.create().show();
+            return true;
+
+
+        });
+
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

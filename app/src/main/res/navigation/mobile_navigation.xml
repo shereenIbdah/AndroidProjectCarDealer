@@ -6,6 +6,16 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
+        android:id="@+id/nav_call"
+        android:name="com.example.androidproject.ui.call.CallFragment"
+        android:label="@string/menu_call_or_find_us"
+        tools:layout="@layout/fragment_callus" />
+    <fragment
+        android:id="@+id/nav_out"
+        android:name="com.example.androidproject.ui.logout.logoutFragment"
+        android:label="@string/menu_logout"
+        tools:layout="@layout/fragment_logout" />
+    <fragment
         android:id="@+id/nav_home"
         android:name="com.example.androidproject.ui.home.HomeFragment"
         android:label="@string/menu_home"
