@@ -22,33 +22,36 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 
 public class MyViewHolder extends RecyclerView.ViewHolder {
 
     ImageView imageView;
-    Button nameView;
-    TextView typeView, priceView, modelView;
+    Button factorynameView;
+    TextView typeView, priceView, modelView ,name ;
+    String id;
 
     public MyViewHolder(@NonNull View carView) {
         super(carView);
         imageView = carView.findViewById(R.id.imageview);
-        nameView = carView.findViewById(R.id.name);
+        factorynameView = carView.findViewById(R.id.factoryname);
+        name = carView.findViewById(R.id.namee);
         typeView = carView.findViewById(R.id.type);
         priceView = carView.findViewById(R.id.price);
         modelView = carView.findViewById(R.id.model);
-        reserveDataBase reserveDataBase = new reserveDataBase(carView.getContext(), "reserveCars", null, 1);
+        reserveDataBase reserveDataBasee = new reserveDataBase(carView.getContext(), "ReserveCarss", null, 1);
 
         ToggleButton favorite = carView.findViewById(R.id.toggleButton3);
         ToggleButton reserve = carView.findViewById(R.id.toggleButton4);
-        Button name = carView.findViewById(R.id.name);
+        Button name = carView.findViewById(R.id.factoryname);
         reserve.setOnClickListener(v -> {
             // Alert Dialog
             AlertDialog.Builder builder = new AlertDialog.Builder(carView.getContext());
             builder.setTitle("Reserve car");
 
             // Show the details of the car
-            String message = "<b>Car name:</b> " + "<font color='#E91E63'>" + nameView.getText() + "</font>" +
+            String message = "<b>Car name:</b> " + "<font color='#E91E63'>" + factorynameView.getText() + "</font>" +
                     "<br>" +
                     "<b>Car type:</b> " + "<font color='#E91E63'>" + typeView.getText() + "</font>" +
                     "<br>" +
@@ -60,11 +63,12 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
             // Set the styled message to the AlertDialog
             builder.setMessage(Html.fromHtml(message));
             builder.setIcon(R.drawable.baseline_save_alt_24);
-
             builder.setPositiveButton("Yes", (dialog, which) -> {
-                if (!isCarAlreadyReserved(reserveDataBase)) {
-                    Time time = new Time(System.currentTimeMillis());
-                    reserveDataBase.insertCar(typeView.getText().toString(), modelView.getText().toString(), priceView.getText().toString(), nameView.getText().toString(), time.toString());
+                if (!isCarAlreadyReserved(reserveDataBasee)) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    Date date = new Date(currentTimeMillis);
+                    Time time = new Time(currentTimeMillis);
+                    reserveDataBasee.insertCar(typeView.getText().toString(),factorynameView.getText().toString(), modelView.getText().toString(), priceView.getText().toString(), name.getText().toString(), time.toString());
                     reserve.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_star_24));
                     Toast.makeText(carView.getContext(), "Reserved", Toast.LENGTH_SHORT).show();
                 } else {
@@ -90,14 +94,14 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         name.setOnClickListener(v -> {
             //detailOfSelectedCarFragment.trueOrFalse(true);
            // communicator.respond(nameView.getText().toString());
-            Toast.makeText(carView.getContext(), "You clicked on " + nameView.getText(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(carView.getContext(), "You clicked on " + factorynameView.getText(), Toast.LENGTH_SHORT).show();
         });
     }
 
 
     private boolean isCarAlreadyReserved(reserveDataBase reserveDataBase) {
         // Check if the car is already in the reservations database
-        Cursor cursor = reserveDataBase.getCar(nameView.getText().toString());
+        Cursor cursor = reserveDataBase.getCar(id);
         return cursor.getCount() > 0;
     }
 }

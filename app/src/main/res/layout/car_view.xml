@@ -14,10 +14,10 @@
         android:layout_marginRight="10dp" />
 
     <Button
-        android:id="@+id/name"
+        android:id="@+id/factoryname"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="189dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="40dp"
         android:layout_toStartOf="@+id/toggleButton4"
@@ -27,11 +27,12 @@
         android:textSize="22dp"
         tools:text="Factory Name" />
 
+
     <TextView
         android:id="@+id/type"
         android:layout_width="77dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/name"
+        android:layout_below="@id/namee"
         android:layout_marginStart="7dp"
         android:layout_marginTop="4dp"
         android:layout_toEndOf="@id/imageview"
@@ -87,6 +88,18 @@
         android:layout_marginTop="76dp"
         android:layout_marginEnd="3dp"
         android:text="Price"
+        android:textColor="@color/black"
+        android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/namee"
+        android:layout_width="116dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="150dp"
+        android:text="namee"
         android:textColor="@color/black"
         android:textSize="17dp" />
 

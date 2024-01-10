@@ -30,7 +30,7 @@ public class SlideshowFragment extends Fragment {
         secondLinearLayout.removeAllViews(); // Clear existing views
 
         // Correct the table name to match your database helper
-        reserveDataBase reserveDataBase = new reserveDataBase(getContext(), "reserveCar", null, 1);
+        reserveDataBase reserveDataBase = new reserveDataBase(getContext(), "reserveCarss", null, 1);
         Cursor getAllReservations = reserveDataBase.getAllReservations();
         while (getAllReservations.moveToNext()) {
             TextView textView = new TextView(getContext());

@@ -18,7 +18,7 @@ public class reserveDataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         // create data base to store the email and password
-        sqLiteDatabase.execSQL("CREATE TABLE reservedCars (id TEXT PRIMARY KEY, type TEXT, model TEXT, price TEXT, name TEXT, time TEXT)");
+        sqLiteDatabase.execSQL("CREATE TABLE reservedCars (id TEXT PRIMARY KEY,factoryname TEXT, type TEXT, model TEXT, price TEXT, name TEXT, time TEXT)");
     }
 
     @Override
@@ -27,17 +27,18 @@ public class reserveDataBase extends SQLiteOpenHelper {
     }
 
     // Query to insert a reservation
-    public void insertCar(String type, String model, String price, String name, String time) {
+    public void insertCar(String type,String factoryname, String model, String price, String name, String time) {
         cars = MainActivity.cars;
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("id", cars.get(0).getId());
+        contentValues.put("factoryname", factoryname);
         contentValues.put("type", type);
         contentValues.put("model", model);
         contentValues.put("price", price);
         contentValues.put("name", name);
         contentValues.put("time", time);
-        sqLiteDatabase.insert("reservedCars", null, contentValues);
+        sqLiteDatabase.insert("reservedCar", null, contentValues);
     }
 
     // Query to get all reservations
@@ -49,7 +50,7 @@ public class reserveDataBase extends SQLiteOpenHelper {
     // Query to get a specific car by ID
     public Cursor getCar(String id) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        return sqLiteDatabase.rawQuery("SELECT * FROM reservedCars WHERE id = ?", new String[]{id});
+        return sqLiteDatabase.rawQuery("SELECT * FROM reservedCars WHERE id = ? ", new String[]{id});
     }
 
     // Query to remove all reservations

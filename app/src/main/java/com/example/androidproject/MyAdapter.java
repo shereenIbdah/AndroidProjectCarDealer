@@ -35,10 +35,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.nameView.setText(cars.get(position).getFactoryName());
+        holder.factorynameView.setText(cars.get(position).getFactoryName());
+        holder.name.setText(cars.get(position).getName());
         holder.typeView.setText(cars.get(position).getType());
         holder.priceView.setText(String.valueOf(cars.get(position).getPrice()));
         holder.modelView.setText(cars.get(position).getModel());
+        holder.id = cars.get(position).getId();
 
         // based on the name set the image
         // for each position set a different image
