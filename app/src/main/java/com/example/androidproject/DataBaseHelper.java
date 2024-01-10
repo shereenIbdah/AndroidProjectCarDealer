@@ -24,10 +24,7 @@ public class DataBaseHelper  extends SQLiteOpenHelper {
 
     }
 
-    public  Cursor getQuery(){
-        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        return sqLiteDatabase.rawQuery("SELECT * FROM CUSTOMER WHERE NAME LIKE 'B%'", null);
-    }
+
     //query to insert the email and password
     public void insertUser(String email,String password) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
