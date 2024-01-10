@@ -27,7 +27,7 @@ public class SingUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sing_up);
-        DataBaseHelper dataBaseHelper = new DataBaseHelper(this,"projectDataBase",null,1);
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(this,"projectDataBase1",null,1);
         Spinner genderSpinner = findViewById(R.id.gender);
         Spinner citySpinner = findViewById(R.id.city);
         Spinner countrySpinner = findViewById(R.id.country);
@@ -213,7 +213,7 @@ public class SingUpActivity extends AppCompatActivity {
 
             //if all the fields are correct then add the email and password to the data base
             if (passwordError[0] == " " && firstNameError[0] == " " && lastNameError[0] == " " && confirmPasswordError[0] == " " && emailError[0] == " ") {
-                dataBaseHelper.insertUser(email2.getText().toString(),hashedPasswordString[0]);
+                dataBaseHelper.insertUser(email2.getText().toString(),hashedPasswordString[0],firstName.getText().toString(),lastName.getText().toString(),phoneNumber.getText().toString(),genderSpinner.getSelectedItem().toString(),countrySpinner.getSelectedItem().toString(),citySpinner.getSelectedItem().toString());
                 Toast toast = Toast.makeText(SingUpActivity.this, TOAST_TEXT,Toast.LENGTH_SHORT);
                 toast.show();
                 Intent intent = new Intent(SingUpActivity.this,SignInActivity.class);

@@ -29,12 +29,12 @@ public class SignInActivity extends AppCompatActivity {
         Button signUp = findViewById(R.id.signUp);
         CheckBox rememberMe = findViewById(R.id.remember);
         sharedPrefManager = SharedPrefManager.getInstance(this);
-        DataBaseHelper dataBaseHelper = new DataBaseHelper(SignInActivity.this,"projectDataBase",null,1);
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(SignInActivity.this,"projectDataBase1",null,1);
         // read the email from the shared preferences
 
         email.setText(sharedPrefManager.readString("Email", ""));
         password.setText(sharedPrefManager.readString("Password", ""));
-
+         // remove all the data from the data base
 
         signUp.setOnClickListener(v -> {
             // remove all the data from the data base
