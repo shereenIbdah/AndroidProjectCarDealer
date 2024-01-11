@@ -96,9 +96,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.292"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51" />
+        app:layout_constraintVertical_bias="0.619" />
 
     <Button
         android:id="@+id/createaccount"
@@ -117,16 +118,16 @@
         app:layout_constraintVertical_bias="0.724" />
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="93dp"
-        android:layout_height="97dp"
+        android:id="@+id/profilPhoto"
+        android:layout_width="188dp"
+        android:layout_height="120dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.767"
+        app:layout_constraintHorizontal_bias="0.928"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.795"
-        app:srcCompat="@drawable/add" />
+        app:layout_constraintVertical_bias="0.666"
+        app:srcCompat="@drawable/baseline_account_circle_24" />
 
     <Button
         android:id="@+id/back"
@@ -142,5 +143,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.004" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/updateProfileButton"
+        android:layout_width="65dp"
+        android:layout_height="49dp"
+        android:clickable="true"
+        android:contentDescription="TODO"
+        android:focusable="true"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:src="@drawable/ic_menu_camera"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.124" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

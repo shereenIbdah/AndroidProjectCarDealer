@@ -10,14 +10,14 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
-public class DataBaseReserved extends SQLiteOpenHelper {
-    public DataBaseReserved(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+public class CarsDataBase extends SQLiteOpenHelper {
+    public CarsDataBase(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE reservedCars(" +
+        sqLiteDatabase.execSQL("CREATE TABLE Cars(" +
                 "id TEXT PRIMARY KEY," +
                 "type TEXT," +
                 "factoryname TEXT," +
@@ -26,8 +26,6 @@ public class DataBaseReserved extends SQLiteOpenHelper {
                 "name TEXT," +
                 "time TEXT," +
                 "date TEXT )");
-
-
     }
 
 
@@ -57,25 +55,35 @@ public class DataBaseReserved extends SQLiteOpenHelper {
         contentValues.put("time", formattedTime);
         contentValues.put("date", formattedDate);
 
-        sqLiteDatabase.insert("reservedCars", null, contentValues);
+        sqLiteDatabase.insert("Cars", null, contentValues);
     }
 
 
     // Query to get all reservations
-    public Cursor getAllReservations() {
+    public Cursor getAllCars() {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        return sqLiteDatabase.rawQuery("SELECT * FROM reservedCars", null);
+        return sqLiteDatabase.rawQuery("SELECT * FROM Cars", null);
     }
 
     // Query to get a specific car by ID
     public Cursor getCar(String id) {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        return sqLiteDatabase.rawQuery("SELECT * FROM reservedCars WHERE id = ? ", new String[]{id});
+        return sqLiteDatabase.rawQuery("SELECT * FROM Cars WHERE id = ? ", new String[]{id});
     }
 
     // Query to remove all reservations
     public void removeAllReservations() {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        sqLiteDatabase.execSQL("DELETE FROM reservedCars");
+        sqLiteDatabase.execSQL("DELETE FROM Cars");
+    }
+    //query to check if the car is reserved or not
+    public boolean isExist(String id) {
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM Cars WHERE id = ? ", new String[]{id});
+        if (cursor.getCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -1,9 +1,12 @@
 package com.example.androidproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
@@ -11,17 +14,30 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class SingUpActivity extends AppCompatActivity {
     private static final String TOAST_TEXT = "Sign up is successful";
-
+    ImageView imageView;
+    FloatingActionButton floatingActionButton;
+    public Uri uri;
+    public  FirebaseStorage storage = FirebaseStorage.getInstance();
+    public  StorageReference storageRef = storage.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +55,8 @@ public class SingUpActivity extends AppCompatActivity {
         EditText email2 = findViewById(R.id.email2);
         TextView textView9 = findViewById(R.id.textView9);
         Button createAccount = findViewById(R.id.createaccount);
+        imageView = findViewById(R.id.profilPhoto);
+        floatingActionButton = findViewById(R.id.updateProfileButton);
         Button back = findViewById(R.id.back);
         final String[] passwordError = {" "};
         final String[] firstNameError = {" "};
@@ -214,8 +232,10 @@ public class SingUpActivity extends AppCompatActivity {
             //if all the fields are correct then add the email and password to the data base
             if (passwordError[0] == " " && firstNameError[0] == " " && lastNameError[0] == " " && confirmPasswordError[0] == " " && emailError[0] == " ") {
                 dataBaseHelper.insertUser(email2.getText().toString(), hashedPasswordString[0], firstName.getText().toString(), lastName.getText().toString(), phoneNumber.getText().toString(), genderSpinner.getSelectedItem().toString(), countrySpinner.getSelectedItem().toString(), citySpinner.getSelectedItem().toString());
+               // imageView.setVisibility(View.VISIBLE);
                 Toast toast = Toast.makeText(SingUpActivity.this, TOAST_TEXT, Toast.LENGTH_SHORT);
                 toast.show();
+               // downloadImage();
                 Intent intent = new Intent(SingUpActivity.this, SignInActivity.class);
                 SingUpActivity.this.startActivity(intent);
                 finish();
@@ -231,6 +251,62 @@ public class SingUpActivity extends AppCompatActivity {
 
         });
 
+        floatingActionButton.setOnClickListener(v -> {
+            ImagePicker.with(this)
+                    .crop()                    //Crop image(Optional), Check Customization for more option
+                    .compress(1024)            //Final image size will be less than 1 MB(Optional)
+                    .maxResultSize(1080, 1080)    //Final image resolution will be less than 1080 x 1080(Optional)
+                    .start();
+        });
+
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //imageView.setImageURI(data.getData());
+        if (resultCode == RESULT_OK) {
+            //Image Uri will not be null for RESULT_OK
+            imageView.setImageURI(data.getData());
+            //save the uri in variable
+            uri = data.getData();
+            //store the image in firebase
+            uploadImage();
+
+        } else if (resultCode == ImagePicker.RESULT_ERROR) {
+            Toast.makeText(this, ImagePicker.Companion.getError(data), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // define onReume
+    @Override
+    protected void onResume() {
+        super.onResume();
+           //download the image from firebase
+    }
+
+    public void uploadImage() {
+        if (uri != null) {
+            StorageReference riversRef = storageRef.child("images/" + Objects.requireNonNull(uri.getLastPathSegment()));
+            riversRef.putFile(uri);
+        }
+    }
+    //get the image from firebase
+        public void downloadImage() {
+          StorageReference riversRef = storageRef.child("images/" + Objects.requireNonNull(uri.getLastPathSegment()));
+           riversRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+               @Override
+               public void onSuccess(Uri uri) {
+                   // Got the download URL for 'users/me/profile.png'
+                imageView.setImageURI(uri);
+               }
+          }).addOnFailureListener(new OnFailureListener() {
+               @Override
+               public void onFailure(@NonNull Exception exception) {
+                   // Handle any errors
+               }
+          });
+        }
+
 }

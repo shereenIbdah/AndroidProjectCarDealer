@@ -8,9 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -32,11 +30,13 @@ public class MainActivity extends AppCompatActivity implements detailsOfSelected
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //define data base of cars
         setContentView(R.layout.activity_main);
         connect = findViewById(R.id.connect);
         connect.setOnClickListener(v -> {
             ConnectionAsyncTask connectionAsyncTask = new ConnectionAsyncTask(MainActivity.this);
-            connectionAsyncTask.execute("https://mp8d04b3170d68bddd56.free.beeceptor.com/data");
+            connectionAsyncTask.execute("https://mpc2f1bc03fd2a7abb79.free.beeceptor.com/data");
+
 
         });
 
@@ -56,6 +56,18 @@ public class MainActivity extends AppCompatActivity implements detailsOfSelected
 
     public void dataLoaded(List<Car> cars) {
         this.cars = cars;
+        //add the cars to the data base of cars
+        CarsDataBase carsDataBase = new CarsDataBase(this, "cars", null, 1);
+        for (Car car : cars) {
+            //no redundant data
+            if (carsDataBase.isExist(car.getId())) {
+                continue;
+            }
+            else
+            {
+                carsDataBase.insertCar(car.getId(), car.getType(), car.getFactoryName(), car.getModel(), String.valueOf(car.getPrice()), car.getName());
+            }
+        }
         Intent intent = new Intent(MainActivity.this, SignInActivity.class);
         startActivity(intent);
         finish();

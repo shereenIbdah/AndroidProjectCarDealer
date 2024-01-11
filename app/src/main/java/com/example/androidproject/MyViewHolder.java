@@ -3,27 +3,16 @@ package com.example.androidproject;
 import static android.app.PendingIntent.getActivity;
 
 import android.app.AlertDialog;
-import android.content.ClipData;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.text.Html;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.sql.Time;
-import java.util.Date;
-import java.util.List;
 
 public class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -40,7 +29,11 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         typeView = carView.findViewById(R.id.type);
         priceView = carView.findViewById(R.id.price);
         modelView = carView.findViewById(R.id.model);
-        DataBaseReserved reserveDataBase1 = new DataBaseReserved(carView.getContext(), "Reservecar", null, 1);
+        String email = SignInActivity.emailForProfile;
+        CarsDataBase carsDataBase = new CarsDataBase(carView.getContext(), "cars", null, 1);
+        //define data base of reservations
+        ReservationDataBase reserveDataBase = new ReservationDataBase(carView.getContext(), "Reservation", null, 1);
+
         ToggleButton favorite = carView.findViewById(R.id.toggleButton3);
         ToggleButton reserve = carView.findViewById(R.id.toggleButton4);
         reserve.setOnClickListener(v -> {
@@ -62,18 +55,23 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
             builder.setMessage(Html.fromHtml(message));
             builder.setIcon(R.drawable.baseline_save_alt_24);
             builder.setPositiveButton("Yes", (dialog, which) -> {
-               // if (!isCarAlreadyReserved(reserveDataBasee)) {
+                // check if the car is already reserved this car
+                if(reserveDataBase.isReserved(email,id.getText().toString())){
+                    Toast.makeText(carView.getContext(), "Car is already reserved", Toast.LENGTH_SHORT).show();
+                    reserve.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_star_24));
+
+                }else {
+                    // Add the car to the reservations database by the user email
+                    reserveDataBase.insertReservation(email, id.getText().toString(), "date", "time");
                     reserve.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_star_24));
                     Toast.makeText(carView.getContext(), "Reserved", Toast.LENGTH_SHORT).show();
-                    reserveDataBase1.insertCar(id.getText().toString(), typeView.getText().toString(),factorynameView.getText().toString(), modelView.getText().toString(), priceView.getText().toString(), namee.getText().toString());
-                //} else {
-                //    Toast.makeText(carView.getContext(), "Car is already reserved", Toast.LENGTH_SHORT).show();
-              //  }
+                }
+
             });
 
             builder.setNegativeButton("No", (dialog, which) -> {
                 if (reserve.isChecked()) {
-                    reserve.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_star_border_24));
+                   reserve.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_star_border_24));
                     Toast.makeText(carView.getContext(), "Removed from reservations", Toast.LENGTH_SHORT).show();
                 } else {
                     reserve.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_star_24));
@@ -84,9 +82,10 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
         });
+
         favorite.setOnClickListener(v -> {
             if (favorite.isChecked()) {
-                reserveDataBase1.removeAllReservations();
+                //reserveDataBase1.removeAllReservations();
                 favorite.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_favorite_24));
                 Toast.makeText(carView.getContext(), "Added to favorites", Toast.LENGTH_SHORT).show();
             } else {
@@ -109,4 +108,6 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         Cursor cursor = reserveDataBase.getCar(id);
         return cursor.getCount() > 0;
     }*/
+
+
 }

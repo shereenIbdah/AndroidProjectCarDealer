@@ -1,14 +1,19 @@
 package com.example.androidproject;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ImageView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -18,6 +23,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.androidproject.databinding.ActivityHomeBinding;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.util.Objects;
 
 public class Home extends AppCompatActivity {
 
@@ -50,8 +59,7 @@ public class Home extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        // if nav_out is selected, then intent to sign in page
-
+        // if nav_out is selected, then intent to sign in page\
         navigationView.getMenu().findItem(R.id.nav_out).setOnMenuItemClickListener(menuItem -> {
             //ask for confirmation
             AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
@@ -85,7 +93,11 @@ public class Home extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
+        //get the image in Firebase and set it to the imageView
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
 }

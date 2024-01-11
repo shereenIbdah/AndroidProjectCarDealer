@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.security.MessageDigest;
@@ -32,10 +33,10 @@ public class SignInActivity extends AppCompatActivity {
         sharedPrefManager = SharedPrefManager.getInstance(this);
         DataBaseHelper dataBaseHelper = new DataBaseHelper(SignInActivity.this,"projectDataBase1",null,1);
         // read the email from the shared preferences
-
         email.setText(sharedPrefManager.readString("Email", ""));
         password.setText(sharedPrefManager.readString("Password", ""));
          // remove all the data from the data base
+
 
         signUp.setOnClickListener(v -> {
             // remove all the data from the data base
