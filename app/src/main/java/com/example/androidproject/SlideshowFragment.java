@@ -30,21 +30,24 @@ public class SlideshowFragment extends Fragment {
         secondLinearLayout.removeAllViews(); // Clear existing views
 
         // Correct the table name to match your database helper
-        reserveDataBase reserveDataBase = new reserveDataBase(getContext(), "reserveCarss", null, 1);
+        DataBaseReserved reserveDataBase = new DataBaseReserved(getContext(), "Reservecar", null, 1);
         Cursor getAllReservations = reserveDataBase.getAllReservations();
+
         while (getAllReservations.moveToNext()) {
             TextView textView = new TextView(getContext());
-            textView.setText(
-                    "Id= " + getAllReservations.getString(0) + "\nType= " + getAllReservations.getString(1)
-                            + "\nModel= " + getAllReservations.getString(2)
-                            + "\nPrice= " + getAllReservations.getString(3)
-                            + "\nName= " + getAllReservations.getString(4)
-                            + "\nTime= " + getAllReservations.getString(5)
-                            + "\n\n"
-            );
+            textView.setText("Car factoryname: " + getAllReservations.getString(1) + "\t" +
+                    "Car name: " + getAllReservations.getString(5) + "\t" +
+                    "Car type: " + getAllReservations.getString(2) + "\t" +
+                    "Car price: " + getAllReservations.getString(4) + "\t" +
+                    "Car model: " + getAllReservations.getString(3) + "\t" +
+                    "Car id: " + getAllReservations.getString(0) + "\t" +
+                    "Car time: " + getAllReservations.getString(6) + "\t" +
+                    "Car date: " + getAllReservations.getString(7) + "\n");
+
             secondLinearLayout.addView(textView);
         }
-    }
+
+}
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

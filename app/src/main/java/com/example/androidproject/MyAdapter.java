@@ -8,6 +8,7 @@ import android.widget.Filterable;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -24,7 +25,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
         this.cars = cars;
         this.filteredCars = new ArrayList<>(cars);
     }
-
+   /* public static void showDetailsOfSelectedCar(Car car, FragmentManager fragmentManager) {
+        detailsOfSelectedCarFragment detailsOfSelectedCarFragment = new detailsOfSelectedCarFragment();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, detailsOfSelectedCarFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+        detailsOfSelectedCarFragment.setCar(car);
+    }*/
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -36,12 +44,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.factorynameView.setText(cars.get(position).getFactoryName());
-        holder.name.setText(cars.get(position).getName());
+        holder.namee.setText(cars.get(position).getName());
         holder.typeView.setText(cars.get(position).getType());
         holder.priceView.setText(String.valueOf(cars.get(position).getPrice()));
         holder.modelView.setText(cars.get(position).getModel());
-        holder.id = cars.get(position).getId();
-
+        holder.id.setText(String.valueOf(cars.get(position).getId()));
         // based on the name set the image
         // for each position set a different image
         switch (cars.get(position).getFactoryName()) {
