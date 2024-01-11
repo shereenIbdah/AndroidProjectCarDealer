@@ -44,6 +44,7 @@ public class SlideshowFragment extends Fragment {
                     "Car time: " + getAllReservations.getString(6) + "\t" +
                     "Car date: " + getAllReservations.getString(7) + "\n");
 
+
             secondLinearLayout.addView(textView);
         }
 

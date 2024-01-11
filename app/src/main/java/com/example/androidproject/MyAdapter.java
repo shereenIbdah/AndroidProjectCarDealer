@@ -49,6 +49,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
         holder.priceView.setText(String.valueOf(cars.get(position).getPrice()));
         holder.modelView.setText(cars.get(position).getModel());
         holder.id.setText(String.valueOf(cars.get(position).getId()));
+
         // based on the name set the image
         // for each position set a different image
         switch (cars.get(position).getFactoryName()) {
