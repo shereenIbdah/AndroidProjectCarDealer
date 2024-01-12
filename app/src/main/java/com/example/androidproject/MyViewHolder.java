@@ -3,6 +3,7 @@ package com.example.androidproject;
 import static android.app.PendingIntent.getActivity;
 
 import android.app.AlertDialog;
+import android.provider.ContactsContract;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,9 @@ import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.sql.Time;
+import java.util.Date;
 
 public class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -33,6 +37,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         CarsDataBase carsDataBase = new CarsDataBase(carView.getContext(), "cars", null, 1);
         //define data base of reservations
         ReservationDataBase reserveDataBase = new ReservationDataBase(carView.getContext(), "Reservation", null, 1);
+        //remove all the reservations
 
         ToggleButton favorite = carView.findViewById(R.id.toggleButton3);
         ToggleButton reserve = carView.findViewById(R.id.toggleButton4);
@@ -62,13 +67,21 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
 
                 }else {
                     // Add the car to the reservations database by the user email
-                    reserveDataBase.insertReservation(email, id.getText().toString(), "date", "time");
+                    //get the current date and time
+                    Date date = new Date();
+                    String date1 = date.toString();
+                    //get only the year month and day
+                    date1 = date1.substring(0, 10);
+                    Time time = new Time(date.getTime());
+                    //set the time only hours and minutes and seconds
+                    String time1 = time.toString();
+                    time1 = time1.substring(0, 8);
+                    reserveDataBase.insertReservation(email, id.getText().toString(), date1, time1);
                     reserve.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_star_24));
                     Toast.makeText(carView.getContext(), "Reserved", Toast.LENGTH_SHORT).show();
                 }
 
             });
-
             builder.setNegativeButton("No", (dialog, which) -> {
                 if (reserve.isChecked()) {
                    reserve.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_star_border_24));

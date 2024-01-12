@@ -27,7 +27,7 @@ public class SlideshowFragment extends Fragment {
     }
 
     private void refreshReservationData() {
-        secondLinearLayout.removeAllViews(); // Clear existing views
+       secondLinearLayout.removeAllViews(); // Clear existing views
 
         // Correct the table name to match your database helper
       //  CarsDataBase reserveDataBase = new CarsDataBase(getContext(), "Reservecar", null, 1);
@@ -35,29 +35,13 @@ public class SlideshowFragment extends Fragment {
         String email = SignInActivity.emailForProfile;
         CarsDataBase carsDataBase = new CarsDataBase(getContext(), "cars", null, 1);
         ReservationDataBase reserveDataBase = new ReservationDataBase(getContext(), "Reservation", null, 1);
-
-        /**while (getAllReservations.moveToNext()) {
-            TextView textView = new TextView(getContext());
-            textView.setText("Car factoryname: " + getAllReservations.getString(1) + "\t" +
-                    "Car name: " + getAllReservations.getString(5) + "\t" +
-                    "Car type: " + getAllReservations.getString(2) + "\t" +
-                    "Car price: " + getAllReservations.getString(4) + "\t" +
-                    "Car model: " + getAllReservations.getString(3) + "\t" +
-                    "Car id: " + getAllReservations.getString(0) + "\t" +
-                    "Car time: " + getAllReservations.getString(6) + "\t" +
-                    "Car date: " + getAllReservations.getString(7) + "\n");
-
-
-            secondLinearLayout.addView(textView);
-        }**/
-
-
         Cursor getAllReservations = reserveDataBase.getAllReservations(email);
         Cursor information;
         while (getAllReservations.moveToNext()) {
             TextView textView = new TextView(getContext());
             information = carsDataBase.getCar(getAllReservations.getString(1));
             information.moveToNext();
+
             textView.setText("Car factoryname: " + information.getString(2) + "\t" +
                     "Car name: " + information.getString(5) + "\t" +
                     "Car type: " + information.getString(1) + "\t" +
@@ -66,6 +50,9 @@ public class SlideshowFragment extends Fragment {
                     "Car id: " + information.getString(0) + "\t" +
                     "Car time: " + getAllReservations.getString(3) + "\t" +
                     "Car date: " + getAllReservations.getString(2) + "\n");
+            //change the color of the text
+            textView.setTextColor(getResources().getColor(R.color.black));
+            textView.setTextSize(20);
             secondLinearLayout.addView(textView);
 
         }
