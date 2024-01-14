@@ -7,8 +7,6 @@ import android.widget.Filter;
 import android.widget.Filterable;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -25,14 +23,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
         this.cars = cars;
         this.filteredCars = new ArrayList<>(cars);
     }
-   /* public static void showDetailsOfSelectedCar(Car car, FragmentManager fragmentManager) {
-        detailsOfSelectedCarFragment detailsOfSelectedCarFragment = new detailsOfSelectedCarFragment();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, detailsOfSelectedCarFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-        detailsOfSelectedCarFragment.setCar(car);
-    }*/
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

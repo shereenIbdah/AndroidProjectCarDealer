@@ -17,12 +17,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidproject.databinding.FragmentGalleryBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GalleryFragment extends Fragment {
 
     private FragmentGalleryBinding binding;
     private List<Car> cars;
+    private List<Car> offerscars;
     private MyAdapter adapter;
 
     @Override
@@ -36,10 +38,18 @@ public class GalleryFragment extends Fragment {
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         RecyclerView recyclerView = root.findViewById(R.id.recyclerview);
+        cars =new ArrayList<>();
+        offerscars =new ArrayList<>();
 
-        cars = MainActivity.cars;
+        for (int i = 0; i < MainActivity.cars.size(); i++) {
+            if( Integer.parseInt( MainActivity.cars.get(i).getId()) <=25 ){
+                cars.add(MainActivity.cars.get(i));
+            }
+            else {
+                offerscars.add(MainActivity.cars.get(i));
+            }
+        }
         adapter = new MyAdapter(getContext(), cars);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 
@@ -70,5 +80,9 @@ public class GalleryFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    public List<Car> getOfferscars() {
+        return offerscars;
     }
 }

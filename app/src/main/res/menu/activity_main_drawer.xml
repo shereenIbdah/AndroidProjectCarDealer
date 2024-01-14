@@ -22,7 +22,7 @@
             android:title="Your Favorites"
             />
         <item
-            android:id="@+id/nav_special_offers"
+            android:id="@+id/nav_offers"
             android:icon="@drawable/baseline_local_offer_24"
             android:title="Special Offers" />
         <item

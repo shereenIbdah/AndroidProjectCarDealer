@@ -2,6 +2,7 @@ package com.example.androidproject;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,27 @@ public class SlideshowFragment extends Fragment {
         Cursor getAllReservations = reserveDataBase.getAllReservations(email);
         Cursor information;
         while (getAllReservations.moveToNext()) {
+            String factoryName = getAllReservations.getString(1);
+            String name = getAllReservations.getString(5);
+            String type = getAllReservations.getString(2);
+            String price = getAllReservations.getString(4);
+            String model = getAllReservations.getString(3);
+            String id = getAllReservations.getString(0);
+            String time = getAllReservations.getString(6);
+            String date = getAllReservations.getString(7);
+
+            String reservationDetails = String.format(
+                    "<b><font color='#FF0000'>FACTORY NAME:</font></b> %s     " +
+                            "<b><font color='#800080'>NAME:</font></b> %s      " +
+                            "<b><font color='#800080'>TYPE:</font></b> %s      " +
+                            "<b><font color='#800080'>PRICE:</font></b> %s      " +
+                            "<b><font color='#800080'>MODEL:</font></b> %s      " +
+                            "<b><font color='#800080'>ID:</font></b> %s      " +
+                            "<b><font color='#800080'>TIME:</font></b> %s      " +
+                            "<b><font color='#800080'>DATE:</font></b> %s\n",
+                    factoryName, name, type, price, model, id, time, date
+            );
+
             TextView textView = new TextView(getContext());
             information = carsDataBase.getCar(getAllReservations.getString(1));
             information.moveToNext();
@@ -55,15 +77,22 @@ public class SlideshowFragment extends Fragment {
             textView.setTextSize(20);
             secondLinearLayout.addView(textView);
 
+            textView.setText(Html.fromHtml(reservationDetails));
+            textView.setTextSize(20);
+            textView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+
+            secondLinearLayout.addView(textView);  // Add textView to secondLinearLayout
         }
 
-}
+
+    }
+
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        SlideshowViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        SlideshowViewModel slideshowViewModel = new ViewModelProvider(this).get(SlideshowViewModel.class);
         binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         secondLinearLayout = root.findViewById(R.id.layout);

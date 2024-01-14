@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_marginTop="10dp"
+    android:background="@drawable/lightborders">
+
+    <ImageView
+        android:id="@+id/imageview_fav"
+        android:layout_width="90dp"
+        android:layout_height="76dp"
+        android:layout_marginRight="10dp" />
+
+
+    <Button
+        android:id="@+id/factoryname_fav"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="189dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="40dp"
+        android:layout_toStartOf="@+id/toggleButton4_fav"
+        android:layout_toEndOf="@id/imageview_fav"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        tools:text="Factory Name" />
+
+
+    <TextView
+        android:id="@+id/type_fav"
+        android:layout_width="77dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/namee_fav"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/imageview_fav"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        tools:text="type" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton4_fav"
+        android:layout_width="56dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/btn3"
+        android:onClick="onCustomToggleClick2"
+        android:text="ToggleButton"
+        android:textOff=""
+        android:textOn="" />
+
+    <TextView
+        android:id="@+id/model_fav"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="142dp"
+        android:layout_toEndOf="@+id/type_fav"
+        android:text="Model"
+        android:textColor="@color/black"
+        android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/price_fav"
+        android:layout_width="116dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="3dp"
+        android:text="Price"
+        android:textColor="@color/black"
+        android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/namee_fav"
+        android:layout_width="116dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="150dp"
+        android:text="namee"
+        android:textColor="@color/black"
+        android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/id_fav"
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
+
+
+</RelativeLayout>

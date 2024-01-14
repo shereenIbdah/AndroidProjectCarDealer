@@ -13,8 +13,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.androidproject.databinding.FragmentCallusBinding;
-import com.example.androidproject.databinding.FragmentSlideshowBinding;
-import com.example.androidproject.ui.slideshow.SlideshowViewModel;
 
 public class CallFragment extends Fragment {
 

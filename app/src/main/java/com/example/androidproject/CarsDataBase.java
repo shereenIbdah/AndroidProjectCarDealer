@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 public class CarsDataBase extends SQLiteOpenHelper {
     public CarsDataBase(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -26,9 +27,8 @@ public class CarsDataBase extends SQLiteOpenHelper {
                 "name TEXT," +
                 "time TEXT," +
                 "date TEXT )");
+
     }
-
-
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         // Handle upgrades if needed

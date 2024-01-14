@@ -41,6 +41,7 @@ public class ConnectionAsyncTask extends AsyncTask<String, Void, Pair<String, Li
             // Data loaded successfully
             ((MainActivity) activity).setButtonText("CONNECTED");
             ((MainActivity) activity).dataLoaded(result.second);
+
         } else {
             // Show error message if data loading failed
             ((MainActivity) activity).setButtonText("Connect");

@@ -37,7 +37,8 @@ public class DataBaseHelper  extends SQLiteOpenHelper {
         contentValues.put("Gender",Gender);
         contentValues.put("Country",Country);
         contentValues.put("City",City);
-        sqLiteDatabase.insert("user", null, contentValues);
+           sqLiteDatabase.insert("user", null, contentValues);
+
     }
     //query to get the email and password
     public Cursor getAllUsers() {

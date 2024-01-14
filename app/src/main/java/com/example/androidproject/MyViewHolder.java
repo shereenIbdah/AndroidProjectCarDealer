@@ -1,9 +1,8 @@
 package com.example.androidproject;
 
-import static android.app.PendingIntent.getActivity;
-
 import android.app.AlertDialog;
 import android.provider.ContactsContract;
+import android.database.Cursor;
 import android.text.Html;
 import android.view.View;
 import android.widget.Button;
@@ -41,6 +40,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
 
         ToggleButton favorite = carView.findViewById(R.id.toggleButton3);
         ToggleButton reserve = carView.findViewById(R.id.toggleButton4);
+
         reserve.setOnClickListener(v -> {
             // Alert Dialog
             AlertDialog.Builder builder = new AlertDialog.Builder(carView.getContext());
@@ -48,7 +48,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
 
             // Show the details of the car
             String message = "<b>Car factoryname:</b> " + "<font color='#E91E63'>" + factorynameView.getText() + "</font>" +
-                    "<br>" +  "<b>Car name:</b> " + "<font color='#E91E63'>" + namee.getText() + "</font>" +"<br>"+
+                    "<br>" + "<b>Car name:</b> " + "<font color='#E91E63'>" + namee.getText() + "</font>" + "<br>" +
                     "<b>Car type:</b> " + "<font color='#E91E63'>" + typeView.getText() + "</font>" +
                     "<br>" +
                     "<b>Car price:</b> " + "<font color='#E91E63'>" + priceView.getText() + "</font>" +
@@ -84,7 +84,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
             });
             builder.setNegativeButton("No", (dialog, which) -> {
                 if (reserve.isChecked()) {
-                   reserve.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_star_border_24));
+                    reserve.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_star_border_24));
                     Toast.makeText(carView.getContext(), "Removed from reservations", Toast.LENGTH_SHORT).show();
                 } else {
                     reserve.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_star_24));
@@ -98,29 +98,57 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
 
         favorite.setOnClickListener(v -> {
             if (favorite.isChecked()) {
-                //reserveDataBase1.removeAllReservations();
-                favorite.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_favorite_24));
-                Toast.makeText(carView.getContext(), "Added to favorites", Toast.LENGTH_SHORT).show();
+                if (!isCarAlreadyInFavorites(favoriteDataBase)) {
+                    favoriteDataBase.insertCar(id.getText().toString(), typeView.getText().toString(), factorynameView.getText().toString(), modelView.getText().toString(), priceView.getText().toString(), namee.getText().toString());
+                    favorite.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_favorite_24));
+                    Toast.makeText(carView.getContext(), "Added to favorites", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(carView.getContext(), "Car is already in favorites", Toast.LENGTH_SHORT).show();
+                }
             } else {
-                favorite.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_favorite_border_24));
-                Toast.makeText(carView.getContext(), "Removed from favorites", Toast.LENGTH_SHORT).show();
+                removeFromFavorites(favoriteDataBase);
             }
         });
-        detailsOfSelectedCarFragment detailOfSelectedCarFragment = new detailsOfSelectedCarFragment();
-       // final detailsOfSelectedCarFragment.communicator communicator = (detailsOfSelectedCarFragment.communicator) carView.getContext();
-        factorynameView.setOnClickListener(v -> {
 
-            //detailOfSelectedCarFragment.trueOrFalse(true);
-           // communicator.respond(nameView.getText().toString());
+        detailsOfSelectedCarFragment detailOfSelectedCarFragment = new detailsOfSelectedCarFragment();
+        factorynameView.setOnClickListener(v -> {
             Toast.makeText(carView.getContext(), "You clicked on " + factorynameView.getText(), Toast.LENGTH_SHORT).show();
         });
     }
 
-   /* private boolean isCarAlreadyReserved(reserveDataBase reserveDataBase) {
-        // Check if the car is already in the reservations database
-        Cursor cursor = reserveDataBase.getCar(id);
+    private boolean isCarAlreadyInFavorites(DataBasefavorites favoriteDataBase) {
+        // Check if the car is already in the favorites database
+        Cursor cursor = favoriteDataBase.getCar(id.getText().toString());
         return cursor.getCount() > 0;
-    }*/
+    }
+
+    private boolean isCarAlreadyReserved(DataBaseReserved reserveDataBase) {
+        // Check if the car is already in the reservations database
+        Cursor cursor = reserveDataBase.getCar(id.getText().toString());
+        return cursor.getCount() > 0;
+    }
 
 
+    }
+
+    private void removeFromFavorites(DataBasefavorites favoriteDataBase) {
+        // Alert Dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(itemView.getContext());
+        builder.setTitle("Remove from Favorites");
+        builder.setMessage("Are you sure you want to remove this car from favorites?");
+        builder.setIcon(R.drawable.baseline_favorite_border_24);
+
+        builder.setPositiveButton("Yes", (dialog, which) -> {
+            favoriteDataBase.removeCar(id.getText().toString());
+            favorite.setBackgroundDrawable(itemView.getResources().getDrawable(R.drawable.baseline_favorite_border_24));
+            Toast.makeText(itemView.getContext(), "Removed from favorites", Toast.LENGTH_SHORT).show();
+        });
+
+        builder.setNegativeButton("No", (dialog, which) -> {
+            favorite.setChecked(true); // Keep the toggle button in the checked state
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
 }

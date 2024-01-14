@@ -35,8 +35,7 @@ public class MainActivity extends AppCompatActivity implements detailsOfSelected
         connect = findViewById(R.id.connect);
         connect.setOnClickListener(v -> {
             ConnectionAsyncTask connectionAsyncTask = new ConnectionAsyncTask(MainActivity.this);
-            connectionAsyncTask.execute("https://mpc2f1bc03fd2a7abb79.free.beeceptor.com/data");
-
+            connectionAsyncTask.execute("https://mpbb528a21f0fb50545c.free.beeceptor.com/data");
 
         });
 
@@ -109,5 +108,28 @@ daata =
   {"type":"Volks", "id":"25", "factory": "Volkswagen", "price": 30000, "model": "2023", "name": "Volks Golf SE"}
 ]
  */
+
+
+/*[
+
+  {"type":"Sonic", "id":"26", "factory": "Chevrolet", "price": 22000, "model": "2023", "name": "Sonic LT"},
+  {"type":"Fit", "id":"27", "factory": "Honda", "price": 23000, "model": "2023", "name": "Fit Sport"},
+  {"type":"Camry", "id":"28", "factory": "Toyota", "price": 28000, "model": "2023", "name": "Camry LE"},
+  {"type":"Focus", "id":"29", "factory": "Ford", "price": 20000, "model": "2023", "name": "Focus SE"},
+  {"type":"Fiat", "id":"30", "factory": "Fiat", "price": 18000, "model": "2023", "name": "Fiat 500 Pop"},
+  {"type":"Cruze", "id":"31", "factory": "Chevrolet", "price": 25000, "model": "2023", "name": "Cruze LS"},
+  {"type":"Civic", "id":"32", "factory": "Honda", "price": 21000, "model": "2023", "name": "Civic Sport"},
+  {"type":"Corolla", "id":"33", "factory": "Toyota", "price": 26000, "model": "2023", "name": "Corolla SE"},
+  {"type":"Mustang", "id":"34", "factory": "Ford", "price": 30000, "model": "2023", "name": "Mustang GT"},
+  {"type":"Beetle", "id":"35", "factory": "Volkswagen", "price": 24000, "model": "2023", "name": "Beetle S"},
+  {"type":"Spark", "id":"36", "factory": "Chevrolet", "price": 18000, "model": "2023", "name": "Spark LS"},
+  {"type":"Fit", "id":"37", "factory": "Honda", "price": 22000, "model": "2023", "name": "Fit LX"},
+  {"type":"Prius", "id":"38", "factory": "Toyota", "price": 24000, "model": "2023", "name": "Prius C"},
+  {"type":"Fiesta", "id":"39", "factory": "Ford", "price": 17000, "model": "2023", "name": "Fiesta S"},
+  {"type":"Jetta", "id":"40", "factory": "Volkswagen", "price": 26000, "model": "2023", "name": "Jetta SE"},
+  {"type":"Soul", "id":"41", "factory": "Kia", "price": 23000, "model": "2023", "name": "Soul LX"},
+  {"type":"Malibu", "id":"42", "factory": "Chevrolet", "price": 27000, "model": "2023", "name": "Malibu LS"}
+]
+*/
 
 

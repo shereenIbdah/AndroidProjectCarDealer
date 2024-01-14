@@ -4,6 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_home">
+    <fragment
+        android:id="@+id/nav_offers"
+        android:name="com.example.androidproject.OffersFragment"
+        android:label="@string/menu_special_offers"
+        tools:layout="@layout/fragment_offers" />
+
+    <fragment
+        android:id="@+id/nav_favorites"
+        android:name="com.example.androidproject.favFragment"
+        android:label="@string/menu_favorites"
+        tools:layout="@layout/fragment_fav" />
 
     <fragment
         android:id="@+id/nav_profile"
@@ -37,4 +48,5 @@
         android:name="com.example.androidproject.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
 </navigation>
