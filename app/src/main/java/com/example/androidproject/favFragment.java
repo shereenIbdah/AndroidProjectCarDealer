@@ -40,20 +40,35 @@ public class favFragment extends Fragment {
         Cursor getAllFavorite = favoriteDataBase.getAllFavorites(SignInActivity.emailForProfile);
         //this cursor points on the id
         CarsDataBase carsDataBase = new CarsDataBase(getContext(), "cars_menu", null, 1);
+        CarsDataBase offersDataBase = new CarsDataBase(getContext(), "offers_Cars", null, 1);
         Cursor information;
 
 
         while (getAllFavorite.moveToNext()) {
             Car car = new Car();
-            information = carsDataBase.getCar(getAllFavorite.getString(1));
-            information.moveToNext();
-            car.setId(information.getString(0));
-            car.setType(information.getString(1));
-            car.setFactoryName(information.getString(2));
-            car.setModel(information.getString(3));
-            car.setPrice(Double.parseDouble(information.getString(4)));
-            car.setName(information.getString(5));
-            favcars.add(car);
+            //check if car in offers
+            if (offersDataBase.isExist(getAllFavorite.getString(1))) {
+                information = offersDataBase.getCar(getAllFavorite.getString(1));
+                information.moveToNext();
+                car.setId(information.getString(0));
+                car.setType(information.getString(1));
+                car.setFactoryName(information.getString(2));
+                car.setModel(information.getString(3));
+                car.setPrice(Double.parseDouble(information.getString(4)));
+                car.setName(information.getString(5));
+                favcars.add(car);
+            }
+            else {
+                information = carsDataBase.getCar(getAllFavorite.getString(1));
+                information.moveToNext();
+                car.setId(information.getString(0));
+                car.setType(information.getString(1));
+                car.setFactoryName(information.getString(2));
+                car.setModel(information.getString(3));
+                car.setPrice(Double.parseDouble(information.getString(4)));
+                car.setName(information.getString(5));
+                favcars.add(car);
+            }
         }
 
         RecyclerView recyclerView = root.findViewById(R.id.recyclerview_favorite);

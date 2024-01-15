@@ -39,7 +39,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         CarsDataBase carsDataBase = new CarsDataBase(carView.getContext(), "cars_menu", null, 1);
 
         //define data base of reservations
-        ReservationDataBase reserveDataBase = new ReservationDataBase(carView.getContext(), "Reservation", null, 1);
+        ReservationDataBase reserveDataBase = new ReservationDataBase(carView.getContext(), "Reservation1", null, 1);
         //remove all the reservations
         FavoriteDataBase favoriteDataBase1 = new FavoriteDataBase(carView.getContext(), "FavCar", null, 1);
 
