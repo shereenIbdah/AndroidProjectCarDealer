@@ -33,7 +33,7 @@ public class ViewHolder_offers extends RecyclerView.ViewHolder{
         favorite_offers = carView.findViewById(R.id.toggleButton3_offers);
         reserve_offers = carView.findViewById(R.id.toggleButton4_offers);
         ReservationDataBase reserveDataBase = new ReservationDataBase(carView.getContext(), "Reservation", null, 1);
-        DataBasefavorites favoriteDataBase = new DataBasefavorites(carView.getContext(), "FAVcars", null, 1);
+        //FavoriteDataBase favoriteDataBase = new DataBasefavorites(carView.getContext(), "FAVcars", null, 1);
         reserve_offers.setOnClickListener(v -> {
             // Alert Dialog
             AlertDialog.Builder builder = new AlertDialog.Builder(carView.getContext());

@@ -34,17 +34,25 @@ public class favFragment extends Fragment {
         binding = FragmentFavBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         favcars = new ArrayList<>();
-        DataBasefavorites favoriteDataBase = new DataBasefavorites(getContext(), "FAVcars", null, 1);
-        Cursor getAllFavorite = favoriteDataBase.getAllFav();
+        //DataBasefavorites favoriteDataBase = new DataBasefavorites(getContext(), "FAVcars", null, 1);
+        //Cursor getAllFavorite = favoriteDataBase.getAllFav();
+        FavoriteDataBase favoriteDataBase = new FavoriteDataBase(getContext(), "FavCar", null, 1);
+        Cursor getAllFavorite = favoriteDataBase.getAllFavorites(SignInActivity.emailForProfile);
+        //this cursor points on the id
+        CarsDataBase carsDataBase = new CarsDataBase(getContext(), "cars", null, 1);
+        Cursor information;
+
 
         while (getAllFavorite.moveToNext()) {
             Car car = new Car();
-            car.setId(getAllFavorite.getString(0));
-            car.setFactoryName(getAllFavorite.getString(2));
-            car.setType(getAllFavorite.getString(1));
-            car.setModel(getAllFavorite.getString(3));
-            car.setPrice(Double.parseDouble(getAllFavorite.getString(4)));
-            car.setName(getAllFavorite.getString(5));
+            information = carsDataBase.getCar(getAllFavorite.getString(1));
+            information.moveToNext();
+            car.setId(information.getString(0));
+            car.setType(information.getString(1));
+            car.setFactoryName(information.getString(2));
+            car.setModel(information.getString(3));
+            car.setPrice(Double.parseDouble(information.getString(4)));
+            car.setName(information.getString(5));
             favcars.add(car);
         }
 

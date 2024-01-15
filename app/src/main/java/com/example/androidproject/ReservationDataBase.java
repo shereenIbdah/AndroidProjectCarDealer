@@ -39,5 +39,10 @@ public class ReservationDataBase extends DataBaseHelper {
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM reservation WHERE email = '" + email + "' AND carId = '" + carId + "'", null);
         return cursor.getCount() > 0;
     }
+    //remove reservation for a specific user
+    public void removeReservation(String email,String carId) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        sqLiteDatabase.execSQL("DELETE FROM reservation WHERE email = '" + email + "' AND carId = '" + carId + "'");
+    }
 
 }

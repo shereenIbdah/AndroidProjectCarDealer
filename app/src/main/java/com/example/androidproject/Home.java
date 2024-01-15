@@ -21,6 +21,8 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidproject.databinding.ActivityHomeBinding;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 //import com.google.firebase.storage.FirebaseStorage;
 //import com.google.firebase.storage.StorageReference;
 import java.util.Objects;
@@ -49,7 +51,7 @@ public class Home extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_call, R.id.nav_profile)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_call, R.id.nav_profile , R.id.nav_favorites,R.id.nav_offers)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
@@ -85,14 +87,14 @@ public class Home extends AppCompatActivity {
         return true;
     }
 
-   /* @Override
+   @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         //get the image in Firebase and set it to the imageView
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+       // StorageReference storageReference = FirebaseStorage.getInstance().getReference();
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
-    }*/
+    }
 
 
 }
