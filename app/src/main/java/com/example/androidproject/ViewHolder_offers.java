@@ -89,6 +89,7 @@ public class ViewHolder_offers extends RecyclerView.ViewHolder{
             } else {
                 removeFromFavorites(favoriteDataBase);
             }
+
         });
 
 
@@ -126,4 +127,5 @@ public class ViewHolder_offers extends RecyclerView.ViewHolder{
     }*/
     });
     }
+
 }

@@ -8,6 +8,7 @@ import java.util.List;
 public class CarJsonParser {
     public static List<Car> getObjectFromJson(String json) {
         List<Car> cars;
+
         try {
             JSONArray jsonArray = new JSONArray(json);
             cars = new ArrayList<>();

@@ -28,6 +28,7 @@ public class favFragment extends Fragment {
         return new favFragment();
     }
 
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {

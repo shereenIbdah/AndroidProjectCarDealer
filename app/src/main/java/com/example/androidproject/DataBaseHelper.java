@@ -32,6 +32,7 @@ public class DataBaseHelper  extends SQLiteOpenHelper {
         contentValues.put("email", email);
         contentValues.put("password", password);
         contentValues.put("FirstName", FirstName);
+
         contentValues.put("LastName", LastName);
         contentValues.put("PhoneNumber", PhoneNumber);
         contentValues.put("Gender",Gender);

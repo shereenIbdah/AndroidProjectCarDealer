@@ -310,4 +310,5 @@ public class SingUpActivity extends AppCompatActivity {
           });
         }*/
 
+
 }

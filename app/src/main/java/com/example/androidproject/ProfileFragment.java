@@ -25,6 +25,7 @@ import java.util.HashMap;
 
 public class ProfileFragment extends Fragment {
 
+
     private FragmentProfileBinding binding;
 
 

@@ -16,6 +16,7 @@ public class ReservationDataBase extends DataBaseHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+
     }
     public void insertReservation(String email,String carId,String date,String time) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();

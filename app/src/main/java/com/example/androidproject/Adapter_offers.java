@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class Adapter_offers extends RecyclerView.Adapter<ViewHolder_offers> {
+
     private Context context;
     private List<Car> car_offers;
     public Adapter_offers(Context context, List<Car> cars) {

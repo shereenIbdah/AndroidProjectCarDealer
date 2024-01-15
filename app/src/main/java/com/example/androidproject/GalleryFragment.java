@@ -28,6 +28,8 @@ public class GalleryFragment extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true); // Indicate that this fragment has an options menu
     }

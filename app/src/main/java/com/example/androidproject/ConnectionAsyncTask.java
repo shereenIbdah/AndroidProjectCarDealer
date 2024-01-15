@@ -9,6 +9,7 @@ import java.util.List;
 public class ConnectionAsyncTask extends AsyncTask<String, Void, Pair<String, List<Car>>> {
     Activity activity;
 
+
     public ConnectionAsyncTask(Activity activity) {
         this.activity = activity;
     }

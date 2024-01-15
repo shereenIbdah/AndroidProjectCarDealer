@@ -11,6 +11,7 @@ import java.util.List;
 
 public class Adapter_fav extends RecyclerView.Adapter<ViewHolder_fav> {
 
+
     private Context context;
     private List<Car> car;
 

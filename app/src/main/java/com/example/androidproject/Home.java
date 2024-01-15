@@ -69,6 +69,7 @@ public class Home extends AppCompatActivity {
             });
             builder.setNegativeButton("No", (dialogInterface, i) -> {
                 //do nothing
+
             });
             builder.create().show();
             return true;

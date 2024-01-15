@@ -26,6 +26,7 @@ public class SlideshowFragment extends Fragment {
         refreshReservationData();
     }
 
+
     private void refreshReservationData() {
         secondLinearLayout.removeAllViews(); // Clear existing views
 

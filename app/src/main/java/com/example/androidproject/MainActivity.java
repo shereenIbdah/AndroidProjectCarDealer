@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements detailsOfSelected
         });
     }
 
+
     public void setButtonText(String text) {
         connect.setText(text);
     }

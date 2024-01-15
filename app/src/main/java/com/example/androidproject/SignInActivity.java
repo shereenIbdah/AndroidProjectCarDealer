@@ -16,6 +16,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class SignInActivity extends AppCompatActivity {
 
+
     SharedPrefManager sharedPrefManager;
     public static String emailForProfile = "";
 

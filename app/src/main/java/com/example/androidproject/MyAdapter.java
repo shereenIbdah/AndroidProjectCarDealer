@@ -16,6 +16,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
 
     private Context context;
     private List<Car> cars;
+
     private List<Car> filteredCars;
 
     public MyAdapter(Context context, List<Car> cars) {

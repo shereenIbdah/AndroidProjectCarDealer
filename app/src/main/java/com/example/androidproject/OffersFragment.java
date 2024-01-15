@@ -66,24 +66,3 @@ public class OffersFragment extends Fragment {
 }
 
 
-
-
-// Assuming offersDataBase is an instance of your database class (e.g., DataBaseOffers)
-        /*
-        offersDataBase.insertCar("26", "Sonic LT", "Chevrolet", "2023", "22000", "Sonic");
-        offersDataBase.insertCar("27", "Fit Sport", "Honda", "2023", "23000", "Fit");
-        offersDataBase.insertCar("28", "Camry LE", "Toyota", "2023", "28000", "Camry");
-        offersDataBase.insertCar("29", "Focus SE", "Ford", "2023", "20000", "Focus");
-        offersDataBase.insertCar("30", "Fiat 500 Pop", "Fiat", "2023", "18000", "Fiat");
-        offersDataBase.insertCar("31", "Cruze LS", "Chevrolet", "2023", "25000", "Cruze");
-        offersDataBase.insertCar("32", "Civic Sport", "Honda", "2023", "21000", "Civic");
-        offersDataBase.insertCar("33", "Corolla SE", "Toyota", "2023", "26000", "Corolla");
-        offersDataBase.insertCar("34", "Mustang GT", "Ford", "2023", "30000", "Mustang");
-        offersDataBase.insertCar("35", "Beetle S", "Volkswagen", "2023", "24000", "Beetle");
-        offersDataBase.insertCar("36", "Spark LS", "Chevrolet", "2023", "18000", "Spark");
-        offersDataBase.insertCar("37", "Fit LX", "Honda", "2023", "22000", "Fit");
-        offersDataBase.insertCar("38", "Prius C", "Toyota", "2023", "24000", "Prius");
-        offersDataBase.insertCar("39", "Fiesta S", "Ford", "2023", "17000", "Fiesta");
-        offersDataBase.insertCar("40", "Jetta SE", "Volkswagen", "2023", "26000", "Jetta");
-        offersDataBase.insertCar("41", "Soul LX", "Kia", "2023", "23000", "Soul");
-        offersDataBase.insertCar("42", "Malibu LS", "Chevrolet", "2023", "27000", "Malibu");*/

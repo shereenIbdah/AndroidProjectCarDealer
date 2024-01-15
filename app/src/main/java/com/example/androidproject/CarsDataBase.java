@@ -49,6 +49,7 @@ public class CarsDataBase extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         contentValues.put("id", id);
         contentValues.put("type", type);
+
         contentValues.put("factoryname", factoryname);
         contentValues.put("model", model);
         contentValues.put("price", price);

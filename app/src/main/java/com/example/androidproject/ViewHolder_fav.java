@@ -20,6 +20,7 @@ public class ViewHolder_fav extends RecyclerView.ViewHolder{
     ImageView imageView_fav;
     Button factorynameView_favorite;
     TextView typeView_f , priceView_f, modelView_f ,namee_f ,id_f;
+
     public ViewHolder_fav(@NonNull View carView) {
         super(carView);
         imageView_fav = carView.findViewById(R.id.imageview_fav);
