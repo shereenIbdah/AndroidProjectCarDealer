@@ -35,7 +35,6 @@ public class favFragment extends Fragment {
         View root = binding.getRoot();
         favcars = new ArrayList<>();
         //DataBasefavorites favoriteDataBase = new DataBasefavorites(getContext(), "FAVcars", null, 1);
-        //Cursor getAllFavorite = favoriteDataBase.getAllFav();
         FavoriteDataBase favoriteDataBase = new FavoriteDataBase(getContext(), "FavCar", null, 1);
         Cursor getAllFavorite = favoriteDataBase.getAllFavorites(SignInActivity.emailForProfile);
         //this cursor points on the id

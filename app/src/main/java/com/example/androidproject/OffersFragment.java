@@ -39,24 +39,7 @@ public class OffersFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
            binding = FragmentOffersBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        //DataBaseOffers offersDataBase = new DataBaseOffers(getContext(), "Offers", null, 1);
-       // GalleryFragment galleryFragment = new GalleryFragment();
         offerscars = MainActivity.offerscars;
-
-        //Cursor getAllFavorite = offersDataBase.getAllFav();
-        //offerscars = new ArrayList<>();
-        /*Cursor getAllOffers = offersDataBase.getAllOffers();
-        while (getAllOffers.moveToNext()) {
-            Car car = new Car();
-            car.setId(getAllOffers.getString(0));
-            car.setFactoryName(getAllOffers.getString(2));
-            car.setType(getAllOffers.getString(1));
-            car.setModel(getAllOffers.getString(3));
-            car.setPrice(Double.parseDouble(getAllOffers.getString(4)));
-            car.setName(getAllOffers.getString(5));
-            offerscars.add(car);
-            System.out.println(car.toString());
-        }*/
         RecyclerView recyclerView = root.findViewById(R.id.recyclerview_offers);
         if (offerscars.size() == 0) {
 
@@ -65,8 +48,6 @@ public class OffersFragment extends Fragment {
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             recyclerView.setAdapter(adapter);
         }
-
-
         return root;
     }
 

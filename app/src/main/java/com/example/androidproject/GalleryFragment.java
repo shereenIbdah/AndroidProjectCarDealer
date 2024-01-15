@@ -24,7 +24,6 @@ public class GalleryFragment extends Fragment {
 
     private FragmentGalleryBinding binding;
     private List<Car> cars;
-    private List<Car> offerscars;
     private MyAdapter adapter;
 
     @Override
