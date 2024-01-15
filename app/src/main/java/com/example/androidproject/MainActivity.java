@@ -10,36 +10,31 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
+import java.util.ArrayList;
 import java.util.List;
 
-
-public class MainActivity extends AppCompatActivity implements detailsOfSelectedCarFragment.communicator{
+public class MainActivity extends AppCompatActivity implements detailsOfSelectedCarFragment.communicator {
     SharedPrefManager sharedPrefManager;
 
     Button connect;
     final FragmentManager fragmentManager = getSupportFragmentManager();
 
-
-    public static List<Car> cars;
-
-    /**
-     * SAJA Email : saja@gmail.com
-     * Password : saja#1
-     * **/
+    public static List<Car> allCars = new ArrayList<>();
+    public static List<Car> cars_menu = new ArrayList<>();
+    public static List<Car> offerscars = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //define data base of cars
+        // define database of cars
         setContentView(R.layout.activity_main);
         connect = findViewById(R.id.connect);
         connect.setOnClickListener(v -> {
             ConnectionAsyncTask connectionAsyncTask = new ConnectionAsyncTask(MainActivity.this);
-            connectionAsyncTask.execute("https://mpbb528a21f0fb50545c.free.beeceptor.com/data");
-
+            connectionAsyncTask.execute("https://mpbe83ab6381c3169f22.free.beeceptor.com/data");
         });
-
     }
+
     public void setButtonText(String text) {
         connect.setText(text);
     }
@@ -54,31 +49,45 @@ public class MainActivity extends AppCompatActivity implements detailsOfSelected
     }
 
     public void dataLoaded(List<Car> cars) {
-        this.cars = cars;
-        //add the cars to the data base of cars
-        CarsDataBase carsDataBase = new CarsDataBase(this, "cars", null, 1);
+        this.allCars = cars;
+        System.out.println("all cars " + allCars.size());
+        // add the cars to the database of cars
+        CarsDataBase carsDataBase = new CarsDataBase(this, "cars_menu", null, 1);
+        CarsDataBase offersDataBase = new CarsDataBase(this, "offers_Cars", null, 1);
         for (Car car : cars) {
-            //no redundant data
+            // no redundant data
             if (carsDataBase.isExist(car.getId())) {
+                this.cars_menu.add(car);
+                continue;
+            }else if (offersDataBase.isExist(car.getId())){
+                this.offerscars.add(car);
                 continue;
             }
-            else
-            {
-                carsDataBase.insertCar(car.getId(), car.getType(), car.getFactoryName(), car.getModel(), String.valueOf(car.getPrice()), car.getName());
+            else if (car.isOffers() == true) {
+                this.offerscars.add(car);
+                offersDataBase.insertCar(car.getId(), car.getType(), car.getFactoryName(), car.getModel(), String.valueOf(car.getPrice()), car.getName(), String.valueOf(car.isOffers()));
+            } else if (car.isOffers() == false) {
+                this.cars_menu.add(car);
+                carsDataBase.insertCar(car.getId(), car.getType(), car.getFactoryName(), car.getModel(), String.valueOf(car.getPrice()), car.getName(), String.valueOf(car.isOffers()));
             }
         }
+        System.out.println("cars menu " + carsDataBase.getAllCars().getCount());
+        System.out.println("offers " + offersDataBase.getAllCars().getCount());
         Intent intent = new Intent(MainActivity.this, SignInActivity.class);
         startActivity(intent);
         finish();
     }
 
-  detailsOfSelectedCarFragment detailsOfSelectedCarFragment = new detailsOfSelectedCarFragment();
+    detailsOfSelectedCarFragment detailsOfSelectedCarFragment = new detailsOfSelectedCarFragment();
+
     @Override
     public void respond(String data) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.root_layout, detailsOfSelectedCarFragment, "detailsOfSelectedCarFragment");
+        fragmentTransaction.commit(); // commit the transaction
     }
 }
+
 /*
 daata =
 [

@@ -26,7 +26,8 @@ public class CarsDataBase extends SQLiteOpenHelper {
                 "price TEXT," +
                 "name TEXT," +
                 "time TEXT," +
-                "date TEXT )");
+                "date TEXT," +
+                "offer TEXT )");
 
     }
     @Override
@@ -34,7 +35,7 @@ public class CarsDataBase extends SQLiteOpenHelper {
         // Handle upgrades if needed
     }
     // Query to insert a reservation
-    public void insertCar(String id, String type, String factoryname, String model, String price, String name) {
+    public void insertCar(String id, String type, String factoryname, String model, String price, String name ,String offer) {
         Timestamp time = new Timestamp(System.currentTimeMillis());
         Date date = new Date(System.currentTimeMillis());
 
@@ -54,6 +55,7 @@ public class CarsDataBase extends SQLiteOpenHelper {
         contentValues.put("name", name);
         contentValues.put("time", formattedTime);
         contentValues.put("date", formattedDate);
+        contentValues.put("offer", offer);
 
         sqLiteDatabase.insert("Cars", null, contentValues);
     }

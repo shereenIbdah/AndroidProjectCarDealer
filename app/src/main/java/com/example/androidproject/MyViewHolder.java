@@ -36,7 +36,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         priceView = carView.findViewById(R.id.price);
         modelView = carView.findViewById(R.id.model);
         String email = SignInActivity.emailForProfile;
-        CarsDataBase carsDataBase = new CarsDataBase(carView.getContext(), "cars", null, 1);
+        CarsDataBase carsDataBase = new CarsDataBase(carView.getContext(), "cars_menu", null, 1);
         //define data base of reservations
         ReservationDataBase reserveDataBase = new ReservationDataBase(carView.getContext(), "Reservation", null, 1);
         //remove all the reservations

@@ -7,6 +7,7 @@ public class Car {
     private String model;
     private double price;
     private String name;
+    private boolean offers;  // Added property for offers
 
     public String getFactoryName() {
         return factoryName;
@@ -56,6 +57,14 @@ public class Car {
         this.name = name;
     }
 
+    public boolean isOffers() {
+        return offers;
+    }
+
+    public void setOffers(boolean offers) {
+        this.offers = offers;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
@@ -65,6 +74,7 @@ public class Car {
                 ", model='" + model + '\'' +
                 ", price=" + price +
                 ", name='" + name + '\'' +
+                ", offers=" + offers +
                 '}';
     }
 }

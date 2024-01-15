@@ -30,8 +30,6 @@ public class OffersFragment extends Fragment {
     private Adapter_offers adapter;
 
     private List<Car> offerscars;
-    private List<Car> offerscars2;
-
     public static OffersFragment newInstance() {
         return new OffersFragment();
     }
@@ -41,12 +39,13 @@ public class OffersFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
            binding = FragmentOffersBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        DataBaseOffers offersDataBase = new DataBaseOffers(getContext(), "Offers", null, 1);
-        GalleryFragment galleryFragment = new GalleryFragment();
+        //DataBaseOffers offersDataBase = new DataBaseOffers(getContext(), "Offers", null, 1);
+       // GalleryFragment galleryFragment = new GalleryFragment();
+        offerscars = MainActivity.offerscars;
 
         //Cursor getAllFavorite = offersDataBase.getAllFav();
-        offerscars = new ArrayList<>();
-        Cursor getAllOffers = offersDataBase.getAllOffers();
+        //offerscars = new ArrayList<>();
+        /*Cursor getAllOffers = offersDataBase.getAllOffers();
         while (getAllOffers.moveToNext()) {
             Car car = new Car();
             car.setId(getAllOffers.getString(0));
@@ -57,7 +56,7 @@ public class OffersFragment extends Fragment {
             car.setName(getAllOffers.getString(5));
             offerscars.add(car);
             System.out.println(car.toString());
-        }
+        }*/
         RecyclerView recyclerView = root.findViewById(R.id.recyclerview_offers);
         if (offerscars.size() == 0) {
 

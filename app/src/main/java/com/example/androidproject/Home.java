@@ -1,5 +1,4 @@
 package com.example.androidproject;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,7 +6,6 @@ import android.text.Html;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ImageView;
-
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
@@ -21,8 +19,8 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.androidproject.databinding.ActivityHomeBinding;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
+//import com.google.firebase.storage.FirebaseStorage;
+//import com.google.firebase.storage.StorageReference;
 //import com.google.firebase.storage.FirebaseStorage;
 //import com.google.firebase.storage.StorageReference;
 import java.util.Objects;
@@ -46,6 +44,7 @@ public class Home extends AppCompatActivity {
         .setAction("Action", null).show();
         }
         });**/
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
@@ -76,7 +75,6 @@ public class Home extends AppCompatActivity {
 
 
         });
-
 
     }
 

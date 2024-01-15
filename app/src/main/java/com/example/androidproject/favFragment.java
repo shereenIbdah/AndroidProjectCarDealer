@@ -39,7 +39,7 @@ public class favFragment extends Fragment {
         FavoriteDataBase favoriteDataBase = new FavoriteDataBase(getContext(), "FavCar", null, 1);
         Cursor getAllFavorite = favoriteDataBase.getAllFavorites(SignInActivity.emailForProfile);
         //this cursor points on the id
-        CarsDataBase carsDataBase = new CarsDataBase(getContext(), "cars", null, 1);
+        CarsDataBase carsDataBase = new CarsDataBase(getContext(), "cars_menu", null, 1);
         Cursor information;
 
 

@@ -33,7 +33,7 @@ public class SlideshowFragment extends Fragment {
         //  CarsDataBase reserveDataBase = new CarsDataBase(getContext(), "Reservecar", null, 1);
         // Cursor getAllReservations = reserveDataBase.getAllCars();
         String email = SignInActivity.emailForProfile;
-        CarsDataBase carsDataBase = new CarsDataBase(getContext(), "cars", null, 1);
+        CarsDataBase carsDataBase = new CarsDataBase(getContext(), "cars_menu", null, 1);
         ReservationDataBase reserveDataBase = new ReservationDataBase(getContext(), "Reservation", null, 1);
         Cursor getAllReservations = reserveDataBase.getAllReservations(email);
         Cursor information;
