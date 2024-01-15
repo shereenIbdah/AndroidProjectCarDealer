@@ -18,13 +18,14 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
+/*
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+ */
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -34,10 +35,10 @@ import java.util.Objects;
 public class SingUpActivity extends AppCompatActivity {
     private static final String TOAST_TEXT = "Sign up is successful";
     ImageView imageView;
-    FloatingActionButton floatingActionButton;
+    //FloatingActionButton floatingActionButton;
     public Uri uri;
-    public  FirebaseStorage storage = FirebaseStorage.getInstance();
-    public  StorageReference storageRef = storage.getReference();
+   // public  FirebaseStorage storage = FirebaseStorage.getInstance();
+  //  public  StorageReference storageRef = storage.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +57,7 @@ public class SingUpActivity extends AppCompatActivity {
         TextView textView9 = findViewById(R.id.textView9);
         Button createAccount = findViewById(R.id.createaccount);
         imageView = findViewById(R.id.profilPhoto);
-        floatingActionButton = findViewById(R.id.updateProfileButton);
+        //floatingActionButton = findViewById(R.id.updateProfileButton);
         Button back = findViewById(R.id.back);
         final String[] passwordError = {" "};
         final String[] firstNameError = {" "};
@@ -251,18 +252,18 @@ public class SingUpActivity extends AppCompatActivity {
 
         });
 
-        floatingActionButton.setOnClickListener(v -> {
+      /*  floatingActionButton.setOnClickListener(v -> {
             ImagePicker.with(this)
                     .crop()                    //Crop image(Optional), Check Customization for more option
                     .compress(1024)            //Final image size will be less than 1 MB(Optional)
                     .maxResultSize(1080, 1080)    //Final image resolution will be less than 1080 x 1080(Optional)
                     .start();
-        });
+        });*/
 
 
     }
 
-    @Override
+  /*  @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         //imageView.setImageURI(data.getData());
@@ -277,7 +278,7 @@ public class SingUpActivity extends AppCompatActivity {
         } else if (resultCode == ImagePicker.RESULT_ERROR) {
             Toast.makeText(this, ImagePicker.Companion.getError(data), Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 
     // define onReume
     @Override
@@ -286,7 +287,7 @@ public class SingUpActivity extends AppCompatActivity {
            //download the image from firebase
     }
 
-    public void uploadImage() {
+  /*  public void uploadImage() {
         if (uri != null) {
             StorageReference riversRef = storageRef.child("images/" + Objects.requireNonNull(uri.getLastPathSegment()));
             riversRef.putFile(uri);
@@ -307,6 +308,6 @@ public class SingUpActivity extends AppCompatActivity {
                    // Handle any errors
                }
           });
-        }
+        }*/
 
 }

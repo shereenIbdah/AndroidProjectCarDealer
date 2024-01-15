@@ -23,6 +23,8 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
     Button factorynameView;
     TextView typeView, priceView, modelView ,namee ,id;
 
+    ToggleButton favorite;
+
     public MyViewHolder(@NonNull View carView) {
         super(carView);
         imageView = carView.findViewById(R.id.imageview);
@@ -37,8 +39,9 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         //define data base of reservations
         ReservationDataBase reserveDataBase = new ReservationDataBase(carView.getContext(), "Reservation", null, 1);
         //remove all the reservations
+        DataBasefavorites favoriteDataBase = new DataBasefavorites(carView.getContext(), "FAVcars", null, 1);
 
-        ToggleButton favorite = carView.findViewById(R.id.toggleButton3);
+        favorite = carView.findViewById(R.id.toggleButton3);
         ToggleButton reserve = carView.findViewById(R.id.toggleButton4);
 
         reserve.setOnClickListener(v -> {
@@ -95,7 +98,6 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
         });
-
         favorite.setOnClickListener(v -> {
             if (favorite.isChecked()) {
                 if (!isCarAlreadyInFavorites(favoriteDataBase)) {
@@ -122,14 +124,12 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         return cursor.getCount() > 0;
     }
 
-    private boolean isCarAlreadyReserved(DataBaseReserved reserveDataBase) {
-        // Check if the car is already in the reservations database
-        Cursor cursor = reserveDataBase.getCar(id.getText().toString());
-        return cursor.getCount() > 0;
-    }
+//    private boolean isCarAlreadyReserved(ReservationDataBase reserveDataBase) {
+//        // Check if the car is already in the reservations database
+//        Cursor cursor = reserveDataBase.getCar(id.getText().toString());
+//        return cursor.getCount() > 0;
+//    }
 
-
-    }
 
     private void removeFromFavorites(DataBasefavorites favoriteDataBase) {
         // Alert Dialog

@@ -32,7 +32,7 @@ public class ViewHolder_offers extends RecyclerView.ViewHolder{
         modelView_offers = carView.findViewById(R.id.model_offers);
         favorite_offers = carView.findViewById(R.id.toggleButton3_offers);
         reserve_offers = carView.findViewById(R.id.toggleButton4_offers);
-        DataBaseReserved reserveDataBase1 = new DataBaseReserved(carView.getContext(), "Reservecar", null, 1);
+        ReservationDataBase reserveDataBase = new ReservationDataBase(carView.getContext(), "Reservation", null, 1);
         DataBasefavorites favoriteDataBase = new DataBasefavorites(carView.getContext(), "FAVcars", null, 1);
         reserve_offers.setOnClickListener(v -> {
             // Alert Dialog
@@ -52,17 +52,17 @@ public class ViewHolder_offers extends RecyclerView.ViewHolder{
             // Set the styled message to the AlertDialog
             builder.setMessage(Html.fromHtml(message));
             builder.setIcon(R.drawable.baseline_save_alt_24);
-            builder.setPositiveButton("Yes", (dialog, which) -> {
-                if (!isCarAlreadyReserved(reserveDataBase1)) {
+         /*   builder.setPositiveButton("Yes", (dialog, which) -> {
+                if (!isCarAlreadyReserved(reserveDataBase)) {
                     reserve_offers.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_star_24));
                     Toast.makeText(carView.getContext(), "Reserved", Toast.LENGTH_SHORT).show();
                     reserveDataBase1.insertCar(id_offers.getText().toString(), typeView_offers.getText().toString(), factorynameView_offers.getText().toString(), modelView_offers.getText().toString(), priceView_offers.getText().toString(), namee_offers.getText().toString());
                 } else {
                     Toast.makeText(carView.getContext(), "Car is already reserved", Toast.LENGTH_SHORT).show();
                 }
-            });
+            });*/
 
-            builder.setNegativeButton("No", (dialog, which) -> {
+          /*  builder.setNegativeButton("No", (dialog, which) -> {
                 if (reserve_offers.isChecked()) {
                     reserve_offers.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_star_border_24));
                     Toast.makeText(carView.getContext(), "Removed from reservations", Toast.LENGTH_SHORT).show();
@@ -74,9 +74,9 @@ public class ViewHolder_offers extends RecyclerView.ViewHolder{
 
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
-        });
+        });*/
 
-        favorite_offers.setOnClickListener(v -> {
+      /*  favorite_offers.setOnClickListener(v -> {
             if (favorite_offers.isChecked()) {
                 if (!isCarAlreadyInFavorites(favoriteDataBase)) {
                     favoriteDataBase.insertCar(id_offers.getText().toString(), typeView_offers.getText().toString(), factorynameView_offers.getText().toString(), modelView_offers.getText().toString(), priceView_offers.getText().toString(), namee_offers.getText().toString());
@@ -91,9 +91,9 @@ public class ViewHolder_offers extends RecyclerView.ViewHolder{
         });
 
 
-    }
+    }*/
 
-    private boolean isCarAlreadyReserved(DataBaseReserved reserveDataBase) {
+  /*  private boolean isCarAlreadyReserved(DataBaseReserved reserveDataBase) {
         // Check if the car is already in the reservations database
         Cursor cursor = reserveDataBase.getCar(id_offers.getText().toString());
         return cursor.getCount() > 0;
@@ -122,5 +122,7 @@ public class ViewHolder_offers extends RecyclerView.ViewHolder{
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }*/
+    });
     }
 }

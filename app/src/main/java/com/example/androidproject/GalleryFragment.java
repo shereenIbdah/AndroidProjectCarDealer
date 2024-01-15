@@ -38,14 +38,13 @@ public class GalleryFragment extends Fragment {
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         RecyclerView recyclerView = root.findViewById(R.id.recyclerview);
-        cars =new ArrayList<>();
-        offerscars =new ArrayList<>();
+        cars = new ArrayList<>();
+        offerscars = new ArrayList<>();
 
         for (int i = 0; i < MainActivity.cars.size(); i++) {
-            if( Integer.parseInt( MainActivity.cars.get(i).getId()) <=25 ){
+            if (Integer.parseInt(MainActivity.cars.get(i).getId()) <= 25) {
                 cars.add(MainActivity.cars.get(i));
-            }
-            else {
+            } else {
                 offerscars.add(MainActivity.cars.get(i));
             }
         }
@@ -80,9 +79,5 @@ public class GalleryFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-    }
-
-    public List<Car> getOfferscars() {
-        return offerscars;
     }
 }

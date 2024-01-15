@@ -26,7 +26,7 @@ public class ViewHolder_fav extends RecyclerView.ViewHolder{
         priceView_f = carView.findViewById(R.id.price_fav);
         modelView_f = carView.findViewById(R.id.model_fav);
         ToggleButton reserve = carView.findViewById(R.id.toggleButton4_fav);
-        DataBaseReserved reserveDataBase1 = new DataBaseReserved(carView.getContext(), "Reservecar", null, 1);
+        ReservationDataBase reserveDataBase = new ReservationDataBase(carView.getContext(), "Reservation", null, 1);
         reserve.setOnClickListener(v -> {
             // Alert Dialog
             AlertDialog.Builder builder = new AlertDialog.Builder(carView.getContext());
@@ -45,7 +45,7 @@ public class ViewHolder_fav extends RecyclerView.ViewHolder{
             // Set the styled message to the AlertDialog
             builder.setMessage(Html.fromHtml(message));
             builder.setIcon(R.drawable.baseline_save_alt_24);
-            builder.setPositiveButton("Yes", (dialog, which) -> {
+           /* builder.setPositiveButton("Yes", (dialog, which) -> {
                 if (!isCarAlreadyReserved(reserveDataBase1)) {
                     reserve.setBackgroundDrawable(carView.getResources().getDrawable(R.drawable.baseline_star_24));
                     Toast.makeText(carView.getContext(), "Reserved", Toast.LENGTH_SHORT).show();
@@ -69,14 +69,15 @@ public class ViewHolder_fav extends RecyclerView.ViewHolder{
             alertDialog.show();
         });
 
-    }
-    private boolean isCarAlreadyReserved(DataBaseReserved reserveDataBase) {
+    }*/
+  /*  private boolean isCarAlreadyReserved(DataBaseReserved reserveDataBase) {
         // Check if the car is already in the reservations database
         Cursor cursor = reserveDataBase.getCar(id_f.getText().toString());
         return cursor.getCount() > 0;
+    }*/
+
+
+        });
     }
-
-
-}
-
+    }
 

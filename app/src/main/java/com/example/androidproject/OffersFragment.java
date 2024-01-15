@@ -43,7 +43,6 @@ public class OffersFragment extends Fragment {
         View root = binding.getRoot();
         DataBaseOffers offersDataBase = new DataBaseOffers(getContext(), "Offers", null, 1);
         GalleryFragment galleryFragment = new GalleryFragment();
-        offerscars2 = galleryFragment.getOfferscars();
 
         //Cursor getAllFavorite = offersDataBase.getAllFav();
         offerscars = new ArrayList<>();
@@ -60,14 +59,6 @@ public class OffersFragment extends Fragment {
             System.out.println(car.toString());
         }
         RecyclerView recyclerView = root.findViewById(R.id.recyclerview_offers);
-        /*if(offerscars2.size() == 0){
-
-        }
-        else{
-            adapter = new Adapter_offers(getContext(), offerscars);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-            recyclerView.setAdapter(adapter);
-        }*/
         if (offerscars.size() == 0) {
 
         } else {
