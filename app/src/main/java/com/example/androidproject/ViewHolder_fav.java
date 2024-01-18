@@ -19,7 +19,7 @@ import java.util.Date;
 public class ViewHolder_fav extends RecyclerView.ViewHolder{
     ImageView imageView_fav;
     Button factorynameView_favorite;
-    TextView typeView_f , priceView_f, modelView_f ,namee_f ,id_f;
+    TextView typeView_f , priceView_f, modelView_f ,namee_f ,id_f ,fuel_f;
 
     public ViewHolder_fav(@NonNull View carView) {
         super(carView);
@@ -30,6 +30,7 @@ public class ViewHolder_fav extends RecyclerView.ViewHolder{
         typeView_f = carView.findViewById(R.id.type_fav);
         priceView_f = carView.findViewById(R.id.price_fav);
         modelView_f = carView.findViewById(R.id.model_fav);
+        fuel_f = carView.findViewById(R.id.fuel_fav);
         String email = SignInActivity.emailForProfile;
         ToggleButton reserve = carView.findViewById(R.id.toggleButton4_fav);
         ReservationDataBase reserveDataBase = new ReservationDataBase(carView.getContext(), "Reservation1", null, 1);
@@ -67,6 +68,10 @@ public class ViewHolder_fav extends RecyclerView.ViewHolder{
                             "<b>Car price:</b> " + "<font color='#E91E63'>" + priceView_f.getText() + "</font>" +
                             "<br>" +
                             "<b>Car model:</b> " + "<font color='#E91E63'>" + modelView_f.getText() + "</font>" +
+                            "<br>" +
+                            "<b>Car id:</b> " + "<font color='#E91E63'>" + id_f.getText() + "</font>" +
+                            "<br>" +
+                            "<b>Car fuel:</b> " + "<font color='#E91E63'>" + fuel_f.getText() + "</font>" +
                             "\nAre you sure you want to reserve this car?";
 
                     // Set the styled message to the AlertDialog

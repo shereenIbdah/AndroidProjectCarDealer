@@ -22,7 +22,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
 
     ImageView imageView;
     Button factorynameView;
-    TextView typeView, priceView, modelView, namee, id;
+    TextView typeView, priceView, modelView, namee, id ,fuel;
 
     ToggleButton favorite;
 
@@ -35,6 +35,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         typeView = carView.findViewById(R.id.type);
         priceView = carView.findViewById(R.id.price);
         modelView = carView.findViewById(R.id.model);
+        fuel = carView.findViewById(R.id.fuel);
         String email = SignInActivity.emailForProfile;
         CarsDataBase carsDataBase = new CarsDataBase(carView.getContext(), "cars_menu", null, 1);
 

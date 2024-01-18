@@ -35,6 +35,7 @@ public class Adapter_fav extends RecyclerView.Adapter<ViewHolder_fav> {
         holder.priceView_f.setText(String.valueOf(car.get(position).getPrice()));
         holder.modelView_f.setText(car.get(position).getModel());
         holder.id_f.setText(String.valueOf(car.get(position).getId()));
+        holder.fuel_f.setText(car.get(position).getFuelType());
         // based on the name set the image
         // for each position set a different image
         switch (car.get(position).getFactoryName()) {

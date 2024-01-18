@@ -41,6 +41,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
         holder.priceView.setText(String.valueOf(cars.get(position).getPrice()));
         holder.modelView.setText(cars.get(position).getModel());
         holder.id.setText(String.valueOf(cars.get(position).getId()));
+        holder.fuel.setText(cars.get(position).getFuelType());
 
         // based on the name set the image
         // for each position set a different image
@@ -113,7 +114,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
                 for (Car car : filteredCars) {
-                    if (car.getFactoryName().toLowerCase().contains(filterPattern) || car.getType().toLowerCase().contains(filterPattern) || car.getModel().toLowerCase().contains(filterPattern) || String.valueOf(car.getPrice()).contains(filterPattern)) {
+                    if (car.getFactoryName().toLowerCase().contains(filterPattern) || car.getType().toLowerCase().contains(filterPattern) || car.getModel().toLowerCase().contains(filterPattern) || String.valueOf(car.getPrice()).contains(filterPattern) || car.getFuelType().toLowerCase().contains(filterPattern)) {
                         filteredList.add(car);
                     }
                 }
@@ -134,4 +135,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
             notifyDataSetChanged();
         }
     };
-}
+
+    }
+
+

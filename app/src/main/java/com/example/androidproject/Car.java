@@ -1,5 +1,4 @@
 package com.example.androidproject;
-
 public class Car {
     private String factoryName;
     private String type;
@@ -8,6 +7,7 @@ public class Car {
     private double price;
     private String name;
     private boolean offers;  // Added property for offers
+    private String fuelType; // Added property for fuel type
 
     public String getFactoryName() {
         return factoryName;
@@ -49,7 +49,6 @@ public class Car {
         this.price = price;
     }
 
-
     public String getName() {
         return name;
     }
@@ -66,6 +65,14 @@ public class Car {
         this.offers = offers;
     }
 
+    public String getFuelType() {
+        return fuelType;
+    }
+
+    public void setFuelType(String fuelType) {
+        this.fuelType = fuelType;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
@@ -76,6 +83,7 @@ public class Car {
                 ", price=" + price +
                 ", name='" + name + '\'' +
                 ", offers=" + offers +
+                ", fuelType='" + fuelType + '\'' +
                 '}';
     }
 }

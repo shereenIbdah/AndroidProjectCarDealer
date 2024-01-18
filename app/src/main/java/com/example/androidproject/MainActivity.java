@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements detailsOfSelected
         connect = findViewById(R.id.connect);
         connect.setOnClickListener(v -> {
             ConnectionAsyncTask connectionAsyncTask = new ConnectionAsyncTask(MainActivity.this);
-            connectionAsyncTask.execute("https://mp9bc9c020b348e91b69.free.beeceptor.com/data");
+            connectionAsyncTask.execute("https://mpc050e0ab0299386e5f.free.beeceptor.com/data");
         });
     }
 
@@ -65,10 +65,10 @@ public class MainActivity extends AppCompatActivity implements detailsOfSelected
             }
             else if (car.isOffers() == true) {
                 this.offerscars.add(car);
-                offersDataBase.insertCar(car.getId(), car.getType(), car.getFactoryName(), car.getModel(), String.valueOf(car.getPrice()), car.getName(), String.valueOf(car.isOffers()));
+                offersDataBase.insertCar(car.getId(), car.getType(), car.getFactoryName(), car.getModel(), String.valueOf(car.getPrice()), car.getName(), String.valueOf(car.isOffers()), car.getFuelType());
             } else if (car.isOffers() == false) {
                 this.cars_menu.add(car);
-                carsDataBase.insertCar(car.getId(), car.getType(), car.getFactoryName(), car.getModel(), String.valueOf(car.getPrice()), car.getName(), String.valueOf(car.isOffers()));
+                carsDataBase.insertCar(car.getId(), car.getType(), car.getFactoryName(), car.getModel(), String.valueOf(car.getPrice()), car.getName(), String.valueOf(car.isOffers()), car.getFuelType());
             }
         }
         Intent intent = new Intent(MainActivity.this, SignInChoices.class);

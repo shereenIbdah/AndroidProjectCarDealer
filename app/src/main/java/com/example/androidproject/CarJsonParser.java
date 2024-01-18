@@ -22,6 +22,7 @@ public class CarJsonParser {
                 car.setPrice(jsonObject.getDouble("price"));
                 car.setOffers(jsonObject.getBoolean("offers"));
                 car.setName(jsonObject.getString("name"));
+                car.setFuelType(jsonObject.getString("fuel"));
                 //add to the
                 cars.add(car);
             }
