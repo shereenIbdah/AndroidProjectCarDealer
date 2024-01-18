@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_customer"
-        android:name="com.example.androidproject.GalleryFragment"
+        android:name="com.example.androidproject.DeleteCustomerFragment"
         android:label="@string/menu_delete_customer"
         tools:layout="@layout/fragment_gallery" />
 

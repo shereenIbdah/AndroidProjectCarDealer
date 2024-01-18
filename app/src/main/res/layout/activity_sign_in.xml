@@ -146,5 +146,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.546" />
+    <Button
+        android:id="@+id/back"
+        android:layout_width="69dp"
+        android:layout_height="60dp"
+        android:background="@drawable/baseline_keyboard_backspace_24"
+        android:textColor="#020202"
+        android:text="back"
+        android:textSize="1sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.004" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

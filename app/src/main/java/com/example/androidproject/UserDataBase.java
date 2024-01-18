@@ -79,5 +79,10 @@ public class UserDataBase extends SQLiteOpenHelper {
         contentValues.put("password", password);
         sqLiteDatabase.update("user",contentValues,"email = ?",new String[]{email});
     }
+    //delete user from the data base by email
+    public void deleteUser(String email) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        sqLiteDatabase.delete("user", "email = ?", new String[]{email});
+    }
 
 }

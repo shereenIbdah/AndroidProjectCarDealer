@@ -36,11 +36,11 @@ public class favFragment extends Fragment {
         View root = binding.getRoot();
         favcars = new ArrayList<>();
         //DataBasefavorites favoriteDataBase = new DataBasefavorites(getContext(), "FAVcars", null, 1);
-        FavoriteDataBase favoriteDataBase = new FavoriteDataBase(getContext(), "FavCar", null, 1);
+        FavoriteDataBase favoriteDataBase = new FavoriteDataBase(getContext(), "FavcarDataBase", null, 1);
         Cursor getAllFavorite = favoriteDataBase.getAllFavorites(SignInActivity.emailForProfile);
         //this cursor points on the id
-        CarsDataBase carsDataBase = new CarsDataBase(getContext(), "cars_menu", null, 1);
-        CarsDataBase offersDataBase = new CarsDataBase(getContext(), "offers_Cars", null, 1);
+        CarsDataBase carsDataBase = new CarsDataBase(getContext(), "CarsDataBase", null, 1);
+        CarsDataBase offersDataBase = new CarsDataBase(getContext(), "offersDataBase", null, 1);
         Cursor information;
 
 

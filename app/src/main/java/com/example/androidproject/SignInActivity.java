@@ -35,6 +35,12 @@ public class SignInActivity extends AppCompatActivity {
         // read the email from the shared preferences
         email.setText(sharedPrefManager.readString("Email", ""));
         password.setText(sharedPrefManager.readString("Password", ""));
+        Button back = findViewById(R.id.back);
+        back.setOnClickListener(v -> {
+            Intent intent = new Intent(SignInActivity.this,SignInChoices.class);
+            SignInActivity.this.startActivity(intent);
+            finish();
+        });
          // remove all the data from the data base
 
 

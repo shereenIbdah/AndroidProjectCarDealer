@@ -29,11 +29,11 @@ public class SignUpAsAdmin extends AppCompatActivity {
         Spinner genderSpinner = findViewById(R.id.genderforadmin);
         Spinner countrySpinner = findViewById(R.id.countryforadmin);
         Spinner citySpinner = findViewById(R.id.cityforadmin);
-        EditText email2 = findViewById(R.id.email2foradmin);
+        EditText email2 = findViewById(R.id.emailforadmin);
         EditText firstName = findViewById(R.id.firstNameforadmin);
         EditText lastName = findViewById(R.id.lastNameforadmin);
         EditText phoneNumber = findViewById(R.id.phoneNumberforadmin);
-        EditText password2 = findViewById(R.id.password2foradmin);
+        EditText password2 = findViewById(R.id.passwordforadmin);
         EditText ConfirmPassword = findViewById(R.id.confirmPasswordforadmin);
         Button createAccount = findViewById(R.id.createaccountforadmin);
         Button back = findViewById(R.id.back);

@@ -33,9 +33,9 @@ public class ReserveFragment extends Fragment {
         //  CarsDataBase reserveDataBase = new CarsDataBase(getContext(), "Reservecar", null, 1);
         // Cursor getAllReservations = reserveDataBase.getAllCars();
         String email = SignInActivity.emailForProfile;
-        CarsDataBase carsDataBase = new CarsDataBase(getContext(), "cars_menu", null, 1);
-        ReservationDataBase reserveDataBase = new ReservationDataBase(getContext(), "Reservation1", null, 1);
-        CarsDataBase offersDataBase = new CarsDataBase(getContext(), "offers_Cars", null, 1);
+        CarsDataBase carsDataBase = new CarsDataBase(getContext(), "CarsDataBase", null, 1);
+        ReservationDataBase reserveDataBase = new ReservationDataBase(getContext(), "reservation1", null, 1);
+        CarsDataBase offersDataBase = new CarsDataBase(getContext(), "offersDataBase", null, 1);
         Cursor getAllReservations = reserveDataBase.getAllReservations(email);
 
         Cursor information;
@@ -45,6 +45,8 @@ public class ReserveFragment extends Fragment {
             if (offersDataBase.isExist(getAllReservations.getString(1))) {
                 information = offersDataBase.getCar(getAllReservations.getString(1));
                 information.moveToNext();
+                //String id, String type, String factoryname, String model, String price,
+                // String name ,String offer,String fuel) {
                 textView.setText("Car factoryname: " + information.getString(2) + "\t" +
                         "Car name: " + information.getString(5) + "\t" +
                         "Car type: " + information.getString(1) + "\t" +

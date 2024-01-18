@@ -35,6 +35,12 @@ public class SignInAsAdmin extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+        Button back = findViewById(R.id.back);
+        back.setOnClickListener(v -> {
+            Intent intent = new Intent(SignInAsAdmin.this,SignInChoices.class);
+            SignInAsAdmin.this.startActivity(intent);
+            finish();
+        });
         email.setText(sharedPrefManagerAdmin.readString("Email", ""));
         password.setText(sharedPrefManagerAdmin.readString("Password", ""));
         signAsAdmin.setOnClickListener(v -> {

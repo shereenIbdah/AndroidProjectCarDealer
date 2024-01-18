@@ -33,7 +33,7 @@ public class ViewHolder_fav extends RecyclerView.ViewHolder{
         fuel_f = carView.findViewById(R.id.fuel_fav);
         String email = SignInActivity.emailForProfile;
         ToggleButton reserve = carView.findViewById(R.id.toggleButton4_fav);
-        ReservationDataBase reserveDataBase = new ReservationDataBase(carView.getContext(), "Reservation1", null, 1);
+        ReservationDataBase reserveDataBase = new ReservationDataBase(carView.getContext(), "reservation1", null, 1);
         reserve.setOnClickListener(v -> {
             if (reserve.isChecked()) {
                 //check if the car is already reserved

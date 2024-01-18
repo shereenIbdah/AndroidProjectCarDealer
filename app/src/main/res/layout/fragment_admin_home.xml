@@ -13,7 +13,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="72dp"
         android:text="Admin Profile"
-        android:background="#E6C152"
+        android:background="#009688"
         android:textAlignment="center"
         android:textColor="#07201E"
         android:textSize="46sp"

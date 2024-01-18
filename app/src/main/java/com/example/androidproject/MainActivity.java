@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements detailsOfSelected
         connect = findViewById(R.id.connect);
         connect.setOnClickListener(v -> {
             ConnectionAsyncTask connectionAsyncTask = new ConnectionAsyncTask(MainActivity.this);
-            connectionAsyncTask.execute("https://mpc050e0ab0299386e5f.free.beeceptor.com/data");
+            connectionAsyncTask.execute("https://mpe1c1d8f89f1f62e046.free.beeceptor.com/data");
         });
     }
 
@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity implements detailsOfSelected
     public void dataLoaded(List<Car> cars) {
         this.allCars = cars;
         // add the cars to the database of cars
-        CarsDataBase carsDataBase = new CarsDataBase(this, "cars_menu", null, 1);
-        CarsDataBase offersDataBase = new CarsDataBase(this, "offers_Cars", null, 1);
+        CarsDataBase carsDataBase = new CarsDataBase(this, "CarsDataBase", null, 1);
+        CarsDataBase offersDataBase = new CarsDataBase(this, "offersDataBase", null, 1);
         for (Car car : cars) {
             // no redundant data
             if (carsDataBase.isExist(car.getId())) {

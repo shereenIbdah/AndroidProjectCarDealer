@@ -3,20 +3,117 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/border_for_admin"
     android:layout_height="match_parent"
     tools:context=".SlideshowFragment">
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="352dp"
+        android:layout_height="470dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.538">
+
+        <EditText
+            android:id="@+id/email3foradmin"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/firstNameforadmin3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="First Name"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/lastNameforadmin3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="LastName"
+            android:inputType="text" />
+
+        <Spinner
+            android:id="@+id/genderforadmin3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <EditText
+            android:id="@+id/password3foradmin"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            />
+
+        <EditText
+            android:id="@+id/confirmPasswordforadmin3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:hint="Coniform Password"
+            android:inputType="textPassword" />
+
+        <Spinner
+            android:id="@+id/countryforadmin3"
+            android:layout_width="match_parent"
+            android:layout_height="51dp" />
+
+        <Spinner
+            android:id="@+id/cityforadmin3"
+            android:layout_width="match_parent"
+            android:layout_height="56dp" />
+
+        <EditText
+            android:id="@+id/phoneNumberforadmin3"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:ems="10"
+            android:hint="phoneNumber"
+            android:inputType="number" />
+
+    </LinearLayout>
+
     <TextView
-        android:id="@+id/text_slideshow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:id="@+id/textView9"
+        android:layout_width="191dp"
+        android:layout_height="83dp"
+        android:text="Add New Admin"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textColor="#101212"
+        android:textColorHint="#009688"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.583" />
+
+    <Button
+        android:id="@+id/createaccountforadmin3"
+        android:layout_width="211dp"
+        android:layout_height="62dp"
+        android:background="@drawable/btn4"
+        android:text="Add Admin"
+        android:textColor="#171616"
+        android:textSize="23sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.362" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

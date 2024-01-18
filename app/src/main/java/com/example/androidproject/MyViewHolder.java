@@ -37,12 +37,12 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         modelView = carView.findViewById(R.id.model);
         fuel = carView.findViewById(R.id.fuel);
         String email = SignInActivity.emailForProfile;
-        CarsDataBase carsDataBase = new CarsDataBase(carView.getContext(), "cars_menu", null, 1);
+        CarsDataBase carsDataBase = new CarsDataBase(carView.getContext(), "CarsDataBase", null, 1);
 
         //define data base of reservations
-        ReservationDataBase reserveDataBase = new ReservationDataBase(carView.getContext(), "Reservation1", null, 1);
+        ReservationDataBase reserveDataBase = new ReservationDataBase(carView.getContext(), "reservation1", null, 1);
         //remove all the reservations
-        FavoriteDataBase favoriteDataBase1 = new FavoriteDataBase(carView.getContext(), "FavCar", null, 1);
+        FavoriteDataBase favoriteDataBase1 = new FavoriteDataBase(carView.getContext(), "FavcarDataBase", null, 1);
 
         favorite = carView.findViewById(R.id.toggleButton3);
         ToggleButton reserve = carView.findViewById(R.id.toggleButton4);

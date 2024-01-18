@@ -61,6 +61,7 @@ public class SingUpActivity extends AppCompatActivity {
         final String[] confirmPasswordError = {" "};
         final String[] hashedPasswordString = {" "};
         final String[] emailError = {" "};
+        final String[] phoneNumberError = {" "};
         HashMap<String, String> areaCodes = new HashMap<>();
         areaCodes.put("Palestine", "00970");
         areaCodes.put("Jordan", "00962");
@@ -132,6 +133,7 @@ public class SingUpActivity extends AppCompatActivity {
             lastNameError[0] = " ";
             confirmPasswordError[0] = " ";
             emailError[0] = " ";
+            phoneNumberError[0] = " ";
             ///First name (not less than 3 characters).
             if (firstName.getText().toString().length() < 3) {
                 firstNameError[0] += "First name must be at least 3 characters";
@@ -210,7 +212,10 @@ public class SingUpActivity extends AppCompatActivity {
             //check if the phone number is only numbers
 
             if (!phoneNumber.getText().toString().matches("[0-9]+" ) || phoneNumber.getText().toString().length() <= 9 ) {
-                phoneNumber.setError("Phone number must be only numbers  and more than 9 digits");
+                phoneNumberError[0] += "Phone number must be only numbers  and more than 9 digits";
+            }
+            if (phoneNumberError[0] != " ") {
+                phoneNumber.setError(phoneNumberError[0]);
             }
             //if e
             // emil is empty and not include @
@@ -227,7 +232,7 @@ public class SingUpActivity extends AppCompatActivity {
             }
 
             //if all the fields are correct then add the email and password to the data base
-            if (passwordError[0] == " " && firstNameError[0] == " " && lastNameError[0] == " " && confirmPasswordError[0] == " " && emailError[0] == " ") {
+            if (passwordError[0] == " " && firstNameError[0] == " " && lastNameError[0] == " " && confirmPasswordError[0] == " " && emailError[0] == " "  && phoneNumberError[0] == " ") {
                 dataBaseHelper.insertUser(email2.getText().toString(), hashedPasswordString[0], firstName.getText().toString(), lastName.getText().toString(), phoneNumber.getText().toString(), genderSpinner.getSelectedItem().toString(), countrySpinner.getSelectedItem().toString(), citySpinner.getSelectedItem().toString());
                // imageView.setVisibility(View.VISIBLE);
                 Toast toast = Toast.makeText(SingUpActivity.this, TOAST_TEXT, Toast.LENGTH_SHORT);
