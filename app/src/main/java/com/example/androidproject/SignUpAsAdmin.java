@@ -19,6 +19,7 @@ import java.util.HashMap;
 
 public class SignUpAsAdmin extends AppCompatActivity {
     private static final String TOAST_TEXT = "Sign up is successful";
+    public static   String adminName ="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -214,6 +215,7 @@ public class SignUpAsAdmin extends AppCompatActivity {
             //if all the fields are correct then add the email and password to the data base
             if (passwordError[0] == " " && firstNameError[0] == " " && lastNameError[0] == " " && confirmPasswordError[0] == " " && emailError[0] == " ") {
                 adminDataBase.insertAdmin(email2.getText().toString(), hashedPasswordString[0], firstName.getText().toString(), lastName.getText().toString(), phoneNumber.getText().toString(), genderSpinner.getSelectedItem().toString(), countrySpinner.getSelectedItem().toString(), citySpinner.getSelectedItem().toString());
+                adminName = firstName.getText().toString();
                 // imageView.setVisibility(View.VISIBLE);
                 Toast toast = Toast.makeText(SignUpAsAdmin.this, TOAST_TEXT, Toast.LENGTH_SHORT);
                 toast.show();

@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/profileemail"
         android:layout_width="238dp"
         android:layout_height="99dp"
         android:text="Customer Login"

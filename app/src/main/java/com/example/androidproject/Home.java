@@ -1,11 +1,16 @@
 package com.example.androidproject;
+import static com.example.androidproject.SignInActivity.emailForProfile;
+
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
@@ -23,11 +28,14 @@ import com.example.androidproject.databinding.ActivityHomeBinding;
 //import com.google.firebase.storage.StorageReference;
 //import com.google.firebase.storage.FirebaseStorage;
 //import com.google.firebase.storage.StorageReference;
+import org.w3c.dom.Text;
+
 import java.util.Objects;
 public class Home extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityHomeBinding binding;
+    UserDataBase dataBaseHelper = new UserDataBase(Home.this,"projectDataBase1",null,1);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +99,18 @@ public class Home extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         //get the image in Firebase and set it to the imageView
        // StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+       TextView textView = findViewById(R.id.profileemail);
+       textView.setText(emailForProfile);
+       TextView textView1 = findViewById(R.id.name);
+       //find the name from the data base
+         Cursor cursor = dataBaseHelper.getUser(emailForProfile);
+            cursor.moveToFirst();
+            String name = cursor.getString(2);
+            textView1.setText(name+"");
+
+
+
+
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }

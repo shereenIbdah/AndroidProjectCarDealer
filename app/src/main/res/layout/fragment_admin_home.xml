@@ -8,13 +8,46 @@
     tools:context=".AdminHomeFragment" >
 
     <TextView
-        android:id="@+id/textView12"
-        android:layout_width="203dp"
-        android:layout_height="141dp"
-        android:text="Hi Shereen"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/textView11"
+        android:layout_width="441dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="72dp"
+        android:text="Admin Profile"
+        android:background="#E6C152"
+        android:textAlignment="center"
+        android:textColor="#07201E"
+        android:textSize="46sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="369dp"
+        android:layout_height="441dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/border_for_admin"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView11"
+        app:layout_constraintVertical_bias="0.367" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="197dp"
+        android:layout_height="140dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

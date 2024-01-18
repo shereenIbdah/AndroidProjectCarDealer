@@ -1,10 +1,15 @@
 package com.example.androidproject;
 
+import static com.example.androidproject.SignInAsAdmin.adminEmail;
+import static com.example.androidproject.SignUpAsAdmin.adminName;
+
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -23,6 +28,8 @@ public class HomeAdmin extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityHomeAdminBinding binding;
+    AdminDataBase adminDataBase= new AdminDataBase(HomeAdmin.this,"admin",null,1);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +44,7 @@ public class HomeAdmin extends AppCompatActivity {
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_admin, R.id.nav_addadmin, R.id.nav_customer, R.id.nav_view_reservation)
                 .setOpenableLayout(drawer)
                 .build();
@@ -64,6 +71,7 @@ public class HomeAdmin extends AppCompatActivity {
 
         });
 
+
     }
 
     @Override
@@ -76,6 +84,14 @@ public class HomeAdmin extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home_admin);
+        TextView textView = findViewById(R.id.profilemail);
+        textView.setText(adminEmail+"");
+        //get the name from the data base
+        Cursor cursor = adminDataBase.getAdmin(adminEmail);
+        cursor.moveToFirst();
+        adminName = cursor.getString(2);
+        TextView textView1 = findViewById(R.id.profilname);
+        textView1.setText(adminName+"");
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }

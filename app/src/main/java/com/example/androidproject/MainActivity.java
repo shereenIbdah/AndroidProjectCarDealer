@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements detailsOfSelected
         connect = findViewById(R.id.connect);
         connect.setOnClickListener(v -> {
             ConnectionAsyncTask connectionAsyncTask = new ConnectionAsyncTask(MainActivity.this);
-            connectionAsyncTask.execute("https://mp91a0fa0780043c7f02.free.beeceptor.com/data");
+            connectionAsyncTask.execute("https://mp9bc9c020b348e91b69.free.beeceptor.com/data");
         });
     }
 

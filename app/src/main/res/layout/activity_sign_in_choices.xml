@@ -6,17 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".SignInChoices">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="732dp"
+        android:layout_height="904dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/background" />
+
     <Button
         android:id="@+id/SignAsAdmin"
         android:layout_width="243dp"
         android:layout_height="73dp"
-        android:layout_marginTop="348dp"
+        android:layout_marginTop="280dp"
         android:background="@drawable/btn"
         android:text="Sign As Admin"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintHorizontal_bias="0.766"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,36 +42,55 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.404"
+        app:layout_constraintHorizontal_bias="0.766"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignAsAdmin"
-        app:layout_constraintVertical_bias="0.167" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="594dp"
-        android:layout_height="906dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2"
-        app:srcCompat="@drawable/carcover" />
+        app:layout_constraintVertical_bias="0.152" />
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="361dp"
-        android:layout_height="202dp"
+        android:layout_width="379dp"
+        android:layout_height="176dp"
+        android:layout_marginTop="604dp"
+        android:background="@drawable/border"
         android:text="Welcome to our car application, your go-to hub for everything automotive!"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="#E2ECE2"
         android:textSize="33dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/SignAsAdmin"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.66" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="118dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="280dp"
+        android:text="Admin"
+        android:textColor="#EDE5E5"
+        android:textSize="26dp"
+        android:textStyle="bold"
+
+        app:layout_constraintEnd_toStartOf="@+id/SignAsAdmin"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="127dp"
+        android:layout_height="58dp"
+        android:text="Customer"
+        android:textColor="#F3EBEB"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/SignAsCustomer"
+        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintVertical_bias="0.211" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
