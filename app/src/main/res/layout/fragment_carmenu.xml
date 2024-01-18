@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/root_layout"
-    tools:context=".GalleryFragment">
+    tools:context=".CarMenuFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

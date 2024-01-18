@@ -4,57 +4,43 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
-/*
-import com.github.dhaval2404.imagepicker.ImagePicker;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
- */
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 
-public class SingUpActivity extends AppCompatActivity {
+public class SignUpAsAdmin extends AppCompatActivity {
     private static final String TOAST_TEXT = "Sign up is successful";
-    ImageView imageView;
-    //FloatingActionButton floatingActionButton;
-    public Uri uri;
-   // public  FirebaseStorage storage = FirebaseStorage.getInstance();
-  //  public  StorageReference storageRef = storage.getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sing_up);
-        UserDataBase dataBaseHelper = new UserDataBase(this, "projectDataBase1", null, 1);
-        Spinner genderSpinner = findViewById(R.id.gender);
-        Spinner citySpinner = findViewById(R.id.city);
-        Spinner countrySpinner = findViewById(R.id.country);
-        EditText firstName = findViewById(R.id.firstName);
-        EditText lastName = findViewById(R.id.lastName);
-        EditText phoneNumber = findViewById(R.id.phoneNumber);
-        EditText password2 = findViewById(R.id.password2);
-        EditText ConfirmPassword = findViewById(R.id.confirmPassword);
-        EditText email2 = findViewById(R.id.email2);
-        TextView textView9 = findViewById(R.id.textView9);
-        Button createAccount = findViewById(R.id.createaccount);
-        imageView = findViewById(R.id.profilPhoto);
-        //floatingActionButton = findViewById(R.id.updateProfileButton);
+        setContentView(R.layout.activity_sign_up_as_admin);
+        AdminDataBase adminDataBase = new AdminDataBase(this, "admin", null, 1);
+        Spinner genderSpinner = findViewById(R.id.genderforadmin);
+        Spinner countrySpinner = findViewById(R.id.countryforadmin);
+        Spinner citySpinner = findViewById(R.id.cityforadmin);
+        EditText email2 = findViewById(R.id.email2foradmin);
+        EditText firstName = findViewById(R.id.firstNameforadmin);
+        EditText lastName = findViewById(R.id.lastNameforadmin);
+        EditText phoneNumber = findViewById(R.id.phoneNumberforadmin);
+        EditText password2 = findViewById(R.id.password2foradmin);
+        EditText ConfirmPassword = findViewById(R.id.confirmPasswordforadmin);
+        Button createAccount = findViewById(R.id.createaccountforadmin);
         Button back = findViewById(R.id.back);
+        back.setOnClickListener(view -> {
+            Intent intent = new Intent(SignUpAsAdmin.this, SignInAsAdmin.class);
+            startActivity(intent);
+            finish();
+        });
         final String[] passwordError = {" "};
         final String[] firstNameError = {" "};
         final String[] lastNameError = {" "};
@@ -196,7 +182,6 @@ public class SingUpActivity extends AppCompatActivity {
 
                     // Now 'hexString' contains the hashed password as a hexadecimal string
                     hashedPasswordString[0] = hexString.toString();
-                    System.out.println("Hashed Password: " + hashedPasswordString[0]);
                 } catch (NoSuchAlgorithmException e) {
                     throw new RuntimeException(e);
                 }
@@ -218,7 +203,7 @@ public class SingUpActivity extends AppCompatActivity {
                 emailError[0] += "Email must be not empty and include @";
             }
             //check the email unique in the data base
-            Cursor cursor = dataBaseHelper.getUser(email2.getText().toString());
+            Cursor cursor = adminDataBase.getAdmin(email2.getText().toString());
             if (cursor.getCount() != 0) {
                 emailError[0] += "Email is already exist";
             }
@@ -228,83 +213,18 @@ public class SingUpActivity extends AppCompatActivity {
 
             //if all the fields are correct then add the email and password to the data base
             if (passwordError[0] == " " && firstNameError[0] == " " && lastNameError[0] == " " && confirmPasswordError[0] == " " && emailError[0] == " ") {
-                dataBaseHelper.insertUser(email2.getText().toString(), hashedPasswordString[0], firstName.getText().toString(), lastName.getText().toString(), phoneNumber.getText().toString(), genderSpinner.getSelectedItem().toString(), countrySpinner.getSelectedItem().toString(), citySpinner.getSelectedItem().toString());
-               // imageView.setVisibility(View.VISIBLE);
-                Toast toast = Toast.makeText(SingUpActivity.this, TOAST_TEXT, Toast.LENGTH_SHORT);
+                adminDataBase.insertAdmin(email2.getText().toString(), hashedPasswordString[0], firstName.getText().toString(), lastName.getText().toString(), phoneNumber.getText().toString(), genderSpinner.getSelectedItem().toString(), countrySpinner.getSelectedItem().toString(), citySpinner.getSelectedItem().toString());
+                // imageView.setVisibility(View.VISIBLE);
+                Toast toast = Toast.makeText(SignUpAsAdmin.this, TOAST_TEXT, Toast.LENGTH_SHORT);
                 toast.show();
-               // downloadImage();
-                Intent intent = new Intent(SingUpActivity.this, SignInActivity.class);
-                SingUpActivity.this.startActivity(intent);
+                Intent intent = new Intent(SignUpAsAdmin.this, SignInAsAdmin.class);
+                startActivity(intent);
                 finish();
                 //toast message that sign up is successful
-
             }
         });
-        back.setOnClickListener(v -> {
-            // go to the sign in activity
-            Intent intent = new Intent(SingUpActivity.this, SignInActivity.class);
-            SingUpActivity.this.startActivity(intent);
-            finish();
-
-        });
-
-      /*  floatingActionButton.setOnClickListener(v -> {
-            ImagePicker.with(this)
-                    .crop()                    //Crop image(Optional), Check Customization for more option
-                    .compress(1024)            //Final image size will be less than 1 MB(Optional)
-                    .maxResultSize(1080, 1080)    //Final image resolution will be less than 1080 x 1080(Optional)
-                    .start();
-        });*/
 
 
     }
-
-  /*  @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        //imageView.setImageURI(data.getData());
-        if (resultCode == RESULT_OK) {
-            //Image Uri will not be null for RESULT_OK
-            imageView.setImageURI(data.getData());
-            //save the uri in variable
-            uri = data.getData();
-            //store the image in firebase
-            uploadImage();
-
-        } else if (resultCode == ImagePicker.RESULT_ERROR) {
-            Toast.makeText(this, ImagePicker.Companion.getError(data), Toast.LENGTH_SHORT).show();
-        }
-    }*/
-
-    // define onReume
-    @Override
-    protected void onResume() {
-        super.onResume();
-           //download the image from firebase
-    }
-
-  /*  public void uploadImage() {
-        if (uri != null) {
-            StorageReference riversRef = storageRef.child("images/" + Objects.requireNonNull(uri.getLastPathSegment()));
-            riversRef.putFile(uri);
-        }
-    }
-    //get the image from firebase
-        public void downloadImage() {
-          StorageReference riversRef = storageRef.child("images/" + Objects.requireNonNull(uri.getLastPathSegment()));
-           riversRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-               @Override
-               public void onSuccess(Uri uri) {
-                   // Got the download URL for 'users/me/profile.png'
-                imageView.setImageURI(uri);
-               }
-          }).addOnFailureListener(new OnFailureListener() {
-               @Override
-               public void onFailure(@NonNull Exception exception) {
-                   // Handle any errors
-               }
-          });
-        }*/
-
 
 }

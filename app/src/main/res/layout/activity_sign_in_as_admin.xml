@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/borderseconddesign"
+    android:background="@drawable/border_for_admin"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="238dp"
         android:layout_height="99dp"
-        android:text="Customer Login"
+        android:text="Car Dealer"
         android:textAlignment="center"
         android:textColor="#AC3636"
         android:textColorHint="#201F1F"
@@ -19,16 +19,16 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.077" />
+        app:layout_constraintVertical_bias="0.085" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/emailForAdmin"
         android:layout_width="337dp"
         android:layout_height="81dp"
-        android:background="@drawable/border"
+        android:background="@drawable/border_for_admin"
         android:drawableEnd="@drawable/baseline_account_circle_24"
         android:ems="10"
         android:hint="Email"
@@ -43,10 +43,10 @@
         app:layout_constraintVertical_bias="0.324" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/passwordForAdmin"
         android:layout_width="337dp"
         android:layout_height="81dp"
-        android:background="@drawable/border"
+        android:background="@drawable/border_for_admin"
         android:drawableEnd="@drawable/baseline_lock_person_24"
         android:ems="10"
         android:hint="Password"
@@ -76,18 +76,18 @@
         app:layout_constraintVertical_bias="0.543" />
 
     <Button
-        android:id="@+id/signIn"
+        android:id="@+id/signInAsAdmin"
         android:layout_width="309dp"
         android:layout_height="68dp"
-        android:background="@drawable/btn"
+        android:background="@drawable/btn4"
         android:text="Sign in"
-        android:textColor="#F4E2E2"
+        android:textColor="#100F0F"
         android:textSize="23sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/passwordForAdmin"
         app:layout_constraintVertical_bias="0.213" />
 
     <TextView
@@ -102,19 +102,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.231"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signIn"
+        app:layout_constraintTop_toBottomOf="@+id/signInAsAdmin"
         app:layout_constraintVertical_bias="0.096" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="115dp"
         android:layout_height="108dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/vehicles" />
+        app:srcCompat="@drawable/car" />
 
     <Button
         android:id="@+id/signUpAdmin"
@@ -122,7 +121,7 @@
         android:layout_width="133dp"
         android:layout_height="68dp"
         android:text="Sign up"
-        android:textColor="#E91E63"
+        android:textColor="#009688"
         android:textSize="23sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -133,7 +132,7 @@
         app:layout_constraintVertical_bias="0.73" />
 
     <CheckBox
-        android:id="@+id/remember"
+        android:id="@+id/rememberForAdmin"
         android:layout_width="158dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"

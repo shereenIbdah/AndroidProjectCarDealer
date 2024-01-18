@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignInChoices">
+
+    <Button
+        android:id="@+id/SignAsAdmin"
+        android:layout_width="243dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="348dp"
+        android:background="@drawable/btn"
+        android:text="Sign As Admin"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/SignAsCustomer"
+        android:layout_width="243dp"
+        android:layout_height="73dp"
+        android:background="@drawable/btn"
+        android:text="Sign As Customer"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.404"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SignAsAdmin"
+        app:layout_constraintVertical_bias="0.167" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="594dp"
+        android:layout_height="906dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2"
+        app:srcCompat="@drawable/carcover" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="361dp"
+        android:layout_height="202dp"
+        android:text="Welcome to our car application, your go-to hub for everything automotive!"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="33dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/SignAsAdmin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.66" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

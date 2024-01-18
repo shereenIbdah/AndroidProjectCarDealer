@@ -1,6 +1,5 @@
 package com.example.androidproject;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,12 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.androidproject.databinding.FragmentProfileBinding;
@@ -33,7 +28,7 @@ public class ProfileFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext(), "projectDataBase1", null, 1);
+        UserDataBase dataBaseHelper = new UserDataBase(getContext(), "projectDataBase1", null, 1);
         String email = SignInActivity.emailForProfile;
         //String email = SignInActivity.emailForProfile;
         // get the user from the data base by the email
@@ -93,10 +88,10 @@ public class ProfileFragment extends Fragment {
                     }
                 }
 
-                if (PhoneNumber.getText().toString().length() > 5 && PhoneNumber.getText().toString().matches("[0-9]+")) {
+                if (PhoneNumber.getText().toString().length() > 8 && PhoneNumber.getText().toString().matches("[0-9]+")) {
                     dataBaseHelper.updateUserPhoneNumber(email, PhoneNumber.getText().toString());
                 } else {
-                    PhoneNumberError[0] = "Phone Number must be more than 5 numbers";
+                    PhoneNumberError[0] = "Phone Number must be more than 9 numbers";
                     PhoneNumber.setError(PhoneNumberError[0]);
                 }
 
@@ -182,7 +177,7 @@ public class ProfileFragment extends Fragment {
         areaCodes.put("USA", "00963");
         areaCodes.put("Egypt", "00964");
         //get the user from the data base by the email
-        DataBaseHelper dataBaseHelper = new DataBaseHelper(getContext(), "projectDataBase1", null, 1);
+        UserDataBase dataBaseHelper = new UserDataBase(getContext(), "projectDataBase1", null, 1);
         String email = SignInActivity.emailForProfile;
         Cursor cursor = dataBaseHelper.getUser(email);
         cursor.moveToFirst();

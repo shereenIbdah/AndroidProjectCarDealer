@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements detailsOfSelected
                 carsDataBase.insertCar(car.getId(), car.getType(), car.getFactoryName(), car.getModel(), String.valueOf(car.getPrice()), car.getName(), String.valueOf(car.isOffers()));
             }
         }
-        Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+        Intent intent = new Intent(MainActivity.this, SignInChoices.class);
         startActivity(intent);
         finish();
     }

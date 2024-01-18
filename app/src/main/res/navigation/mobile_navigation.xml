@@ -23,30 +23,30 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/nav_call"
-        android:name="com.example.androidproject.ui.call.CallFragment"
+        android:name="com.example.androidproject.CallFragment"
         android:label="@string/menu_call_or_find_us"
         tools:layout="@layout/fragment_callus" />
     <fragment
         android:id="@+id/nav_out"
-        android:name="com.example.androidproject.ui.logout.logoutFragment"
+        android:name="com.example.androidproject.ui.logout1.logoutFragment"
         android:label="@string/menu_logout"
         tools:layout="@layout/fragment_logout" />
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.androidproject.ui.home.HomeFragment"
+        android:name="com.example.androidproject.ui.home1.Home1Fragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.androidproject.GalleryFragment"
+        android:name="com.example.androidproject.CarMenuFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_carmenu" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.androidproject.SlideshowFragment"
+        android:name="com.example.androidproject.ReserveFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_reservedcars" />
 
 </navigation>

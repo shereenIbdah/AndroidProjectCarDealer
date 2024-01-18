@@ -15,14 +15,15 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.androidproject.databinding.FragmentGalleryBinding;
 
-import java.util.ArrayList;
+import com.example.androidproject.databinding.FragmentCallusBinding;
+import com.example.androidproject.databinding.FragmentCarmenuBinding;
+
 import java.util.List;
 
-public class GalleryFragment extends Fragment {
+public class CarMenuFragment extends Fragment {
 
-    private FragmentGalleryBinding binding;
+    private FragmentCarmenuBinding binding;
     private List<Car> cars;
     private MyAdapter adapter;
 
@@ -36,7 +37,7 @@ public class GalleryFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentCarmenuBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         RecyclerView recyclerView = root.findViewById(R.id.recyclerview);
         cars = MainActivity.cars_menu;

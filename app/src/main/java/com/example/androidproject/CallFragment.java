@@ -1,4 +1,4 @@
-package com.example.androidproject.ui.call;
+package com.example.androidproject;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;

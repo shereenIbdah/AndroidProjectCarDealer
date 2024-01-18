@@ -8,46 +8,36 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class SignInActivity extends AppCompatActivity {
-
-
-    SharedPrefManager sharedPrefManager;
-    public static String emailForProfile = "";
+public class SignInAsAdmin extends AppCompatActivity {
+    SharedPrefManagerAdmin sharedPrefManagerAdmin;
+    public static  String adminEmail = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
-
-        EditText email = findViewById(R.id.email);
-        EditText password = findViewById(R.id.password);
-        //empty the data base
-        Button signIn = findViewById(R.id.signIn);
-        Button signUp = findViewById(R.id.signUpAdmin);
-        CheckBox rememberMe = findViewById(R.id.remember);
-        sharedPrefManager = SharedPrefManager.getInstance(this);
-        UserDataBase dataBaseHelper = new UserDataBase(SignInActivity.this,"projectDataBase1",null,1);
+        setContentView(R.layout.activity_sign_in_as_admin);
+        Button signAsAdmin = findViewById(R.id.signInAsAdmin);
+        Button signUpAsAdmin = findViewById(R.id.signUpAdmin);
+        CheckBox rememberMe = findViewById(R.id.rememberForAdmin);
+        EditText email = findViewById(R.id.emailForAdmin);
+        EditText password = findViewById(R.id.passwordForAdmin);
+        AdminDataBase adminDataBase= new AdminDataBase(SignInAsAdmin.this,"admin",null,1);
+        SharedPrefManagerAdmin sharedPrefManagerAdmin = SharedPrefManagerAdmin.getInstance(this);
         // read the email from the shared preferences
-        email.setText(sharedPrefManager.readString("Email", ""));
-        password.setText(sharedPrefManager.readString("Password", ""));
-         // remove all the data from the data base
-
-
-        signUp.setOnClickListener(v -> {
-            // remove all the data from the data base
-            // go to the sign up page
-            Intent intent = new Intent(SignInActivity.this,SingUpActivity.class);
-            SignInActivity.this.startActivity(intent);
+        signUpAsAdmin.setOnClickListener(v -> {
+            Intent intent = new Intent(SignInAsAdmin.this, SignUpAsAdmin.class);
+            startActivity(intent);
             finish();
-
         });
-
-        signIn.setOnClickListener(v -> {
+        email.setText(sharedPrefManagerAdmin.readString("Email", ""));
+        password.setText(sharedPrefManagerAdmin.readString("Password", ""));
+        signAsAdmin.setOnClickListener(v -> {
 
             // read email and password entered
             String emailString = email.getText().toString();
@@ -72,25 +62,25 @@ public class SignInActivity extends AppCompatActivity {
                 }
                 String hashedPasswordString = hexString.toString();
                 //check if this email in the data base
-                Cursor cursor = dataBaseHelper.getUser(emailString);
+                Cursor cursor = adminDataBase.getAdmin(emailString);
                 if (cursor.getCount() == 0){
                     email.setError("Email not found");
                 }else{
                     cursor.moveToFirst();
                     //check if the password is correct
                     if (hashedPasswordString.equals(cursor.getString(1))){
-                        emailForProfile = emailString;
+                        adminEmail = emailString;
 
                         //if remember me is checked
                         if (rememberMe.isChecked()){
-                            sharedPrefManager.writeString("Email", email.getText().toString());
-                            sharedPrefManager.writeString("Password", password.getText().toString());
-                            Toast.makeText(SignInActivity.this, "Sign In Successfully",
+                            sharedPrefManagerAdmin.writeString("Email", email.getText().toString());
+                            sharedPrefManagerAdmin.writeString("Password", password.getText().toString());
+                            Toast.makeText(SignInAsAdmin.this, "Sign In Successfully",
                                     Toast.LENGTH_SHORT).show();
                         }
-                        Intent intent = new Intent(SignInActivity.this, Home.class);
-                        SignInActivity.this.startActivity(intent);
-                        finish();
+                        //Intent intent = new Intent(SignInAsAdmin.this, Home.class);
+                    //    SignInAsAdmin.this.startActivity(intent);
+                      //  finish();
                         // go to the home page
                     }else{
                         password.setError("Password is incorrect");
@@ -102,5 +92,7 @@ public class SignInActivity extends AppCompatActivity {
             }
 
         });
+
+
     }
 }
