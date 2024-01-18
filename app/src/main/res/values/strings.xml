@@ -9,8 +9,8 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_car">Car Menu</string>
+    <string name="menu_reservedcars">Your Reservations</string>
     <string name="menu_favorites">Your Favorites</string>
     <string name="menu_special_offers">Special Offers</string>
     <string name="menu_profile">Profile</string>
@@ -19,5 +19,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_home_admin">HomeAdmin</string>
+    <string name="menu_admin">Admin</string>
+    <string name="menu_delete_customer">Delete Customer</string>
+    <string name="menu_add_admin">Add Admin</string>
+
+
 </resources>
 

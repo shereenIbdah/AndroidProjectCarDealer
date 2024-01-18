@@ -37,15 +37,15 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_carmenu"
         android:name="com.example.androidproject.CarMenuFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_car"
         tools:layout="@layout/fragment_carmenu" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_reservedcars"
         android:name="com.example.androidproject.ReserveFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_reservedcars"
         tools:layout="@layout/fragment_reservedcars" />
 
 </navigation>

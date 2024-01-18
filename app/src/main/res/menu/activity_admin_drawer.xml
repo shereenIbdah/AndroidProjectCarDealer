@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_admin"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Admin" />
+        <item
+            android:id="@+id/nav_customer"
+            android:icon="@drawable/ic_menu_car"
+            android:title="Delete Customer"/>
+        <item
+            android:id="@+id/nav_addadmin"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Add admin" />
+    </group>
+
+</menu>
