@@ -22,6 +22,8 @@
     <string name="menu_admin">Admin</string>
     <string name="menu_delete_customer">Delete Customer</string>
     <string name="menu_add_admin">Add Admin</string>
+    <string name="menu_view_reservation">View Reservation</string>
+    <string name="menu_logout2">Logout</string>
 
 
 </resources>

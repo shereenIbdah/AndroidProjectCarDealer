@@ -7,19 +7,28 @@
 
     <fragment
         android:id="@+id/nav_admin"
-        android:name="com.example.androidproject.ui.home.HomeFragment"
+        android:name="com.example.androidproject.AdminHomeFragment"
         android:label="@string/menu_admin"
-        tools:layout="@layout/fragment_home2" />
+        tools:layout="@layout/fragment_admin_home" />
 
     <fragment
         android:id="@+id/nav_customer"
-        android:name="com.example.androidproject.ui.gallery.GalleryFragment"
+        android:name="com.example.androidproject.GalleryFragment"
         android:label="@string/menu_delete_customer"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
+        android:id="@+id/nav_view_reservation"
+        android:name="com.example.androidproject.ViewAllReservationFragment"
+        android:label="@string/menu_view_reservation"
+        tools:layout="@layout/fragment_view_all_reservation" />
+    <fragment
         android:id="@+id/nav_addadmin"
-        android:name="com.example.androidproject.ui.slideshow.SlideshowFragment"
+        android:name="com.example.androidproject.SlideshowFragment"
         android:label="@string/menu_add_admin"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_out2"
+        android:label="@string/menu_logout2"
+        tools:layout="@layout/fragment_logout" />
 </navigation>

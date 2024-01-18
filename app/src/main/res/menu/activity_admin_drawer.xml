@@ -6,16 +6,24 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_admin"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/baseline_account_circle_24"
             android:title="Admin" />
         <item
             android:id="@+id/nav_customer"
-            android:icon="@drawable/ic_menu_car"
+            android:icon="@drawable/baseline_delete_forever_24"
             android:title="Delete Customer"/>
         <item
             android:id="@+id/nav_addadmin"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/baseline_group_add_24"
             android:title="Add admin" />
+        <item
+            android:id="@+id/nav_view_reservation"
+            android:icon="@drawable/baseline_star_24"
+            android:title="View Reservation" />
+        <item
+            android:id="@+id/nav_out2"
+            android:icon="@drawable/baseline_logout_24"
+            android:title="Logout" />
     </group>
 
 </menu>
