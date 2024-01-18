@@ -2,7 +2,6 @@ package com.example.androidproject;
 
 import androidx.lifecycle.ViewModelProvider;
 
-import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,13 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.androidproject.databinding.FragmentFavBinding;
 import com.example.androidproject.databinding.FragmentOffersBinding;
-import com.example.androidproject.ui.offers.OffersViewModel;
+import com.example.androidproject.ui1.offers.OffersViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class OffersFragment extends Fragment {

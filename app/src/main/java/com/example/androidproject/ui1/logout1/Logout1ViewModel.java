@@ -1,16 +1,16 @@
-package com.example.androidproject.ui.carmenu;
+package com.example.androidproject.ui1.logout1;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class CarMenuViewModel extends ViewModel {
+public class Logout1ViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public CarMenuViewModel() {
+    public Logout1ViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("This is slideshow fragment");
     }
 
     public LiveData<String> getText() {

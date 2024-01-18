@@ -1,16 +1,16 @@
-package com.example.androidproject.ui.logout1;
+package com.example.androidproject.ui1.call;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class Logout1ViewModel extends ViewModel {
+public class CallViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public Logout1ViewModel() {
+    public CallViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("This is gallery fragment");
     }
 
     public LiveData<String> getText() {

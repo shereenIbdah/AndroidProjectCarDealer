@@ -1,4 +1,4 @@
-package com.example.androidproject.ui.favorites;
+package com.example.androidproject.ui1.favorites;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

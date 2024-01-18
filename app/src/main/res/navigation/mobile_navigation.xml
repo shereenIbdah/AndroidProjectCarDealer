@@ -28,12 +28,11 @@
         tools:layout="@layout/fragment_callus" />
     <fragment
         android:id="@+id/nav_out"
-        android:name="com.example.androidproject.ui.logout1.logoutFragment"
         android:label="@string/menu_logout"
         tools:layout="@layout/fragment_logout" />
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.androidproject.ui.home1.Home1Fragment"
+        android:name="com.example.androidproject.ui1.home1.Home1Fragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 

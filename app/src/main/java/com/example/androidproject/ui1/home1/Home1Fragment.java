@@ -1,32 +1,28 @@
-package com.example.androidproject.ui.logout;
+package com.example.androidproject.ui1.home1;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.androidproject.databinding.FragmentSlideshowBinding;
-import com.example.androidproject.ui.slideshow.SlideshowViewModel;
+import com.example.androidproject.databinding.FragmentHomeBinding;
 
-public class logoutFragment extends Fragment {
+public class Home1Fragment extends Fragment {
 
-    private FragmentSlideshowBinding binding;
+    private FragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        Home1ViewModel homeViewModel = new ViewModelProvider(this).get(Home1ViewModel.class);
 
-
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-
         return root;
-
     }
 
     @Override

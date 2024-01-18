@@ -78,9 +78,9 @@ public class SignInAsAdmin extends AppCompatActivity {
                             Toast.makeText(SignInAsAdmin.this, "Sign In Successfully",
                                     Toast.LENGTH_SHORT).show();
                         }
-                        //Intent intent = new Intent(SignInAsAdmin.this, Home.class);
-                    //    SignInAsAdmin.this.startActivity(intent);
-                      //  finish();
+                        Intent intent = new Intent(SignInAsAdmin.this, HomeAdmin.class);
+                        SignInAsAdmin.this.startActivity(intent);
+                        finish();
                         // go to the home page
                     }else{
                         password.setError("Password is incorrect");
