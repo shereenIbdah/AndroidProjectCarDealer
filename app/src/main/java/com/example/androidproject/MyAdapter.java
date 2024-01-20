@@ -1,12 +1,15 @@
 package com.example.androidproject;
 
 import android.content.Context;
+import android.provider.DocumentsContract;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -18,18 +21,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
     private List<Car> cars;
 
     private List<Car> filteredCars;
+    FragmentManager fragmentManager;
+    View root;
 
-    public MyAdapter(Context context, List<Car> cars) {
+    public MyAdapter(Context context, List<Car> cars, FragmentManager f, View root) {
         this.context = context;
         this.cars = cars;
         this.filteredCars = new ArrayList<>(cars);
+        this.fragmentManager = f;
+        this.root = root;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Use the context provided in the constructor
-        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.car_view, parent, false));
+        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.car_view, parent, false), fragmentManager, root);
     }
 
 

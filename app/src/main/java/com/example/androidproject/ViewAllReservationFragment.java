@@ -49,6 +49,7 @@ public class ViewAllReservationFragment extends Fragment {
                     information.moveToNext();
 
                     String customerName = "<font color='#FF0000'>Customer name: </font>" + getAllUsers.getString(2) + "  " + getAllUsers.getString(3) + "<br>";
+                    String emil = "<font color='#FF0000'>Customer email: </font>" + getAllUsers.getString(0) + "<br>";
                     String carInfo = "<font color='#000000'>Car factoryname: </font>" + information.getString(2) + "\t" +
                             "<font color='#000000'>Car name: </font>" + information.getString(5) + "\t" +
                             "<font color='#000000'>Car type: </font>" + information.getString(1) + "\t" +
@@ -59,7 +60,7 @@ public class ViewAllReservationFragment extends Fragment {
                             "<font color='#000000'>Car date: </font>" + getAllReservations.getString(2) + "<br>";
 
                     // Combine customerName and carInfo
-                    String combinedText = customerName + carInfo;
+                    String combinedText = customerName +emil+ carInfo;
 
                     // Set the formatted HTML text to the textView
                     textView.setText(Html.fromHtml(combinedText, Html.FROM_HTML_MODE_LEGACY));

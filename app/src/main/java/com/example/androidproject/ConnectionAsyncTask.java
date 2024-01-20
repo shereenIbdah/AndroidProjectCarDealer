@@ -3,6 +3,7 @@ package com.example.androidproject;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Pair;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -46,6 +47,8 @@ public class ConnectionAsyncTask extends AsyncTask<String, Void, Pair<String, Li
         } else {
             // Show error message if data loading failed
             ((MainActivity) activity).setButtonText("Connect");
+            Toast.makeText(activity, "The all cars type does not load", Toast.LENGTH_LONG).show();
+
         }
     }
 }

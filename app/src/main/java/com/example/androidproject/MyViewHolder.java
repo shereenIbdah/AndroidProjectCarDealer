@@ -1,19 +1,23 @@
 package com.example.androidproject;
 
 import android.app.AlertDialog;
-import android.provider.ContactsContract;
-import android.database.Cursor;
+import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.androidproject.databinding.FragmentCarmenuBinding;
 
 import java.sql.Time;
 import java.util.Date;
@@ -26,7 +30,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
 
     ToggleButton favorite;
 
-    public MyViewHolder(@NonNull View carView) {
+    public MyViewHolder(@NonNull View carView, FragmentManager fragmentManager, View root) {
         super(carView);
         imageView = carView.findViewById(R.id.imageview);
         factorynameView = carView.findViewById(R.id.factoryname);
@@ -154,11 +158,25 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
 
         });
 
-
         detailsOfSelectedCarFragment detailOfSelectedCarFragment = new detailsOfSelectedCarFragment();
-        factorynameView.setOnClickListener(v -> {
 
+        factorynameView.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("carId", id.getText().toString());
+            detailOfSelectedCarFragment.setArguments(bundle);
+            View recyclerView2 = carView.findViewById(R.id.recyclerview);
+            // if (recyclerView2 != null) {
+            // recyclerView2.setVisibility(View.INVISIBLE);
+            // } else {
+            RecyclerView recyclerView = root.findViewById(R.id.recyclerview);
+            recyclerView.setVisibility(View.INVISIBLE);
+            // RelativeLayout relativeLayout = carView.findViewById(R.id.relativeLayout);
+            // relativeLayout.setVisibility(View.INVISIBLE);
+            // }
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.root_layout_, detailOfSelectedCarFragment);
+            fragmentTransaction.commit();
             Toast.makeText(carView.getContext(), "You clicked on " + factorynameView.getText(), Toast.LENGTH_SHORT).show();
         });
-    }
-}
+
+    }}
