@@ -46,6 +46,7 @@ public class OffersFragment extends Fragment {
             recyclerView.setAdapter(adapter);
         }
         return root;
+
     }
 
     @Override
