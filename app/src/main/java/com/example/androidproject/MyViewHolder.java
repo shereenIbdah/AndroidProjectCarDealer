@@ -157,6 +157,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
 
         detailsOfSelectedCarFragment detailOfSelectedCarFragment = new detailsOfSelectedCarFragment();
         factorynameView.setOnClickListener(v -> {
+
             Toast.makeText(carView.getContext(), "You clicked on " + factorynameView.getText(), Toast.LENGTH_SHORT).show();
         });
     }

@@ -28,10 +28,6 @@ public class ReserveFragment extends Fragment {
 
     private void refreshReservationData() {
         secondLinearLayout.removeAllViews(); // Clear existing views
-
-        // Correct the table name to match your database helper
-        //  CarsDataBase reserveDataBase = new CarsDataBase(getContext(), "Reservecar", null, 1);
-        // Cursor getAllReservations = reserveDataBase.getAllCars();
         String email = SignInActivity.emailForProfile;
         CarsDataBase carsDataBase = new CarsDataBase(getContext(), "CarsDataBase", null, 1);
         ReservationDataBase reserveDataBase = new ReservationDataBase(getContext(), "reservation1", null, 1);

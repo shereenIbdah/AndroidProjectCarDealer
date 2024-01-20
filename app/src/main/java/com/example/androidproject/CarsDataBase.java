@@ -39,18 +39,14 @@ public class CarsDataBase extends SQLiteOpenHelper {
     public void insertCar(String id, String type, String factoryname, String model, String price, String name ,String offer,String fuel) {
         Timestamp time = new Timestamp(System.currentTimeMillis());
         Date date = new Date(System.currentTimeMillis());
-
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-
         String formattedDate = dateFormat.format(date);
         String formattedTime = timeFormat.format(time);
-
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("id", id);
         contentValues.put("type", type);
-
         contentValues.put("factoryname", factoryname);
         contentValues.put("model", model);
         contentValues.put("price", price);

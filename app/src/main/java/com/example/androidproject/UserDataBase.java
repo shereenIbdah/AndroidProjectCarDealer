@@ -20,11 +20,7 @@ public class UserDataBase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
-
     }
-
-
     //query to insert the email and password
     public void insertUser(String email,String password,String FirstName, String LastName , String PhoneNumber, String Gender , String Country , String City) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();

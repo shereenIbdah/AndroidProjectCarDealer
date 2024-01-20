@@ -29,8 +29,6 @@ public class CarMenuFragment extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true); // Indicate that this fragment has an options menu
     }
@@ -42,11 +40,13 @@ public class CarMenuFragment extends Fragment {
         RecyclerView recyclerView = root.findViewById(R.id.recyclerview);
         cars = MainActivity.cars_menu;
         adapter = new MyAdapter(getContext(), cars);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager( linearLayoutManager);
         recyclerView.setAdapter(adapter);
 
         return root;
     }
+
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
