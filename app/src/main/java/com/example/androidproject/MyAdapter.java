@@ -21,14 +21,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
     private List<Car> cars;
 
     private List<Car> filteredCars;
-    FragmentManager fragmentManager;
+    FragmentManager fragmentManager_1;
     View root;
 
     public MyAdapter(Context context, List<Car> cars, FragmentManager f, View root) {
         this.context = context;
         this.cars = cars;
         this.filteredCars = new ArrayList<>(cars);
-        this.fragmentManager = f;
+        this.fragmentManager_1 = f;
         this.root = root;
     }
 
@@ -36,7 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> implements Fil
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Use the context provided in the constructor
-        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.car_view, parent, false), fragmentManager, root);
+        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.car_view, parent, false), fragmentManager_1, root);
     }
 
 

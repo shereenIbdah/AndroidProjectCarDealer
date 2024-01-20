@@ -2,9 +2,11 @@ package com.example.androidproject;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -13,16 +15,21 @@ public class Adapter_offers extends RecyclerView.Adapter<ViewHolder_offers> {
 
     private Context context;
     private List<Car> car_offers;
-    public Adapter_offers(Context context, List<Car> cars) {
+    View root;
+
+    private FragmentManager fragmentManager_2;
+    public Adapter_offers(Context context, List<Car> cars, FragmentManager fragmentManager, View root) {
         this.context = context;
         this.car_offers = cars;
+        this.fragmentManager_2 = fragmentManager;
+        this.root = root;
     }
 
     @NonNull
     @Override
     public ViewHolder_offers onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Use the context provided in the constructor
-        return new ViewHolder_offers(LayoutInflater.from(context).inflate(R.layout.car_view_offers, parent, false));
+        return new ViewHolder_offers(LayoutInflater.from(context).inflate(R.layout.car_view_offers, parent, false), fragmentManager_2, root);
     }
     @Override
     public void onBindViewHolder(@NonNull ViewHolder_offers holder, int position) {

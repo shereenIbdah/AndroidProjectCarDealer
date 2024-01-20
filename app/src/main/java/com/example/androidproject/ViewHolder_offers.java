@@ -1,8 +1,9 @@
 package com.example.androidproject;
 
 import android.app.AlertDialog;
-import android.database.Cursor;
+import android.os.Bundle;
 import android.text.Html;
+import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.sql.Time;
@@ -26,7 +29,7 @@ public class ViewHolder_offers extends RecyclerView.ViewHolder {
     TextView id_offers;
     ToggleButton favorite_offers, reserve_offers;
 
-    public ViewHolder_offers(android.view.View carView) {
+    public ViewHolder_offers(View carView, FragmentManager fragmentManager_2, View root_2) {
         super(carView);
         imageView_offers = carView.findViewById(R.id.imageview_offers);
         factorynameView_offers = carView.findViewById(R.id.factoryname_offers);
@@ -143,8 +146,22 @@ public class ViewHolder_offers extends RecyclerView.ViewHolder {
                 alertDialog.show();
             }
         }
+
+
     });
+        detailsOfSelectedCarFragment detailOfSelectedCarFragment = new detailsOfSelectedCarFragment();
 
+        factorynameView_offers.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("carId", id_offers.getText().toString());
+            detailOfSelectedCarFragment.setArguments(bundle);
+            RecyclerView recyclerView = root_2.findViewById(R.id.recyclerview_offers);
+            recyclerView.setVisibility(View.INVISIBLE);
+            FragmentTransaction fragmentTransaction = fragmentManager_2.beginTransaction();
+            fragmentTransaction.replace(R.id.root_layout_offers, detailOfSelectedCarFragment);
+            fragmentTransaction.commit();
+            Toast.makeText(carView.getContext(), "You clicked on " + factorynameView_offers.getText(), Toast.LENGTH_SHORT).show();
+        });
 
-}
+    }
 }

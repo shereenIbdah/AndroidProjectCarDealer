@@ -1,5 +1,6 @@
 package com.example.androidproject;
 
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -41,7 +42,8 @@ public class OffersFragment extends Fragment {
         if (offerscars.size() == 0) {
 
         } else {
-            adapter = new Adapter_offers(getContext(), offerscars);
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            adapter = new Adapter_offers(getContext(), offerscars, fragmentManager,root);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             recyclerView.setAdapter(adapter);
         }

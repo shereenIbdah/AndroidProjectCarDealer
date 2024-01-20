@@ -50,7 +50,7 @@ public class detailsOfSelectedCarFragment extends Fragment {
         return fragment;
     }
 
- private String  carId;
+    private String carId;
 
 
     @Override
@@ -58,20 +58,20 @@ public class detailsOfSelectedCarFragment extends Fragment {
         super.onCreate(savedInstanceState);
         Bundle args = getArguments();
         if (args != null) {
-           carId = args.getString("carId");
+            carId = args.getString("carId");
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
 
-
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_details_of_selected_car, container, false);
         CarsDataBase carsDataBase = new CarsDataBase(getContext(), "CarsDataBase", null, 1);
+        CarsDataBase offersDataBase = new CarsDataBase(getContext(), "offersDataBase", null, 1);
         Cursor information = carsDataBase.getCar(carId);
-        System.out.println("yourData = " +carId);
+        Cursor information1 = offersDataBase.getCar(carId);
 
         // Check if the cursor has data
         if (information.moveToFirst()) {
@@ -90,20 +90,31 @@ public class detailsOfSelectedCarFragment extends Fragment {
             price.setText(information.getString(4));
             model.setText(information.getString(3));
             fuel.setText(information.getString(9));
-        } else {
-            // Handle case where cursor is empty
-            // For example, show an error message or log a message
-            Log.e("DetailsFragment", "Cursor is empty");
-        }
+        } else if (information1.moveToFirst()) {
+            // Find the TextView by its ID
+            TextView factory = root.findViewById(R.id.factoryNameTextView);
+            TextView name = root.findViewById(R.id.nameTextView);
+            TextView type = root.findViewById(R.id.typeTextView);
+            TextView price = root.findViewById(R.id.priceTextView);
+            TextView model = root.findViewById(R.id.modelTextView);
+            TextView fuel = root.findViewById(R.id.fuelTextView);
 
+            // Access cursor data
+            factory.setText(information1.getString(2));
+            name.setText(information1.getString(5));
+            type.setText(information1.getString(1));
+            price.setText(information1.getString(4));
+            model.setText(information1.getString(3));
+            fuel.setText(information1.getString(9));
+        } else {
+            Log.d("TAG", "onCreateView: " + "no data");
+        }
         // Close the cursor when done
         if (information != null && !information.isClosed()) {
             information.close();
         }
 
         return root;
+
     }
-
-
-
 }
