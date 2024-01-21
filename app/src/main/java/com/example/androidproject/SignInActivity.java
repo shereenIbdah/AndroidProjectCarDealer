@@ -1,5 +1,6 @@
 package com.example.androidproject;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -30,18 +31,34 @@ public class SignInActivity extends AppCompatActivity {
         Button signIn = findViewById(R.id.signIn);
         Button signUp = findViewById(R.id.signUpAdmin);
         CheckBox rememberMe = findViewById(R.id.remember);
+        Button forgetPassword = findViewById(R.id.forgetPassword);
         sharedPrefManager = SharedPrefManager.getInstance(this);
-        UserDataBase dataBaseHelper = new UserDataBase(SignInActivity.this,"projectDataBase1",null,1);
+        UserDataBase dataBaseHelper = new UserDataBase(SignInActivity.this, "projectDataBase1", null, 1);
         // read the email from the shared preferences
         email.setText(sharedPrefManager.readString("Email", ""));
         password.setText(sharedPrefManager.readString("Password", ""));
         Button back = findViewById(R.id.back);
         back.setOnClickListener(v -> {
-            Intent intent = new Intent(SignInActivity.this,SignInChoices.class);
+            Intent intent = new Intent(SignInActivity.this, SignInChoices.class);
             SignInActivity.this.startActivity(intent);
             finish();
         });
-         // remove all the data from the data base
+        // remove all the data from the data base
+        forgetPassword.setOnClickListener(v -> {
+          Toast.makeText(SignInActivity.this, "Please contact the admin",
+                    Toast.LENGTH_SHORT).show();
+            AlertDialog.Builder builder = new AlertDialog.Builder(SignInActivity.this);
+            String message = "Please contact the admin to reset your password";
+            builder.setMessage(message);
+            builder.setIcon(R.drawable.baseline_security_update_warning_24);
+            builder.setTitle("Forget Password");
+            builder.setPositiveButton("OK", (dialog, which) -> {
+                dialog.dismiss();
+            });
+            builder.show();
+
+        });
+
 
 
         signUp.setOnClickListener(v -> {

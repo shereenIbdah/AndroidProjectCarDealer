@@ -60,20 +60,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.44" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="186dp"
-        android:layout_height="52dp"
-        android:text="Forget password?"
-        android:textColor="#090909"
+
+    <Button
+        android:id="@+id/forgetPassword"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="217dp"
+        android:layout_height="50dp"
+        android:text="Forget Password?"
+        android:textColor="#E91E63"
         android:textSize="18sp"
-        android:textStyle="normal"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.543" />
+        app:layout_constraintVertical_bias="0.545" />
 
     <Button
         android:id="@+id/signIn"
@@ -141,7 +143,7 @@
         android:textColor="#050505"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/forgetPassword"
         app:layout_constraintHorizontal_bias="0.365"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

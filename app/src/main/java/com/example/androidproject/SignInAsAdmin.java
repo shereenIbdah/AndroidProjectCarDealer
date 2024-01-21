@@ -1,5 +1,6 @@
 package com.example.androidproject;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -27,9 +28,25 @@ public class SignInAsAdmin extends AppCompatActivity {
         CheckBox rememberMe = findViewById(R.id.rememberForAdmin);
         EditText email = findViewById(R.id.emailForAdmin);
         EditText password = findViewById(R.id.passwordForAdmin);
+        Button forgetPassword = findViewById(R.id.forgetPassword2);
         AdminDataBase adminDataBase= new AdminDataBase(SignInAsAdmin.this,"admin",null,1);
         SharedPrefManagerAdmin sharedPrefManagerAdmin = SharedPrefManagerAdmin.getInstance(this);
         // read the email from the shared preferences
+        forgetPassword.setOnClickListener(v -> {
+            Toast.makeText(SignInAsAdmin.this, "Please contact the admin",
+                    Toast.LENGTH_SHORT).show();
+          AlertDialog.Builder builder = new AlertDialog.Builder(SignInAsAdmin.this);
+            String message = "Please contact the admin to reset your password";
+            builder.setMessage(message);
+            builder.setIcon(R.drawable.baseline_security_update_warning_24);
+            builder.setTitle("Forget Password");
+            builder.setPositiveButton("OK", (dialog, which) -> {
+                dialog.dismiss();
+            });
+            builder.show();
+
+
+        });
         signUpAsAdmin.setOnClickListener(v -> {
             Intent intent = new Intent(SignInAsAdmin.this, SignUpAsAdmin.class);
             startActivity(intent);

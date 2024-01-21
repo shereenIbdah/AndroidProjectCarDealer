@@ -88,6 +88,7 @@ public class detailsOfSelectedCarFragment extends Fragment {
         ratingTextView.setText(ratingDataBase.getRating(carId) + "");
         EditText comment = root.findViewById(R.id.commentEditText);
         //when click enter the comment will be added to the data base
+        //
         comment.setOnKeyListener((v, keyCode, event) -> {
             if (keyCode == event.KEYCODE_ENTER) {
                 if (ratingDataBase.isExist(email, carId)) {

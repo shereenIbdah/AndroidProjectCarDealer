@@ -221,7 +221,7 @@
                 android:textSize="30dp"
                 android:textStyle="bold" />
 
-            <!-- Display the Fuel dynamically -->
+            <!-- Display the Fuel dynamically ss -->
             <TextView
                 android:id="@+id/averageRatingTextView"
                 android:layout_width="match_parent"
