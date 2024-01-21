@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity  {
         connect = findViewById(R.id.connect);
         connect.setOnClickListener(v -> {
             ConnectionAsyncTask connectionAsyncTask = new ConnectionAsyncTask(MainActivity.this);
-            connectionAsyncTask.execute("https://mpd65d0c0dccee22ea44.free.beeceptor.com/data");
+            connectionAsyncTask.execute("https://mpf340e07bcb9e7cdccc.free.beeceptor.com/data");
         });
     }
 
