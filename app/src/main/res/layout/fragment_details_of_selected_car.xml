@@ -232,10 +232,31 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="#000000"
                 android:textSize="20dp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Review"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:textColor="#FF777999"
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
-
-
-
+            <!-- Display the Fuel dynamically -->
+            <EditText
+                android:id="@+id/commentEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:hint="Review Value"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:textColor="#000000"
+                android:textSize="20dp" />
             <!-- Add more details as needed -->
 
         </LinearLayout>

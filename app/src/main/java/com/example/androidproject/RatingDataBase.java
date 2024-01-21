@@ -30,9 +30,9 @@ public class RatingDataBase extends UserDataBase {
         }
         return true;
     }
-    public void updateRate(String email , String carId , float rating , String comment){
+    public void updateRate(String email , String carId , float rating ){
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        sqLiteDatabase.execSQL("update rate set rating = '"+rating+"' , comment = '"+comment+"' where email = '"+email+"' and carId = '"+carId+"'");
+        sqLiteDatabase.execSQL("update rate set rating = '"+rating+"' where email = '"+email+"' and carId = '"+carId+"'");
     }
     // return the rating of the car
     public float getRating(String carId){
@@ -61,6 +61,21 @@ public class RatingDataBase extends UserDataBase {
         }
         cursor.moveToNext();
         return cursor.getFloat(2);
+    }
+  // update the comment for user on car
+    public void updateComment(String email , String carId , String comment){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        sqLiteDatabase.execSQL("update rate set comment = '"+comment+"' where email = '"+email+"' and carId = '"+carId+"'");
+    }
+    // get the comment of the user on the car
+    public String getComment(String email , String carId){
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from rate where email = '"+email+"' and carId = '"+carId+"'" , null);
+        if(cursor.getCount() == 0){
+            return "";
+        }
+        cursor.moveToNext();
+        return cursor.getString(3);
     }
 
 }

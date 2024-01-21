@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.SeekBar;
@@ -85,6 +86,24 @@ public class detailsOfSelectedCarFragment extends Fragment {
         TextView ratingTextView = root.findViewById(R.id.averageRatingTextView);
         String email = emailForProfile;
         ratingTextView.setText(ratingDataBase.getRating(carId) + "");
+        EditText comment = root.findViewById(R.id.commentEditText);
+        //when click enter the comment will be added to the data base
+        comment.setOnKeyListener((v, keyCode, event) -> {
+            if (keyCode == event.KEYCODE_ENTER) {
+                if (ratingDataBase.isExist(email, carId)) {
+                    ratingDataBase.updateComment(email, carId, comment.getText().toString());
+                    Toast.makeText(getContext(), "Comment updated", Toast.LENGTH_SHORT).show();
+                    comment.setText("");
+                } else {
+                    ratingDataBase.addRate(email, carId, ratingBar.getRating(), comment.getText().toString());
+                    Toast.makeText(getContext(), "Thank you for comment in this car", Toast.LENGTH_SHORT).show();
+                    comment.setText("");
+
+                }
+                return true;
+            }
+            return false;
+        });
 
         if (ratingDataBase.isExist(email, carId)) {
             ratingBar.setRating(ratingDataBase.getRating2(email, carId));
@@ -97,13 +116,13 @@ public class detailsOfSelectedCarFragment extends Fragment {
                 if(fromUser) {
                     int ratingValue = (int) (rating * 20);  // Convert rating to your scale (1 star = 20, 2 stars = 40, etc.)
                     if (ratingDataBase.isExist(email, carId)) {
-                        ratingDataBase.updateRate(email, carId, rating, "");
+                        ratingDataBase.updateRate(email, carId, rating);
                         Toast.makeText(getContext(), "You have already rated this car\n Rate updated", Toast.LENGTH_SHORT).show();
 
 
                     }
                     else {
-                        ratingDataBase.addRate(email, carId, rating, "");
+                        ratingDataBase.addRate(email, carId, rating,comment.getText().toString());
                         Toast.makeText(getContext(), "Thank you for rating this car", Toast.LENGTH_SHORT).show();
                     }
 
