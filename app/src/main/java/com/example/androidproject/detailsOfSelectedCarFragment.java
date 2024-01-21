@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -72,6 +73,7 @@ public class detailsOfSelectedCarFragment extends Fragment {
         CarsDataBase offersDataBase = new CarsDataBase(getContext(), "offersDataBase", null, 1);
         Cursor information = carsDataBase.getCar(carId);
         Cursor information1 = offersDataBase.getCar(carId);
+        ImageView imageView = root.findViewById(R.id.imageView10);
 
         // Check if the cursor has data
         if (information.moveToFirst()) {
@@ -90,7 +92,56 @@ public class detailsOfSelectedCarFragment extends Fragment {
             price.setText(information.getString(4));
             model.setText(information.getString(3));
             fuel.setText(information.getString(9));
-        } else if (information1.moveToFirst()) {
+            // based on the name set the image
+            // for each position set a different image
+            switch (information.getString(2)) {
+                case "Ford":
+                    if (information.getString(5).equals("Fiesta SE"))
+                        imageView.setImageResource(R.drawable.ford2);
+                    else if (information.getString(5).equals("Mustang EcoBoost"))
+                        imageView.setImageResource(R.drawable.ford1);
+                    else
+                        imageView.setImageResource(R.drawable.ford3);
+                    break;
+                case "Dodge":
+                    imageView.setImageResource(R.drawable.dodge);
+                    break;
+                case "Jeep":
+                    if (information.getString(5).equals("Grand Cherokee"))
+                        imageView.setImageResource(R.drawable.jeep3);
+                    else if (information.getString(5).equals("Wrangler Sport"))
+                        imageView.setImageResource(R.drawable.jeep4);
+                    else
+                        imageView.setImageResource(R.drawable.jeep3);
+                    break;
+                case "Chevrolet":
+                    imageView.setImageResource(R.drawable.chevrolet);
+                    break;
+                case "Toyota":
+                    imageView.setImageResource(R.drawable.toyota);
+                    break;
+                case "Honda":
+                    imageView.setImageResource(R.drawable.honda3);
+                    break;
+                case "Tesla":
+                    if (information.getString(5).equals("Model 3 Long Range"))
+                        imageView.setImageResource(R.drawable.tesla5);
+                    else if (information.getString(5).equals("Model S Plaid"))
+                        imageView.setImageResource(R.drawable.tesla2);
+                    else if (information.getString(5).equals("Model Y Performance"))
+                        imageView.setImageResource(R.drawable.tesla3);
+                    else
+                        imageView.setImageResource(R.drawable.tesla4);
+                    break;
+                case "Lamborghini":
+                    imageView.setImageResource(R.drawable.lamborghini1);
+                    break;
+                default:
+                  imageView.setImageResource(R.drawable.jeep5);
+                    break;
+            }
+        }
+        else if (information1.moveToFirst()) {
             // Find the TextView by its ID
             TextView factory = root.findViewById(R.id.factoryNameTextView);
             TextView name = root.findViewById(R.id.nameTextView);
@@ -106,6 +157,52 @@ public class detailsOfSelectedCarFragment extends Fragment {
             price.setText(information1.getString(4));
             model.setText(information1.getString(3));
             fuel.setText(information1.getString(9));
+            switch (information1.getString(2)) {
+                case "Ford":
+                    if (information1.getString(5).equals("Fiesta SE"))
+                        imageView.setImageResource(R.drawable.ford2);
+                    else if (information1.getString(5).equals("Mustang EcoBoost"))
+                        imageView.setImageResource(R.drawable.ford1);
+                    else
+                        imageView.setImageResource(R.drawable.ford3);
+                    break;
+                case "Dodge":
+                    imageView.setImageResource(R.drawable.dodge);
+                    break;
+                case "Jeep":
+                    if (information1.getString(5).equals("Grand Cherokee"))
+                        imageView.setImageResource(R.drawable.jeep3);
+                    else if (information1.getString(5).equals("Wrangler Sport"))
+                        imageView.setImageResource(R.drawable.jeep4);
+                    else
+                        imageView.setImageResource(R.drawable.jeep3);
+                    break;
+                case "Chevrolet":
+                    imageView.setImageResource(R.drawable.chevrolet);
+                    break;
+                case "Toyota":
+                    imageView.setImageResource(R.drawable.toyota);
+                    break;
+                case "Honda":
+                    imageView.setImageResource(R.drawable.honda3);
+                    break;
+                case "Tesla":
+                    if (information1.getString(5).equals("Model 3 Long Range"))
+                        imageView.setImageResource(R.drawable.tesla5);
+                    else if (information1.getString(5).equals("Model S Plaid"))
+                        imageView.setImageResource(R.drawable.tesla2);
+                    else if (information1.getString(5).equals("Model Y Performance"))
+                        imageView.setImageResource(R.drawable.tesla3);
+                    else
+                        imageView.setImageResource(R.drawable.tesla4);
+                    break;
+                case "Lamborghini":
+                    imageView.setImageResource(R.drawable.lamborghini1);
+                    break;
+                default:
+                    imageView.setImageResource(R.drawable.jeep5);
+                    break;
+            }
         } else {
             Log.d("TAG", "onCreateView: " + "no data");
         }
