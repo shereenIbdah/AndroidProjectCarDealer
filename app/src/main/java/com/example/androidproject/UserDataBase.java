@@ -14,7 +14,7 @@ public class UserDataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         // create data base to store the email and password
-       sqLiteDatabase.execSQL("Create table user (email text primary key , password text, FirstName text , LastName text , PhoneNumber text , Gender text,Country text , City text )");
+        sqLiteDatabase.execSQL("Create table user (email text primary key , password text, FirstName text , LastName text , PhoneNumber text , Gender text,Country text , City text, ImagePath text )");
        // SAJA SHAREEF
     }
 
@@ -22,19 +22,19 @@ public class UserDataBase extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
     }
     //query to insert the email and password
-    public void insertUser(String email,String password,String FirstName, String LastName , String PhoneNumber, String Gender , String Country , String City) {
+    public void insertUser(String email,String password,String FirstName, String LastName , String PhoneNumber, String Gender , String Country , String City, String imagePath) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("email", email);
         contentValues.put("password", password);
         contentValues.put("FirstName", FirstName);
-
         contentValues.put("LastName", LastName);
         contentValues.put("PhoneNumber", PhoneNumber);
         contentValues.put("Gender",Gender);
         contentValues.put("Country",Country);
         contentValues.put("City",City);
-           sqLiteDatabase.insert("user", null, contentValues);
+        contentValues.put("ImagePath", imagePath);
+        sqLiteDatabase.insert("user", null, contentValues);
 
     }
     //query to get the email and password

@@ -26,7 +26,7 @@ public class DeleteCustomerFragment extends Fragment {
 
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        UserDataBase dataBaseHelper = new UserDataBase(getActivity(), "projectDataBase1", null, 1);
+        UserDataBase dataBaseHelper = new UserDataBase(getActivity(), "projectDataBase2", null, 1);
         EditText editText = binding.deleteCustomer;
         Button button = binding.deletebutton;
         button.setOnClickListener(v -> {

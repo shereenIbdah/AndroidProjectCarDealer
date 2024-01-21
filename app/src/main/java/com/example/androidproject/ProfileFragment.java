@@ -28,7 +28,7 @@ public class ProfileFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        UserDataBase dataBaseHelper = new UserDataBase(getContext(), "projectDataBase1", null, 1);
+        UserDataBase dataBaseHelper = new UserDataBase(getContext(), "projectDataBase2", null, 1);
         String email = SignInActivity.emailForProfile;
         //String email = SignInActivity.emailForProfile;
         // get the user from the data base by the email
@@ -177,7 +177,7 @@ public class ProfileFragment extends Fragment {
         areaCodes.put("USA", "00963");
         areaCodes.put("Egypt", "00964");
         //get the user from the data base by the email
-        UserDataBase dataBaseHelper = new UserDataBase(getContext(), "projectDataBase1", null, 1);
+        UserDataBase dataBaseHelper = new UserDataBase(getContext(), "projectDataBase2", null, 1);
         String email = SignInActivity.emailForProfile;
         Cursor cursor = dataBaseHelper.getUser(email);
         cursor.moveToFirst();
