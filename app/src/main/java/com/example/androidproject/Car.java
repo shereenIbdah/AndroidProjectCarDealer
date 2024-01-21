@@ -9,6 +9,7 @@ public class Car {
     private boolean offers;  // Added property for offers
     private String fuelType; // Added property for fuel type
 
+
     public String getFactoryName() {
         return factoryName;
     }
@@ -72,6 +73,8 @@ public class Car {
     public void setFuelType(String fuelType) {
         this.fuelType = fuelType;
     }
+    //setter and getter for rating
+
 
     @Override
     public String toString() {

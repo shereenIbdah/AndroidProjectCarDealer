@@ -28,7 +28,8 @@ public class CarsDataBase extends SQLiteOpenHelper {
                 "time TEXT," +
                 "date TEXT," +
                 "offer TEXT,"+
-                "fuel TEXT )");
+                "fuel TEXT"+
+                ")");
 
     }
     @Override
@@ -88,4 +89,6 @@ public class CarsDataBase extends SQLiteOpenHelper {
             return false;
         }
     }
+    //query to get the rating of the car
+
 }

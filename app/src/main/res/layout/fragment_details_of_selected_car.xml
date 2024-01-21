@@ -41,25 +41,25 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Factory Name"
                 android:layout_margin="5dp"
+                android:text="Factory Name"
                 android:textAlignment="center"
-                android:textSize="30dp"
-                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="#FF777999"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
             <!-- Display the Factory Name dynamically -->
             <TextView
                 android:id="@+id/factoryNameTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Factory Name Value"
                 android:layout_margin="5dp"
+                android:text="Factory Name Value"
                 android:textAlignment="center"
-                android:textSize="20dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="#000000"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+                android:textSize="20dp" />
 
             <Space
                 android:layout_width="match_parent"
@@ -68,25 +68,25 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:text="Name"
                 android:textAlignment="center"
-                android:textSize="30dp"
-                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="#FF777999"
-                android:layout_margin="5dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
             <!-- Display the Name dynamically -->
             <TextView
                 android:id="@+id/nameTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Name Value"
                 android:layout_margin="5dp"
+                android:text="Name Value"
                 android:textAlignment="center"
-                android:textSize="20dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="#000000"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+                android:textSize="20dp" />
 
             <!-- Model -->
             <Space
@@ -96,25 +96,25 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:text="Model"
                 android:textAlignment="center"
-                android:textSize="30dp"
-                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="#FF777999"
-                android:layout_margin="5dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
             <!-- Display the Model dynamically -->
             <TextView
                 android:id="@+id/modelTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Model Value"
                 android:layout_margin="5dp"
+                android:text="Model Value"
                 android:textAlignment="center"
-                android:textSize="20dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="#000000"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+                android:textSize="20dp" />
 
             <Space
                 android:layout_width="match_parent"
@@ -123,25 +123,25 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:text="Price"
                 android:textAlignment="center"
-                android:textSize="30dp"
-                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="#FF777999"
-                android:layout_margin="5dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
             <!-- Display the Price dynamically -->
             <TextView
                 android:id="@+id/priceTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Price Value"
                 android:layout_margin="5dp"
+                android:text="Price Value"
                 android:textAlignment="center"
-                android:textSize="20dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="#000000"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+                android:textSize="20dp" />
 
             <!-- Fuel -->
             <Space
@@ -151,25 +151,26 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:text="Fuel"
                 android:textAlignment="center"
-                android:textSize="30dp"
-                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="#FF777999"
-                android:layout_margin="5dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
             <!-- Display the Fuel dynamically -->
             <TextView
                 android:id="@+id/fuelTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fuel Value"
                 android:layout_margin="5dp"
+                android:text="Fuel Value"
                 android:textAlignment="center"
-                android:textSize="20dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="#000000"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+                android:textSize="20dp" />
+
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="10dp" />
@@ -177,25 +178,63 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:text="Type"
                 android:textAlignment="center"
-                android:textSize="30dp"
-                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="#FF777999"
-                android:layout_margin="5dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
             <!-- Display the Fuel dynamically -->
             <TextView
                 android:id="@+id/typeTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fuel Value"
                 android:layout_margin="5dp"
+                android:text="Fuel Value"
                 android:textAlignment="center"
-                android:textSize="20dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="#000000"
-                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+                android:textSize="20dp" />
+
+            <RatingBar
+                android:id="@+id/ratingBar3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:background="@color/white"
+                android:layout_gravity="center"
+                android:progressTint="#FFC107"
+                android:overScrollMode="never" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Average Rating"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:textColor="#FF777999"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <!-- Display the Fuel dynamically -->
+            <TextView
+                android:id="@+id/averageRatingTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Rating Value"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:textColor="#000000"
+                android:textSize="20dp" />
+
+
+
 
             <!-- Add more details as needed -->
 

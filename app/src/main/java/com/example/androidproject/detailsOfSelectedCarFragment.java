@@ -1,17 +1,23 @@
 package com.example.androidproject;
 
+import static com.example.androidproject.SignInActivity.emailForProfile;
+
 import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,13 +74,45 @@ public class detailsOfSelectedCarFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        RatingDataBase ratingDataBase = new RatingDataBase(getContext(), "ratingDataBase", null, 1);
         View root = inflater.inflate(R.layout.fragment_details_of_selected_car, container, false);
         CarsDataBase carsDataBase = new CarsDataBase(getContext(), "CarsDataBase", null, 1);
         CarsDataBase offersDataBase = new CarsDataBase(getContext(), "offersDataBase", null, 1);
         Cursor information = carsDataBase.getCar(carId);
         Cursor information1 = offersDataBase.getCar(carId);
         ImageView imageView = root.findViewById(R.id.imageView10);
+        RatingBar ratingBar = root.findViewById(R.id.ratingBar3);
+        TextView ratingTextView = root.findViewById(R.id.averageRatingTextView);
+        String email = emailForProfile;
+        ratingTextView.setText(ratingDataBase.getRating(carId) + "");
 
+        if (ratingDataBase.isExist(email, carId)) {
+            ratingBar.setRating(ratingDataBase.getRating2(email, carId));
+        }
+
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            //if the user already rated the car keep the old rate on the rating bar
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                if(fromUser) {
+                    int ratingValue = (int) (rating * 20);  // Convert rating to your scale (1 star = 20, 2 stars = 40, etc.)
+                    if (ratingDataBase.isExist(email, carId)) {
+                        ratingDataBase.updateRate(email, carId, rating, "");
+                        Toast.makeText(getContext(), "You have already rated this car\n Rate updated", Toast.LENGTH_SHORT).show();
+
+
+                    }
+                    else {
+                        ratingDataBase.addRate(email, carId, rating, "");
+                        Toast.makeText(getContext(), "Thank you for rating this car", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+                ratingTextView.setText(ratingDataBase.getRating(carId) + "");
+
+            }
+
+        });
         // Check if the cursor has data
         if (information.moveToFirst()) {
             // Find the TextView by its ID
