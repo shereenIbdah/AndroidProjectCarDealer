@@ -33,7 +33,7 @@ public class SignInActivity extends AppCompatActivity {
         CheckBox rememberMe = findViewById(R.id.remember);
         Button forgetPassword = findViewById(R.id.forgetPassword);
         sharedPrefManager = SharedPrefManager.getInstance(this);
-        UserDataBase dataBaseHelper = new UserDataBase(SignInActivity.this, "projectDataBase1", null, 1);
+        UserDataBase dataBaseHelper = new UserDataBase(SignInActivity.this, "projectDataBase2", null, 1);
         // read the email from the shared preferences
         email.setText(sharedPrefManager.readString("Email", ""));
         password.setText(sharedPrefManager.readString("Password", ""));

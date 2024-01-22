@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -94,6 +95,9 @@ public class ProfileFragment extends Fragment {
                     PhoneNumberError[0] = "Phone Number must be more than 9 numbers";
                     PhoneNumber.setError(PhoneNumberError[0]);
                 }
+                if(PhoneNumberError[0].equals("")){
+                    Toast.makeText(getContext(), "Updated Successfully", Toast.LENGTH_SHORT).show();
+                }
 
                 //(must not be less than 5 characters and must include at least 1
                 //character, 1 number, and one special character
@@ -127,6 +131,9 @@ public class ProfileFragment extends Fragment {
                         PasswordError[0] = "Password must be at least 5 characters and must include at least 1 character, 1 number, and one special character";
                         Password.setError(PasswordError[0]);
                     }
+                }
+                if (PasswordError[0].equals("")){
+                    Toast.makeText(getContext(), "Updated Successfully", Toast.LENGTH_SHORT).show();
                 }
                 //update the printInfo text view
                 Cursor cursor = dataBaseHelper.getUser(email);

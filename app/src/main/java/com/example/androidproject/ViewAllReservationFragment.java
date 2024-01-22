@@ -28,7 +28,7 @@ public class ViewAllReservationFragment extends Fragment {
 
     private void refreshReservationData() {
         secondLinearLayout.removeAllViews(); // Clear existing views
-        UserDataBase userDataBase = new UserDataBase(getContext(), "projectDataBase1", null, 1);
+        UserDataBase userDataBase = new UserDataBase(getContext(), "projectDataBase2", null, 1);
         Cursor getAllUsers = userDataBase.getAllUsers();
         while (getAllUsers.moveToNext()) {
             String email = getAllUsers.getString(0);

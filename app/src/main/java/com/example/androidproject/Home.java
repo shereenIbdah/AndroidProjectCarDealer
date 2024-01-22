@@ -1,19 +1,27 @@
 package com.example.androidproject;
-import static com.example.androidproject.auth.user.SignInActivity.emailForProfile;
 
+import static com.example.androidproject.SignInActivity.emailForProfile;
+
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.androidproject.auth.user.SignInActivity;
-import com.example.androidproject.database.UserDataBase;
 import com.example.androidproject.firebase.ImageHelper;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;

@@ -1,4 +1,4 @@
-package com.example.androidproject.auth.user;
+package com.example.androidproject;
 
 import static com.example.androidproject.firebase.ImageHelper.uploadImage;
 
@@ -17,14 +17,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.androidproject.R;
-import com.example.androidproject.database.UserDataBase;
+
 import com.example.androidproject.firebase.ImageHelper;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
- */
+
 
 
 import java.security.MessageDigest;

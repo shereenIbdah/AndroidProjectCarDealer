@@ -54,7 +54,7 @@
             android:layout_height="67dp"
             android:ems="10"
             android:hint="Password"
-            android:inputType="text" />
+            android:inputType="textPassword" />
 
         <EditText
             android:id="@+id/phoneUpdate"
