@@ -18,32 +18,32 @@
         android:theme="@style/Theme.AndroidProject"
         tools:targetApi="31">
         <activity
-            android:name=".HomeAdmin"
+            android:name=".activities.HomeAdmin"
             android:exported="false"
             android:label="@string/title_activity_home_admin"
             android:theme="@style/Theme.AndroidProject.NoActionBar" />
         <activity
-            android:name=".SignUpAsAdmin"
+            android:name=".activities.authorization.admin.SignUpAsAdmin"
             android:exported="false" />
         <activity
-            android:name=".SignInAsAdmin"
+            android:name=".activities.authorization.admin.SignInAsAdmin"
             android:exported="false" />
         <activity
-            android:name=".SignInChoices"
+            android:name=".activities.authorization.SignInChoices"
             android:exported="false" />
         <activity
-            android:name=".Home"
+            android:name=".activities.Home"
             android:exported="false"
             android:label="@string/title_activity_home"
             android:theme="@style/Theme.AndroidProject.NoActionBar" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".activities.authorization.user.SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".SingUpActivity"
+            android:name=".activities.authorization.user.SingUpActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

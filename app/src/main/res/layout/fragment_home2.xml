@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".viewmodels.ui.home.HomeFragment">
 
     <ImageView
         android:id="@+id/imageView4"

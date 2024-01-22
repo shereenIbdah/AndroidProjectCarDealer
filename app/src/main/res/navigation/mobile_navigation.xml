@@ -6,24 +6,24 @@
     app:startDestination="@+id/nav_home">
     <fragment
         android:id="@+id/nav_offers"
-        android:name="com.example.androidproject.OffersFragment"
+        android:name="com.example.androidproject.fragments.OffersFragment"
         android:label="@string/menu_special_offers"
         tools:layout="@layout/fragment_offers" />
 
     <fragment
         android:id="@+id/nav_favorites"
-        android:name="com.example.androidproject.favFragment"
+        android:name="com.example.androidproject.fragments.favFragment"
         android:label="@string/menu_favorites"
         tools:layout="@layout/fragment_fav" />
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.example.androidproject.ProfileFragment"
+        android:name="com.example.androidproject.fragments.ProfileFragment"
         android:label="@string/menu_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/nav_call"
-        android:name="com.example.androidproject.CallFragment"
+        android:name="com.example.androidproject.fragments.CallFragment"
         android:label="@string/menu_call_or_find_us"
         tools:layout="@layout/fragment_callus" />
     <fragment
@@ -32,19 +32,19 @@
         tools:layout="@layout/fragment_logout" />
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.androidproject.ui1.home1.Home1Fragment"
+        android:name="com.example.androidproject.viewmodels.ui1.home1.Home1Fragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_carmenu"
-        android:name="com.example.androidproject.CarMenuFragment"
+        android:name="com.example.androidproject.fragments.CarMenuFragment"
         android:label="@string/menu_car"
         tools:layout="@layout/fragment_carmenu" />
 
     <fragment
         android:id="@+id/nav_reservedcars"
-        android:name="com.example.androidproject.ReserveFragment"
+        android:name="com.example.androidproject.fragments.ReserveFragment"
         android:label="@string/menu_reservedcars"
         tools:layout="@layout/fragment_reservedcars" />
 
