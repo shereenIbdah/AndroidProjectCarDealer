@@ -115,6 +115,7 @@ public class Home extends AppCompatActivity {
         TextView textView1 = findViewById(R.id.name);
         //find the name from the data base
         Cursor cursor = dataBaseHelper.getUser(emailForProfile);
+        createNotification(NOTIFICATION_TITLE, NOTIFICATION_BODY);
         cursor.moveToFirst();
         String name = cursor.getString(2);
         textView1.setText(name + "");
