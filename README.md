@@ -7,7 +7,7 @@ The data fetched from the REST API arrives in JSON format, containing details ab
 This JSON data is then parsed and stored in an ArrayList within the Android application, enabling easy access and manipulation.
 ### Data Link 
 https://mp4b30a60df33085af3c.free.beeceptor.com/data
-
+## Demo 
 
 
 
