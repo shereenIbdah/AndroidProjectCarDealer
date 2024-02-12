@@ -22,15 +22,14 @@ The UI design is flexible, allowing developers to exercise creativity while adhe
 
 ## Development Environment
 - Android Studio
-- Java/Kotlin
+- Java
 - SQLite for local database management
 - RESTful API integration
 
-## Installation
-Clone the repository and import the project into Android Studio. Build the project and run it on an emulator or a physical device.
+## Data Set
 
 ```bash
-git clone https://github.com/yourusername/advance-car-dealer.git
+https://mp4b30a60df33085af3c.free.beeceptor.com/data
 
 
 
