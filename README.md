@@ -38,6 +38,9 @@ https://mp4b30a60df33085af3c.free.beeceptor.com/data
 ![image](https://github.com/shereenIbdah/AndroidProjectCarDealer/assets/108181177/81b90450-6893-4f75-9451-e256ea23af4b)
 ### Home Layout (Sign in as Normal Customer)
 ![image](https://github.com/shereenIbdah/AndroidProjectCarDealer/assets/108181177/f3fdac33-8994-4bda-bb3a-ce1a205c000a)
+## Car Menu 
+![image](https://github.com/shereenIbdah/AndroidProjectCarDealer/assets/108181177/4f93d265-65ef-45f7-aa4d-5ef36ea38e53)
+
 
 
 
