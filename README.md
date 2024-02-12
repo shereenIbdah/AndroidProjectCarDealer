@@ -47,7 +47,7 @@ https://mp4b30a60df33085af3c.free.beeceptor.com/data
 
 The Advance Car Dealer application offers a seamless experience for both customers and the car dealership, providing a user-friendly platform for browsing, reserving, and managing vehicles. With features such as secure login/signup, advanced car filtering, user reviews, and push notifications, the app caters to the diverse needs of users in the automotive market.
 
-# Team 
+# Team Members
 ## Shereen Ibdah 
 ## Saja Shareef
 
