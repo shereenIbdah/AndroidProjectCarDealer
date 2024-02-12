@@ -35,7 +35,8 @@ https://mp4b30a60df33085af3c.free.beeceptor.com/data
 ### Connection Page
 ![image](https://github.com/shereenIbdah/AndroidProjectCarDealer/assets/108181177/c1c47f0e-e377-4bbf-81c3-d2588ce4143c)
 ### Customer Sign In& Sign Up Pages
-![image](https://github.com/shereenIbdah/AndroidProjectCarDealer/assets/108181177/6accdd11-e563-498c-aca6-fb62385ea1c0)
+![image](https://github.com/shereenIbdah/AndroidProjectCarDealer/assets/108181177/81b90450-6893-4f75-9451-e256ea23af4b)
+
 
 
 
