@@ -27,9 +27,10 @@ The UI design is flexible, allowing developers to exercise creativity while adhe
 - RESTful API integration
 
 ## Data Set
-
+The RESET (Representational State Transfer) API is a type of web servicethat used in this Project
 ```bash
 https://mp4b30a60df33085af3c.free.beeceptor.com/data
+
 
 
 
