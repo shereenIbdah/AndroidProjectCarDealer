@@ -51,7 +51,7 @@ The Advance Car Dealer application offers a seamless experience for both custome
 ## Shereen Ibdah 
 ## Saja Shareef
 
-# We encourage you to try out the Advance Car Dealer application code available on GitHub. 
+We encourage you to try out the Advance Car Dealer application code available on GitHub. 
 
 
 
