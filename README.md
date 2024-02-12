@@ -31,11 +31,14 @@ The RESET (Representational State Transfer) API is a type of web servicethat use
 ```bash
 https://mp4b30a60df33085af3c.free.beeceptor.com/data
 ```
-## screenshots of the application
+## snapshots of the application
 ### Connection Page
 ![image](https://github.com/shereenIbdah/AndroidProjectCarDealer/assets/108181177/c1c47f0e-e377-4bbf-81c3-d2588ce4143c)
 ### Customer Sign In& Sign Up Pages
 ![image](https://github.com/shereenIbdah/AndroidProjectCarDealer/assets/108181177/81b90450-6893-4f75-9451-e256ea23af4b)
+### Home Layout (Sign in as Normal Customer)
+![image](https://github.com/shereenIbdah/AndroidProjectCarDealer/assets/108181177/f3fdac33-8994-4bda-bb3a-ce1a205c000a)
+
 
 
 
